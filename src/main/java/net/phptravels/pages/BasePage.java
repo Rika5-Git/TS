@@ -21,12 +21,10 @@ public abstract class BasePage {
     }
 
     protected void click(WebElement element) {
-        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 
     protected void type(WebElement element, String text) {
-        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
         WebElement el = wait.until(ExpectedConditions.visibilityOf(element));
         el.clear();
         el.sendKeys(text);
@@ -37,17 +35,24 @@ public abstract class BasePage {
     }
 
     protected void scrollToElement(WebElement element) {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
-        try { Thread.sleep(1500); } catch (InterruptedException ignored) {}
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'auto', block: 'center'});", element);
     }
 
     protected void clickJS(WebElement element) {
-        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
 
     protected Object executeJS(String script, Object... args) {
         return ((JavascriptExecutor) driver).executeScript(script, args);
+    }
+
+    public void dismissModals() {
+        try {
+            executeJS("var modal = document.getElementById('demoWarningModal'); if(modal) { modal.style.display = 'none'; modal.remove(); }");
+            executeJS("var overlays = document.querySelectorAll('.modal-overlay'); for(var i=0; i<overlays.length; i++) { overlays[i].remove(); }");
+            executeJS("document.body.classList.remove('modal-open');");
+            executeJS("document.body.style.overflow = 'auto';");
+        } catch (Exception ignored) {}
     }
 
     public void waitForLoader() {

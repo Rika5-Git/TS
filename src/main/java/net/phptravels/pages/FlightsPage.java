@@ -43,7 +43,7 @@ public class FlightsPage extends BasePage {
         fromInput.sendKeys(city);
         
         // Wait for results to be fetched and displayed
-        try { Thread.sleep(4000); } catch (InterruptedException ignored) {} 
+        try { Thread.sleep(1500); } catch (InterruptedException ignored) {} 
         
         // Selecting result by searching text in divs that have selectFrom click handler
         boolean selected = (Boolean) executeJS(
@@ -62,7 +62,7 @@ public class FlightsPage extends BasePage {
             System.out.println("Precise JS selection failed, trying first available result...");
             executeJS("var items = document.querySelectorAll('div'); for(var i=0; i<items.length; i++) { if(items[i].getAttribute('@click') && items[i].getAttribute('@click').includes('selectFrom')) { items[i].click(); break; } }");
         }
-        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
+        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
     }
 
     public void setTo(String city) {
@@ -73,7 +73,7 @@ public class FlightsPage extends BasePage {
         executeJS("arguments[0].click(); arguments[0].value = '';", toInput);
         toInput.sendKeys(city);
         
-        try { Thread.sleep(4000); } catch (InterruptedException ignored) {} 
+        try { Thread.sleep(1500); } catch (InterruptedException ignored) {} 
         
         boolean selected = (Boolean) executeJS(
             "var items = document.querySelectorAll('div');" +
@@ -90,7 +90,7 @@ public class FlightsPage extends BasePage {
         if (!selected) {
             executeJS("var items = document.querySelectorAll('div'); for(var i=0; i<items.length; i++) { if(items[i].getAttribute('@click') && items[i].getAttribute('@click').includes('selectTo')) { items[i].click(); break; } }");
         }
-        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
+        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
     }
 
     public void setFlightDetails(String type, String flightClass, int adults, int children) {
@@ -106,9 +106,9 @@ public class FlightsPage extends BasePage {
             "  }" +
             "}"
         );
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+        try { Thread.sleep(300); } catch (InterruptedException ignored) {}
         executeJS("var items = document.querySelectorAll('.input-dropdown-item'); for(var i=0; i<items.length; i++) { if(items[i].innerText.includes('" + type + "')) { items[i].click(); break; } }");
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+        try { Thread.sleep(300); } catch (InterruptedException ignored) {}
 
         // 2. Flight Class Dropdown
         executeJS(
@@ -120,18 +120,18 @@ public class FlightsPage extends BasePage {
             "  }" +
             "}"
         );
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+        try { Thread.sleep(300); } catch (InterruptedException ignored) {}
         executeJS("var items = document.querySelectorAll('.input-dropdown-item'); for(var i=0; i<items.length; i++) { if(items[i].innerText.includes('" + flightClass + "')) { items[i].click(); break; } }");
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+        try { Thread.sleep(300); } catch (InterruptedException ignored) {}
 
         // 3. Passengers
         for (int i = 1; i < adults; i++) {
             executeJS("var btns = document.querySelectorAll('button'); for(var i=0; i<btns.length; i++) { if(btns[i].getAttribute('@click') && btns[i].getAttribute('@click').includes(\"increment('adults')\")) { btns[i].click(); break; } }");
-            try { Thread.sleep(200); } catch (InterruptedException ignored) {}
+            try { Thread.sleep(100); } catch (InterruptedException ignored) {}
         }
         for (int i = 0; i < children; i++) {
             executeJS("var btns = document.querySelectorAll('button'); for(var i=0; i<btns.length; i++) { if(btns[i].getAttribute('@click') && btns[i].getAttribute('@click').includes(\"increment('children')\")) { btns[i].click(); break; } }");
-            try { Thread.sleep(200); } catch (InterruptedException ignored) {}
+            try { Thread.sleep(100); } catch (InterruptedException ignored) {}
         }
     }
 
@@ -142,7 +142,7 @@ public class FlightsPage extends BasePage {
         // КРИТИЧНО ВАЖЛИВО: Календар перекриває інші елементи. Примусово ховаємо його через JS.
         executeJS("var dp = document.querySelector('.datepicker'); if(dp) { dp.style.display = 'none'; dp.style.opacity = '0'; }");
         executeJS("document.body.click();");
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+        try { Thread.sleep(200); } catch (InterruptedException ignored) {}
     }
 
     public void setReturnDate(String date) {
@@ -152,53 +152,71 @@ public class FlightsPage extends BasePage {
         // Ховаємо календар
         executeJS("var dp = document.querySelector('.datepicker'); if(dp) { dp.style.display = 'none'; dp.style.opacity = '0'; }");
         executeJS("document.body.click();");
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+        try { Thread.sleep(200); } catch (InterruptedException ignored) {}
     }
 
     public void clickSearch() {
         System.out.println("Clicking Search Flights...");
         clickJS(searchButton);
         waitForLoader();
-        try { Thread.sleep(5000); } catch (InterruptedException ignored) {} // Wait for results page to load
+        try { Thread.sleep(2000); } catch (InterruptedException ignored) {} // Wait for results page to load
     }
 
     public void applyFilters(String stops, String timeSlot) {
         waitForLoader();
         System.out.println("--- Applying Filters: " + stops + ", " + timeSlot + " ---");
-        try { Thread.sleep(3000); } catch (InterruptedException ignored) {}
+        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
 
         try {
             // 1. Stops Filter
-            String stopIndex = "0";
-            if (stops.contains("1")) stopIndex = "1";
-            if (stops.contains("2")) stopIndex = "2";
-            
-            executeJS("var el = document.getElementById('stop-' + arguments[0]); if(el) { el.click(); el.dispatchEvent(new Event('change', { bubbles: true })); }", stopIndex);
+            executeJS(
+                "var labels = document.querySelectorAll('label');" +
+                "for(var i=0; i<labels.length; i++) {" +
+                "  if(labels[i].innerText.includes('" + stops + "')) {" +
+                "    labels[i].click();" +
+                "    break;" +
+                "  }" +
+                "}"
+            );
             waitForLoader();
-            try { Thread.sleep(2000); } catch (InterruptedException ignored) {}
+            try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
 
             // 2. Time Slot Filter
-            String timeId = "time-morning";
-            if (timeSlot.equalsIgnoreCase("Early Morning")) timeId = "time-early";
-            if (timeSlot.equalsIgnoreCase("Afternoon")) timeId = "time-afternoon";
-            if (timeSlot.equalsIgnoreCase("Evening")) timeId = "time-evening";
-            
-            executeJS("var el = document.getElementById('" + timeId + "'); if(el) { el.click(); el.dispatchEvent(new Event('change', { bubbles: true })); }");
+            executeJS(
+                "var labels = document.querySelectorAll('label');" +
+                "for(var i=0; i<labels.length; i++) {" +
+                "  if(labels[i].innerText.toLowerCase().includes('" + timeSlot.toLowerCase() + "')) {" +
+                "    labels[i].click();" +
+                "    break;" +
+                "  }" +
+                "}"
+            );
             waitForLoader();
-            try { Thread.sleep(2000); } catch (InterruptedException ignored) {}
+            try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
             
-            System.out.println("Filters applied successfully via JS.");
+            System.out.println("Filters applied successfully via JS labels.");
         } catch (Exception e) {
             System.out.println("Filter application failed: " + e.getMessage());
         }
     }
 
-    public void selectFirstFlight() {
+    public boolean selectFirstFlight() {
         System.out.println("Selecting first available flight...");
         
         // Додаткове очікування для завершення анімацій фільтрації (Alpine.js crossfade)
-        try { Thread.sleep(5000); } catch (InterruptedException ignored) {}
+        try { Thread.sleep(2000); } catch (InterruptedException ignored) {}
         
+        // Check if no flights found message is present
+        boolean noResults = (Boolean) executeJS(
+            "return document.body.innerText.toLowerCase().includes('no flights found') || " +
+            "document.querySelectorAll('.flight-card').length === 0;"
+        );
+
+        if (noResults) {
+            System.out.println("No flights found matching the filters.");
+            return false;
+        }
+
         boolean selected = (Boolean) executeJS(
             "var buttons = document.querySelectorAll('button');" +
             "for(var i=0; i<buttons.length; i++) {" +
@@ -213,10 +231,23 @@ public class FlightsPage extends BasePage {
 
         if (!selected) {
             System.out.println("Could not find Select button via JS. Trying fallback link click...");
-            executeJS("var links = document.querySelectorAll('a'); for(var i=0; i<links.length; i++) { if(links[i].href && links[i].href.includes('/checkout/')) { links[i].click(); break; } }");
+            selected = (Boolean) executeJS(
+                "var links = document.querySelectorAll('a');" +
+                "for(var i=0; i<links.length; i++) {" +
+                "  if(links[i].href && links[i].href.includes('/checkout/')) {" +
+                "    links[i].click();" +
+                "    return true;" +
+                "  }" +
+                "}" +
+                "return false;"
+            );
         }
         
-        waitForLoader();
-        try { Thread.sleep(4000); } catch (InterruptedException ignored) {} // Чекаємо переходу на сторінку бронювання
+        if (selected) {
+            waitForLoader();
+            try { Thread.sleep(2000); } catch (InterruptedException ignored) {} // Чекаємо переходу на сторінку бронювання
+        }
+        
+        return selected;
     }
 }

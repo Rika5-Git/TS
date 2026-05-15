@@ -23,6 +23,7 @@ public class LoginPage extends BasePage {
         waitForLoader();
         type(emailInput, email);
         type(passwordInput, password);
+        dismissModals();
         click(loginButton);
     }
 
