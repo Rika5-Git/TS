@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class VisaPage extends BasePage {
 
@@ -15,60 +17,42 @@ public class VisaPage extends BasePage {
         super(driver);
     }
 
-    /**
-     * Открытие страницы виз через меню Services
-     */
     public void openViaServices() {
-        System.out.println("Opening Visa page via Services menu...");
         executeJS(
             "var btns = document.querySelectorAll('button');" +
             "for(var i=0; i<btns.length; i++) {" +
             "  var attr = btns[i].getAttribute('@click');" +
-            "  if(attr && attr.includes(\"toggleDropdown('services')\")) {" +
+            "  if(attr && attr.includes(\"services\")) {" +
             "    btns[i].click(); break;" +
             "  }" +
             "}"
         );
-        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
-
-        executeJS(
-            "var links = document.querySelectorAll('a');" +
-            "for(var i=0; i<links.length; i++) {" +
-            "  if(links[i].href && (links[i].href.includes('/visa') || links[i].innerText.toLowerCase().includes('visa'))) {" +
-            "    links[i].click(); break;" +
-            "  }" +
-            "}"
-        );
+        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+        executeJS("var link = document.querySelector(\"a[href*='/visa']\"); if(link) link.click();");
         waitForLoader();
-        // Fallback если не перешло
-        if (!driver.getCurrentUrl().contains("visa")) {
-            driver.get("https://phptravels.net/visa");
-        }
     }
 
     public void selectFromCountry(String country) {
-        System.out.println("Selecting From Country: " + country);
         selectCountryInDropdown(0, country);
     }
 
     public void selectToCountry(String country) {
-        System.out.println("Selecting To Country: " + country);
         selectCountryInDropdown(1, country);
     }
 
     private void selectCountryInDropdown(int index, String country) {
         executeJS(
             "var divs = document.querySelectorAll('div');" +
-            "var currentIdx = 0;" +
+            "var count = 0;" +
             "for(var i=0; i<divs.length; i++) {" +
             "  var attr = divs[i].getAttribute('@click');" +
             "  if(attr && attr.includes('toggleDropdown()')) {" +
-            "    if(currentIdx === " + index + ") { divs[i].click(); break; }" +
-            "    currentIdx++;" +
+            "    if(count === " + index + ") { divs[i].scrollIntoView({behavior: 'auto', block: 'center'}); divs[i].click(); break; }" +
+            "    count++;" +
             "  }" +
             "}"
         );
-        try { Thread.sleep(800); } catch (InterruptedException ignored) {}
+        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
         
         executeJS(
             "var inputs = document.querySelectorAll('input[x-ref=\"searchInput\"]');" +
@@ -84,7 +68,7 @@ public class VisaPage extends BasePage {
             "var items = containers[" + index + "].querySelectorAll('.input-dropdown-item');" +
             "for(var i=0; i<items.length; i++) {" +
             "  if(items[i].innerText.trim().toLowerCase().includes('" + country.toLowerCase() + "')) {" +
-            "    items[i].click(); return true;" +
+            "    items[i].click(); break;" +
             "  }" +
             "}"
         );
@@ -92,19 +76,21 @@ public class VisaPage extends BasePage {
     }
 
     public void setDate(String date) {
-        System.out.println("Setting travel date: " + date);
         executeJS("var el = document.getElementsByName('travel_date')[0]; if(el) { el.value = '" + date + "'; el.dispatchEvent(new Event('change', { bubbles: true })); }");
         executeJS("document.body.click();");
         try { Thread.sleep(500); } catch (InterruptedException ignored) {}
     }
 
+    public void clearDate() {
+        executeJS("var el = document.getElementsByName('travel_date')[0]; if(el) { el.value = ''; el.dispatchEvent(new Event('change', { bubbles: true })); }");
+    }
+
     public void setTravelersCount(int count) {
-        System.out.println("Setting travelers count to: " + count);
         executeJS(
             "var divs = document.querySelectorAll('div');" +
             "for(var i=0; i<divs.length; i++) {" +
             "  var attr = divs[i].getAttribute('@click');" +
-            "  if(attr && attr.includes('open = !open') && divs[i].innerText.toLowerCase().includes('traveler')) {" +
+            "  if(attr && attr.includes('open = !open') && divs[i].innerText.includes('Traveler')) {" +
             "    divs[i].click(); break;" +
             "  }" +
             "}"
@@ -127,7 +113,6 @@ public class VisaPage extends BasePage {
     }
 
     public void clickSearch() {
-        System.out.println("Clicking Check Visa button...");
         executeJS(
             "var btns = document.querySelectorAll('button');" +
             "for(var i=0; i<btns.length; i++) {" +
@@ -140,38 +125,50 @@ public class VisaPage extends BasePage {
     }
 
     public void setVisaDetails(String visaType, String speed) {
-        System.out.println("Setting Visa Details: " + visaType + ", " + speed);
+        executeJS(
+            "var allDivs = document.querySelectorAll('div');" +
+            "for (var i = 0; i < allDivs.length; i++) {" +
+            "  if (allDivs[i].innerText.includes('Visa Type')) {" +
+            "    var btn = allDivs[i].querySelector('div.input') || allDivs[i].querySelector('[\\\\@click*=\"open\"]');" +
+            "    if (btn) { btn.scrollIntoView({behavior: \"auto\", block: \"center\"}); btn.click(); break; }" +
+            "  }" +
+            "}"
+        );
+        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
         
-        // 1. Visa Type - ищем по тексту внутри дропдауна
         executeJS(
-            "var divs = document.querySelectorAll('div');" +
-            "for(var i=0; i<divs.length; i++) {" +
-            "  var attr = divs[i].getAttribute('@click');" +
-            "  if(attr && attr.includes('open = !open') && divs[i].innerText.toLowerCase().includes('visa type')) {" +
-            "    divs[i].click(); break;" +
+            "var items = document.querySelectorAll('.input-dropdown-item');" +
+            "for(var i=0; i<items.length; i++) {" +
+            "  if(items[i].innerText.trim().toLowerCase().includes('" + visaType.toLowerCase().trim() + "')) {" +
+            "    items[i].click(); break;" +
             "  }" +
             "}"
         );
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
-        executeJS("var items = document.querySelectorAll('.input-dropdown-item'); for(var i=0; i<items.length; i++) { if(items[i].innerText.includes('" + visaType + "')) { items[i].click(); break; } }");
+        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
 
-        // 2. Speed - аналогично
         executeJS(
-            "var divs = document.querySelectorAll('div');" +
-            "for(var i=0; i<divs.length; i++) {" +
-            "  var attr = divs[i].getAttribute('@click');" +
-            "  if(attr && attr.includes('open = !open') && divs[i].innerText.toLowerCase().includes('speed')) {" +
-            "    divs[i].click(); break;" +
+            "var allDivs = document.querySelectorAll('div');" +
+            "for (var i = 0; i < allDivs.length; i++) {" +
+            "  if (allDivs[i].innerText.includes('Processing speed')) {" +
+            "    var btn = allDivs[i].querySelector('div.input') || allDivs[i].querySelector('[\\\\@click*=\"open\"]');" +
+            "    if (btn) { btn.scrollIntoView({behavior: \"auto\", block: \"center\"}); btn.click(); break; }" +
             "  }" +
             "}"
         );
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
-        executeJS("var items = document.querySelectorAll('.input-dropdown-item'); for(var i=0; i<items.length; i++) { if(items[i].innerText.includes('" + speed + "')) { items[i].click(); break; } }");
+        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
+        
+        executeJS(
+            "var items = document.querySelectorAll('.input-dropdown-item');" +
+            "for(var i=0; i<items.length; i++) {" +
+            "  if(items[i].innerText.trim().toLowerCase().includes('" + speed.toLowerCase().trim() + "')) {" +
+            "    items[i].click(); break;" +
+            "  }" +
+            "}"
+        );
+        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
     }
 
     public void fillTravelerData(int index, String firstName, String lastName, String passportNumber, String dob) {
-        System.out.println("--- Filling data for traveler #" + (index + 1) + " ---");
-        
         String updateField = "function upd(sel, idx, val) {" +
                             "  var els = document.querySelectorAll(sel);" +
                             "  if(els[idx]) {" +
@@ -194,70 +191,61 @@ public class VisaPage extends BasePage {
         executeJS(updateField + "upd('select[x-model=\"traveler.dob_day\"]', " + index + ", '" + dobParts[0] + "');");
         executeJS(updateField + "upd('select[x-model=\"traveler.dob_month\"]', " + index + ", '" + dobParts[1] + "');");
         executeJS(updateField + "upd('select[x-model=\"traveler.dob_year\"]', " + index + ", '" + dobParts[2] + "');");
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
     }
 
     public void acceptTerms() {
-        System.out.println("Accepting Terms...");
-        // Находим лейбл чекбокса для визуального клика через более простой JS
+        // Пробуємо кілька варіантів кліку по чекбоксу
         executeJS(
-            "var label = document.querySelector('label[for=\"terms_accepted\"]'); " +
-            "if (label) { " +
-            "  label.scrollIntoView({behavior: \"auto\", block: \"center\"}); " +
-            "  label.click(); " +
-            "} else { " +
-            "  var chk = document.getElementById(\"terms_accepted\"); " +
-            "  if (chk) chk.click(); " +
+            "var term = document.getElementById('terms_accepted');" +
+            "if(term) { term.scrollIntoView({behavior: 'auto', block: 'center'}); term.click(); term.checked = true; }" +
+            "else {" +
+            "  var labels = document.querySelectorAll('label');" +
+            "  for(var i=0; i<labels.length; i++) {" +
+            "    if(labels[i].innerText.toLowerCase().includes('agree')) { labels[i].click(); break; }" +
+            "  }" +
             "}"
         );
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
     }
 
     public void submitApplication() {
-        System.out.println("Clicking Submit Application...");
         executeJS(
             "var btns = document.querySelectorAll('button');" +
             "for(var i=0; i<btns.length; i++) {" +
             "  var attr = btns[i].getAttribute('@click');" +
-            "  if(attr && attr.includes('submitBooking')) {" +
+            "  if((attr && attr.includes('submitBooking')) || btns[i].innerText.toLowerCase().includes('confirm')) {" +
+            "    btns[i].scrollIntoView({behavior: 'auto', block: 'center'});" +
             "    btns[i].click(); break;" +
             "  }" +
             "}"
         );
         waitForLoader();
-        try { Thread.sleep(5000); } catch (InterruptedException ignored) {} // Ждем дольше для редиректа
-    }
-
-    public void clearDate() {
-        executeJS("var el = document.getElementsByName('travel_date')[0]; if(el) { el.value = ''; el.dispatchEvent(new Event('change', { bubbles: true })); }");
+        try { Thread.sleep(3000); } catch (InterruptedException ignored) {}
     }
 
     public String getErrorMessage() {
         try {
-            WebElement errorAlert = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".alert-error p")));
+            WebElement errorAlert = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".alert-danger p, .alert-error p")));
             return errorAlert.getText();
         } catch (Exception e) {
-            return "No error message found";
+            Object msg = executeJS("var el = document.querySelector('.alert-danger, .alert-error'); return el ? el.innerText : 'No error message found';");
+            return msg.toString();
         }
     }
 
     public boolean isSubmissionSuccessful() {
-        System.out.println("Checking submission status. URL: " + driver.getCurrentUrl());
-        waitForLoader();
-        try { Thread.sleep(2000); } catch (InterruptedException ignored) {}
-        
-        String url = driver.getCurrentUrl();
-        String source = driver.getPageSource();
-        
-        boolean success = url.contains("success") || url.contains("invoice") || 
-                          source.contains("Confirmation") || source.contains("Received") || 
-                          source.contains("Success") || source.contains("Thank you");
-        
-        if (!success) {
-            System.out.println("Submission seems failed. URL: " + url);
-            // Пытаемся найти текст ошибки на странице
-            executeJS("var err = document.querySelector('.alert-danger'); if(err) console.log('Error found: ' + err.innerText);");
+        try {
+            WebDriverWait extendedWait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            return extendedWait.until(d -> {
+                String url = d.getCurrentUrl().toLowerCase();
+                String source = d.getPageSource().toLowerCase();
+                return url.contains("success") || url.contains("invoice") || 
+                       source.contains("confirmation") || source.contains("reservation") || source.contains("invoice");
+            });
+        } catch (Exception e) {
+            return false;
         }
-        return success;
     }
 }
+
+

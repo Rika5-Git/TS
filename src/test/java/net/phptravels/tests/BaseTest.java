@@ -28,10 +28,6 @@ public abstract class BaseTest {
             }
         }
 
-        @Override
-        public void testSuccessful(ExtensionContext context) {
-        }
-
         private void takeScreenshot(String testName) {
             try {
                 File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -41,10 +37,7 @@ public abstract class BaseTest {
                 }
                 String fileName = testName.replaceAll("[^a-zA-Z0-9]", "_") + "_" + System.currentTimeMillis() + ".png";
                 Files.copy(srcFile.toPath(), screenshotDir.resolve(fileName));
-                System.out.println("Screenshot saved to: " + screenshotDir.resolve(fileName));
-            } catch (Exception e) {
-                System.err.println("Failed to save screenshot: " + e.getMessage());
-            }
+            } catch (Exception ignored) {}
         }
     };
 
@@ -54,7 +47,6 @@ public abstract class BaseTest {
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--remote-allow-origins=*");
-        // options.addArguments("--headless"); // Розкоментувати для headless режиму
 
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
@@ -67,8 +59,7 @@ public abstract class BaseTest {
         if (driver != null) {
             try {
                 driver.quit();
-            } catch (Exception e) {
-                System.err.println("Error during driver quit: " + e.getMessage());
+            } catch (Exception ignored) {
             } finally {
                 driver = null;
             }

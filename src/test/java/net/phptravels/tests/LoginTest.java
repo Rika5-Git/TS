@@ -23,7 +23,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void testInvalidLoginMessage() throws InterruptedException {
+    public void testInvalidLoginMessage() {
         driver.get("https://phptravels.net/login");
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login("wrong@user.com", "wrongpassword");
@@ -33,9 +33,6 @@ public class LoginTest extends BaseTest {
                 By.cssSelector(".alert, .alert-danger, .alert-error, .message-error, .alert-success")));
         
         String errorText = errorElement.getText();
-        System.out.println("Detected error message: " + errorText);
-        
-        Thread.sleep(3000);
         
         assertTrue(errorText.contains("Invalid") || errorText.contains("Wrong") || errorText.contains("failed"), 
                 "Error message was found but didn't contain expected keywords. Text: " + errorText);
@@ -43,7 +40,7 @@ public class LoginTest extends BaseTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/login_data.csv", numLinesToSkip = 1)
-    public void testLoginNegativeData(String email, String password) throws InterruptedException {
+    public void testLoginNegativeData(String email, String password) {
         driver.get("https://phptravels.net/login");
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login(email, password);
@@ -56,9 +53,7 @@ public class LoginTest extends BaseTest {
             assertTrue(driver.getCurrentUrl().contains("login"), "Should still be on login page after failure");
         }
 
-        Thread.sleep(2000);
-
         boolean isDashboard = driver.getCurrentUrl().contains("/account") || driver.getCurrentUrl().contains("/dashboard");
-        assertTrue(!isDashboard, "CRITICAL: System allowed login with invalid credentials for: " + email);
+        assertTrue(!isDashboard, "System should not allow login with invalid credentials for: " + email);
     }
 }

@@ -25,8 +25,6 @@ public class ProfilePage extends BasePage {
     }
 
     public void goToVisaBookings() {
-        System.out.println("Navigating to Profile -> My Bookings -> Visa...");
-        
         // 1. Открываем меню пользователя ( Demo User )
         executeJS(
             "var btns = document.querySelectorAll('button');" +
@@ -55,7 +53,6 @@ public class ProfilePage extends BasePage {
     }
 
     public void viewLastVisaInvoice() {
-        System.out.println("Viewing last Visa invoice...");
         // Кликаем на первую иконку глаза (View) в списке виз
         executeJS(
             "var links = document.querySelectorAll('a[title=\"View\"]');" +
@@ -70,31 +67,34 @@ public class ProfilePage extends BasePage {
     }
 
     public void goToMyCarsBookings() {
-        System.out.println("Navigating to Profile -> My Bookings -> Cars...");
-        
-        // 1. Відкриваємо дропдаун акаунта
-        scrollToElement(accountDropdown);
-        clickJS(accountDropdown);
-        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
+        // 1. Открываем меню пользователя ( Demo User )
+        executeJS(
+            "var btns = document.querySelectorAll('button');" +
+            "for(var i=0; i<btns.length; i++) {" +
+            "  var attr = btns[i].getAttribute('@click');" +
+            "  if(attr && attr.includes(\"toggleDropdown('mobileUser')\")) {" +
+            "    btns[i].click(); break;" +
+            "  }" +
+            "}"
+        );
+        try { Thread.sleep(1500); } catch (InterruptedException ignored) {}
 
-        // 2. Переходимо в Profile
-        clickJS(profileLink);
+        // 2. Клик на Dashboard
+        executeJS("var links = document.querySelectorAll('a'); for(var i=0; i<links.length; i++) { if(links[i].href.includes('/dashboard')) { links[i].click(); break; } }");
         waitForLoader();
         try { Thread.sleep(2000); } catch (InterruptedException ignored) {}
 
-        // 3. Відкриваємо акордеон My Bookings
-        scrollToElement(myBookingsAccordion);
-        clickJS(myBookingsAccordion);
-        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
+        // 3. Раскрываем My Bookings (аккордеон)
+        executeJS("var accordion = document.querySelector('div[onclick*=\"toggleAccordion(\\'accordion1\\')\"]'); if(accordion) accordion.click();");
+        try { Thread.sleep(1500); } catch (InterruptedException ignored) {}
 
-        // 4. Тиснемо на Cars
-        clickJS(carsBookingsLink);
+        // 4. Кликаем на Cars
+        executeJS("var carsLink = document.querySelector('a[href*=\"filter=cars\"]'); if(carsLink) carsLink.click();");
         waitForLoader();
         try { Thread.sleep(2000); } catch (InterruptedException ignored) {}
     }
 
     public boolean isLastBookingPresent() {
-        // Перевіряємо наявність кнопки "View" (око) для останнього бронювання
         try {
             WebElement viewButton = wait.until(ExpectedConditions.presenceOfElementLocated(
                 By.xpath("(//a[contains(@href, 'invoice')])[1]")));
