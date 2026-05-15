@@ -1,0 +1,4 @@
+email,password
+wrong@user.com,12345
+test@test.com,wrongpass
+admin@phptravels.com,admin123

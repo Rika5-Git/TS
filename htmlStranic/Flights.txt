@@ -1,0 +1,444 @@
+начинается все с логина потом селениум заходит: 
+<button @click="toggleDropdown('services')" class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+              <span class="flex items-center gap-2">
+                <span>Services</span>
+              </span>
+              <span class="material-symbols-outlined transition-transform" :class="openDropdowns['services'] ? 'rotate-180' : ''">expand_more</span>
+            </button>
+
+потом:  <a href="https://phptravels.net/flights" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                Flights Booking              </a>
+
+потом вибирает 
+Departure From: <input x-ref="fromInput" type="text" class="input-with-icon w-full pr-4" :class="fromSelected ? 'pr-10' : 'pr-4'" placeholder="Departure City or Airport" x-model="fromSearch" @input.debounce.300ms="handleFromInput()" @keydown.escape="fromResults = []" autocomplete="off">
+в списке вибирает какую то страну: <div x-show="fromShouldShowDropdown || fromShowNoResults" x-transition:enter="transition ease-out duration-150" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute left-0 right-0 z-50 mt-1 bg-white border border-gray-200 rounded-lg shadow-xl overflow-hidden" style="max-height: 320px; overflow-y: auto;">
+                    <!-- No Results -->
+                    <div x-show="fromShowNoResults" class="p-4 text-center" style="display: none;">
+                        <div class="flex flex-col items-center gap-2">
+                            <span class="material-symbols-outlined text-gray-400 text-3xl">search_off</span>
+                            <p class="text-sm font-medium text-gray-900">No airports found</p>
+                        </div>
+                    </div>
+
+                    <!-- Results List -->
+                    <template x-for="a in fromResults" :key="a.id">
+                        <div @click="selectFrom(a)" class="p-2.5 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded flex-shrink-0 overflow-hidden bg-gray-100">
+                                    <template x-if="a.destination_images?.image_jpeg">
+                                        <img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'">
+                                    </template>
+                                    <template x-if="!a.destination_images?.image_jpeg">
+                                        <div class="w-full h-full flex items-center justify-center bg-blue-50">
+                                            <span class="material-symbols-outlined text-blue-400 text-xl">flight</span>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 flex-wrap">
+                                        <span x-show="a.sub" class="material-symbols-outlined text-gray-400 text-sm">subdirectory_arrow_right</span>
+                                        <span class="text-sm font-semibold text-gray-900 truncate" x-text="a.airportname || a.name"></span>
+                                        <span class="px-1.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 rounded" x-text="a.id"></span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 truncate" x-text="a.cityname"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </template><div @click="selectFrom(a)" class="p-2.5 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded flex-shrink-0 overflow-hidden bg-gray-100">
+                                    <template x-if="a.destination_images?.image_jpeg">
+                                        <img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'">
+                                    </template><img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'" src="https://content.r9cdn.net/rimg/dimg/27/bb/1e63bfbb-city-15139-1645cdf896a.jpg?width=128&amp;height=128&amp;xhint=2663&amp;yhint=911&amp;outputtype=JPEG&amp;crop=true">
+                                    <template x-if="!a.destination_images?.image_jpeg">
+                                        <div class="w-full h-full flex items-center justify-center bg-blue-50">
+                                            <span class="material-symbols-outlined text-blue-400 text-xl">flight</span>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 flex-wrap">
+                                        <span x-show="a.sub" class="material-symbols-outlined text-gray-400 text-sm" style="display: none;">subdirectory_arrow_right</span>
+                                        <span class="text-sm font-semibold text-gray-900 truncate" x-text="a.airportname || a.name">All airports</span>
+                                        <span class="px-1.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 rounded" x-text="a.id">IEV</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 truncate" x-text="a.cityname">Kyiv, Ukraine</div>
+                                </div>
+                            </div>
+                        </div><div @click="selectFrom(a)" class="p-2.5 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded flex-shrink-0 overflow-hidden bg-gray-100">
+                                    <template x-if="a.destination_images?.image_jpeg">
+                                        <img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'">
+                                    </template><img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'" src="https://content.r9cdn.net/rimg/dimg/27/bb/1e63bfbb-city-15139-1645cdf896a.jpg?width=128&amp;height=128&amp;xhint=2663&amp;yhint=911&amp;outputtype=JPEG&amp;crop=true">
+                                    <template x-if="!a.destination_images?.image_jpeg">
+                                        <div class="w-full h-full flex items-center justify-center bg-blue-50">
+                                            <span class="material-symbols-outlined text-blue-400 text-xl">flight</span>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 flex-wrap">
+                                        <span x-show="a.sub" class="material-symbols-outlined text-gray-400 text-sm">subdirectory_arrow_right</span>
+                                        <span class="text-sm font-semibold text-gray-900 truncate" x-text="a.airportname || a.name">Boryspil Intl</span>
+                                        <span class="px-1.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 rounded" x-text="a.id">KBP</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 truncate" x-text="a.cityname">Kyiv, Ukraine</div>
+                                </div>
+                            </div>
+                        </div><div @click="selectFrom(a)" class="p-2.5 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded flex-shrink-0 overflow-hidden bg-gray-100">
+                                    <template x-if="a.destination_images?.image_jpeg">
+                                        <img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'">
+                                    </template><img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'" src="https://content.r9cdn.net/rimg/dimg/41/3d/d25aa3a1-lm-58710-16ff7129644.jpg?width=128&amp;height=128&amp;xhint=1646&amp;yhint=1460&amp;outputtype=JPEG&amp;crop=true">
+                                    <template x-if="!a.destination_images?.image_jpeg">
+                                        <div class="w-full h-full flex items-center justify-center bg-blue-50">
+                                            <span class="material-symbols-outlined text-blue-400 text-xl">flight</span>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 flex-wrap">
+                                        <span x-show="a.sub" class="material-symbols-outlined text-gray-400 text-sm" style="display: none;">subdirectory_arrow_right</span>
+                                        <span class="text-sm font-semibold text-gray-900 truncate" x-text="a.airportname || a.name">Odesa Intl</span>
+                                        <span class="px-1.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 rounded" x-text="a.id">ODS</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 truncate" x-text="a.cityname">Odesa, Ukraine</div>
+                                </div>
+                            </div>
+                        </div><div @click="selectFrom(a)" class="p-2.5 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded flex-shrink-0 overflow-hidden bg-gray-100">
+                                    <template x-if="a.destination_images?.image_jpeg">
+                                        <img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'">
+                                    </template><img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'" src="https://content.r9cdn.net/rimg/dimg/4e/f3/1496a6a6-city-44705-1756947a2bc.jpg?width=128&amp;height=128&amp;xhint=529&amp;yhint=1572&amp;outputtype=JPEG&amp;crop=true">
+                                    <template x-if="!a.destination_images?.image_jpeg">
+                                        <div class="w-full h-full flex items-center justify-center bg-blue-50">
+                                            <span class="material-symbols-outlined text-blue-400 text-xl">flight</span>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 flex-wrap">
+                                        <span x-show="a.sub" class="material-symbols-outlined text-gray-400 text-sm" style="display: none;">subdirectory_arrow_right</span>
+                                        <span class="text-sm font-semibold text-gray-900 truncate" x-text="a.airportname || a.name">Kharkiv Intl</span>
+                                        <span class="px-1.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 rounded" x-text="a.id">HRK</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 truncate" x-text="a.cityname">Kharkiv, Ukraine</div>
+                                </div>
+                            </div>
+                        </div><div @click="selectFrom(a)" class="p-2.5 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded flex-shrink-0 overflow-hidden bg-gray-100">
+                                    <template x-if="a.destination_images?.image_jpeg">
+                                        <img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'">
+                                    </template><img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'" src="https://content.r9cdn.net/rimg/dimg/7e/f4/70bf3f44-city-2138-170a5de9358.jpg?width=128&amp;height=128&amp;xhint=1708&amp;yhint=2596&amp;outputtype=JPEG&amp;crop=true">
+                                    <template x-if="!a.destination_images?.image_jpeg">
+                                        <div class="w-full h-full flex items-center justify-center bg-blue-50">
+                                            <span class="material-symbols-outlined text-blue-400 text-xl">flight</span>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 flex-wrap">
+                                        <span x-show="a.sub" class="material-symbols-outlined text-gray-400 text-sm" style="display: none;">subdirectory_arrow_right</span>
+                                        <span class="text-sm font-semibold text-gray-900 truncate" x-text="a.airportname || a.name">Lviv Danylo Halytskyi Intl</span>
+                                        <span class="px-1.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 rounded" x-text="a.id">LWO</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 truncate" x-text="a.cityname">Lviv, Ukraine</div>
+                                </div>
+                            </div>
+                        </div><div @click="selectFrom(a)" class="p-2.5 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded flex-shrink-0 overflow-hidden bg-gray-100">
+                                    <template x-if="a.destination_images?.image_jpeg">
+                                        <img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'">
+                                    </template><img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'" src="https://content.r9cdn.net/rimg/dimg/8c/24/a31dbf57-city-16101-16daf9d2c4c.jpg?width=128&amp;height=128&amp;xhint=1935&amp;yhint=1538&amp;outputtype=JPEG&amp;crop=true">
+                                    <template x-if="!a.destination_images?.image_jpeg">
+                                        <div class="w-full h-full flex items-center justify-center bg-blue-50">
+                                            <span class="material-symbols-outlined text-blue-400 text-xl">flight</span>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 flex-wrap">
+                                        <span x-show="a.sub" class="material-symbols-outlined text-gray-400 text-sm" style="display: none;">subdirectory_arrow_right</span>
+                                        <span class="text-sm font-semibold text-gray-900 truncate" x-text="a.airportname || a.name">Dnepropetrovsk</span>
+                                        <span class="px-1.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 rounded" x-text="a.id">DNK</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 truncate" x-text="a.cityname">Dnipro, Ukraine</div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+Arrival To:  <input x-ref="toInput" id="arrival_airport_input" type="text" class="input-with-icon w-full pr-4" :class="toSelected ? 'pr-10' : 'pr-4'" placeholder="Arrival City or Airport" x-model="toSearch" @input.debounce.300ms="handleToInput()" @keydown.escape="toResults = []" autocomplete="off">
+
+потом вибирает страну: <div x-show="toShouldShowDropdown || toShowNoResults" x-transition:enter="transition ease-out duration-150" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute left-0 right-0 z-50 mt-1 bg-white border border-gray-200 rounded-lg shadow-xl overflow-hidden" style="max-height: 320px; overflow-y: auto;">
+                    <!-- No Results -->
+                    <div x-show="toShowNoResults" class="p-4 text-center" style="display: none;">
+                        <div class="flex flex-col items-center gap-2">
+                            <span class="material-symbols-outlined text-gray-400 text-3xl">search_off</span>
+                            <p class="text-sm font-medium text-gray-900">No airports found</p>
+                        </div>
+                    </div>
+
+                    <!-- Results List -->
+                    <template x-for="a in toResults" :key="a.id">
+                        <div @click="selectTo(a)" class="p-2.5 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded flex-shrink-0 overflow-hidden bg-gray-100">
+                                    <template x-if="a.destination_images?.image_jpeg">
+                                        <img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'">
+                                    </template>
+                                    <template x-if="!a.destination_images?.image_jpeg">
+                                        <div class="w-full h-full flex items-center justify-center bg-blue-50">
+                                            <span class="material-symbols-outlined text-blue-400 text-xl">flight</span>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 flex-wrap">
+                                        <span x-show="a.sub" class="material-symbols-outlined text-gray-400 text-sm">subdirectory_arrow_right</span>
+                                        <span class="text-sm font-semibold text-gray-900 truncate" x-text="a.airportname || a.name"></span>
+                                        <span class="px-1.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 rounded" x-text="a.id"></span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 truncate" x-text="a.cityname"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </template><div @click="selectTo(a)" class="p-2.5 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded flex-shrink-0 overflow-hidden bg-gray-100">
+                                    <template x-if="a.destination_images?.image_jpeg">
+                                        <img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'">
+                                    </template><img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'" src="https://content.r9cdn.net/rimg/dimg/43/32/a04a5913-city-7362-19bdccc026e.jpg?width=128&amp;height=128&amp;xhint=1475&amp;yhint=1147&amp;outputtype=JPEG&amp;crop=true">
+                                    <template x-if="!a.destination_images?.image_jpeg">
+                                        <div class="w-full h-full flex items-center justify-center bg-blue-50">
+                                            <span class="material-symbols-outlined text-blue-400 text-xl">flight</span>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 flex-wrap">
+                                        <span x-show="a.sub" class="material-symbols-outlined text-gray-400 text-sm" style="display: none;">subdirectory_arrow_right</span>
+                                        <span class="text-sm font-semibold text-gray-900 truncate" x-text="a.airportname || a.name">Dublin</span>
+                                        <span class="px-1.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 rounded" x-text="a.id">DUB</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 truncate" x-text="a.cityname">Dublin, Ireland</div>
+                                </div>
+                            </div>
+                        </div><div @click="selectTo(a)" class="p-2.5 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded flex-shrink-0 overflow-hidden bg-gray-100">
+                                    <template x-if="a.destination_images?.image_jpeg">
+                                        <img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'">
+                                    </template><img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'" src="https://content.r9cdn.net/rimg/dimg/c2/09/f8e0c920-city-15317-177952a7ef2.jpg?width=128&amp;height=128&amp;xhint=2956&amp;yhint=2229&amp;outputtype=JPEG&amp;crop=true">
+                                    <template x-if="!a.destination_images?.image_jpeg">
+                                        <div class="w-full h-full flex items-center justify-center bg-blue-50">
+                                            <span class="material-symbols-outlined text-blue-400 text-xl">flight</span>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 flex-wrap">
+                                        <span x-show="a.sub" class="material-symbols-outlined text-gray-400 text-sm" style="display: none;">subdirectory_arrow_right</span>
+                                        <span class="text-sm font-semibold text-gray-900 truncate" x-text="a.airportname || a.name">All airports</span>
+                                        <span class="px-1.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 rounded" x-text="a.id">DUS</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 truncate" x-text="a.cityname">Düsseldorf, Germany</div>
+                                </div>
+                            </div>
+                        </div><div @click="selectTo(a)" class="p-2.5 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded flex-shrink-0 overflow-hidden bg-gray-100">
+                                    <template x-if="a.destination_images?.image_jpeg">
+                                        <img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'">
+                                    </template><img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'" src="https://content.r9cdn.net/rimg/dimg/c2/09/f8e0c920-city-15317-177952a7ef2.jpg?width=128&amp;height=128&amp;xhint=2956&amp;yhint=2229&amp;outputtype=JPEG&amp;crop=true">
+                                    <template x-if="!a.destination_images?.image_jpeg">
+                                        <div class="w-full h-full flex items-center justify-center bg-blue-50">
+                                            <span class="material-symbols-outlined text-blue-400 text-xl">flight</span>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 flex-wrap">
+                                        <span x-show="a.sub" class="material-symbols-outlined text-gray-400 text-sm">subdirectory_arrow_right</span>
+                                        <span class="text-sm font-semibold text-gray-900 truncate" x-text="a.airportname || a.name">Weeze</span>
+                                        <span class="px-1.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 rounded" x-text="a.id">NRN</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 truncate" x-text="a.cityname">Düsseldorf, Germany</div>
+                                </div>
+                            </div>
+                        </div><div @click="selectTo(a)" class="p-2.5 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded flex-shrink-0 overflow-hidden bg-gray-100">
+                                    <template x-if="a.destination_images?.image_jpeg">
+                                        <img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'">
+                                    </template><img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'" src="https://content.r9cdn.net/rimg/dimg/50/22/266b6677-city-33744-167795c3051.jpg?width=128&amp;height=128&amp;xhint=1020&amp;yhint=2273&amp;outputtype=JPEG&amp;crop=true">
+                                    <template x-if="!a.destination_images?.image_jpeg">
+                                        <div class="w-full h-full flex items-center justify-center bg-blue-50">
+                                            <span class="material-symbols-outlined text-blue-400 text-xl">flight</span>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 flex-wrap">
+                                        <span x-show="a.sub" class="material-symbols-outlined text-gray-400 text-sm" style="display: none;">subdirectory_arrow_right</span>
+                                        <span class="text-sm font-semibold text-gray-900 truncate" x-text="a.airportname || a.name">King Shaka Intl</span>
+                                        <span class="px-1.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 rounded" x-text="a.id">DUR</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 truncate" x-text="a.cityname">Durban, South Africa</div>
+                                </div>
+                            </div>
+                        </div><div @click="selectTo(a)" class="p-2.5 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded flex-shrink-0 overflow-hidden bg-gray-100">
+                                    <template x-if="a.destination_images?.image_jpeg">
+                                        <img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'">
+                                    </template>
+                                    <template x-if="!a.destination_images?.image_jpeg">
+                                        <div class="w-full h-full flex items-center justify-center bg-blue-50">
+                                            <span class="material-symbols-outlined text-blue-400 text-xl">flight</span>
+                                        </div>
+                                    </template><div class="w-full h-full flex items-center justify-center bg-blue-50">
+                                            <span class="material-symbols-outlined text-blue-400 text-xl">flight</span>
+                                        </div>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 flex-wrap">
+                                        <span x-show="a.sub" class="material-symbols-outlined text-gray-400 text-sm" style="display: none;">subdirectory_arrow_right</span>
+                                        <span class="text-sm font-semibold text-gray-900 truncate" x-text="a.airportname || a.name">Jefferson County</span>
+                                        <span class="px-1.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 rounded" x-text="a.id">DUJ</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 truncate" x-text="a.cityname">DuBois, Pennsylvania, United States</div>
+                                </div>
+                            </div>
+                        </div><div @click="selectTo(a)" class="p-2.5 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded flex-shrink-0 overflow-hidden bg-gray-100">
+                                    <template x-if="a.destination_images?.image_jpeg">
+                                        <img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'">
+                                    </template><img :src="a.destination_images.image_jpeg" class="w-full h-full object-cover" @error="$el.parentElement.innerHTML = '&lt;div class=\'w-full h-full flex items-center justify-center bg-blue-50\'&gt;&lt;span class=\'material-symbols-outlined text-blue-400 text-xl\'&gt;flight&lt;/span&gt;&lt;/div&gt;'" src="https://content.r9cdn.net/rimg/dimg/a2/88/1fb7bb93-city-10058-17de30f526a.jpg?width=128&amp;height=128&amp;xhint=1450&amp;yhint=1048&amp;outputtype=JPEG&amp;crop=true">
+                                    <template x-if="!a.destination_images?.image_jpeg">
+                                        <div class="w-full h-full flex items-center justify-center bg-blue-50">
+                                            <span class="material-symbols-outlined text-blue-400 text-xl">flight</span>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 flex-wrap">
+                                        <span x-show="a.sub" class="material-symbols-outlined text-gray-400 text-sm" style="display: none;">subdirectory_arrow_right</span>
+                                        <span class="text-sm font-semibold text-gray-900 truncate" x-text="a.airportname || a.name">Dunedin</span>
+                                        <span class="px-1.5 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 rounded" x-text="a.id">DUD</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 truncate" x-text="a.cityname">Dunedin, New Zealand</div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+Departure Date:  <input type="text" name="flights_departure_date" placeholder="Departure Date" class="FlightsDeparture input" readonly="" value="17-05-2026">
+У ВІКНІ НАЖИМАЄМО ЛЮБУ ДАТУ: <div class="datepicker bg-white rounded-xl shadow-2xl border border-gray-200 p-3 transition-opacity duration-200 ease-out" style="opacity: 1; position: absolute; top: 283px; left: 32px; transform: none; max-width: none; z-index: 9999;"><div class="datepicker-days"><table class="w-full border-collapse"><thead class="bg-slate-50"><tr><th class="prev text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M15 18l-6-6 6-6"></path></svg></th><th colspan="5" class="switch text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 font-bold text-base text-gray-900">May 2026</th><th class="next text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M9 18l6-6-6-6"></path></svg></th></tr><tr><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Su</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Mo</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Tu</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">We</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Th</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Fr</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Sa</th></tr></thead><tbody><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">26</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">27</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">28</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">29</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">30</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">1</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">2</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">3</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">4</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">5</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">6</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">7</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">8</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">9</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">10</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">11</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">12</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">13</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">14</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">15</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">16</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 active !bg-blue-600 !text-white hover:!bg-blue-700 shadow-sm  w-8 h-8 flex items-center justify-center mx-auto">17</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">18</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">19</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">20</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">21</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">22</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">23</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">24</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">25</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">26</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">27</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">28</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">29</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">30</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">31</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto">1</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto">2</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto">3</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto">4</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto">5</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto">6</div></td></tr></tbody></table></div><div class="datepicker-months hidden"><table class="w-full border-collapse"><thead class="bg-slate-50"><tr><th class="prev text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M15 18l-6-6 6-6"></path></svg></th><th colspan="5" class="switch text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 font-bold text-base text-gray-900">2026</th><th class="next text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M9 18l6-6-6-6"></path></svg></th></tr></thead><tbody><tr><td colspan="7" class="p-2"><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Jan</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Feb</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Mar</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Apr</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm hover:!bg-blue-700 active !bg-blue-600 !text-white shadow-sm">May</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Jun</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Jul</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Aug</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Sep</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Oct</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Nov</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Dec</span></td></tr></tbody></table></div><div class="datepicker-years hidden"><table class="w-full border-collapse"><thead class="bg-slate-50"><tr><th class="prev text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M15 18l-6-6 6-6"></path></svg></th><th colspan="5" class="switch text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 font-bold text-base text-gray-900">2020-2029</th><th class="next text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M9 18l6-6-6-6"></path></svg></th></tr></thead><tbody><tr><td colspan="7" class="p-2"><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm old text-gray-400 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2019</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2020</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2021</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2022</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2023</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2024</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2025</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 active !bg-blue-600 !text-white hover:!bg-blue-700 shadow-sm">2026</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">2027</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">2028</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">2029</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm old text-gray-400">2030</span></td></tr></tbody></table></div></div>
+
+Flight Type:  <div @click="open = !open" class="input cursor-pointer flex items-center justify-between">
+                        <span x-text="getSelectedName()">One Way</span>
+                        <span class="material-symbols-outlined transition-transform text-sm" :class="open ? 'rotate-180' : ''">expand_more</span>
+                    </div>
+
+у вспливаючому вікні нажимаємо: <div class="input-dropdown-item flex items-center gap-2" @click="selectType(type)">
+                                <span class="material-symbols-outlined text-sm" x-text="type.icon">sync_alt</span>
+                                <span x-text="type.name">Round Trip</span>
+                            </div>
+Return Date: <input type="text" name="flights_return_date" placeholder="Return Date" class="FlightsArrival input" required="" readonly="" value="18-05-2026">
+у спливаючому вікну : <div class="datepicker bg-white rounded-xl shadow-2xl border border-gray-200 p-3 transition-opacity duration-200 ease-out" style="opacity: 1; position: absolute; top: 283px; left: 217.5px; transform: none; max-width: none; z-index: 9999;"><div class="datepicker-days"><table class="w-full border-collapse"><thead class="bg-slate-50"><tr><th class="prev text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M15 18l-6-6 6-6"></path></svg></th><th colspan="5" class="switch text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 font-bold text-base text-gray-900">May 2026</th><th class="next text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M9 18l6-6-6-6"></path></svg></th></tr><tr><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Su</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Mo</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Tu</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">We</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Th</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Fr</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Sa</th></tr></thead><tbody><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">26</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">27</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">28</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">29</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">30</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">1</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">2</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">3</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">4</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">5</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">6</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">7</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">8</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">9</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">10</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">11</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">12</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">13</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">14</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">15</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">16</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto">17</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 active !bg-blue-600 !text-white hover:!bg-blue-700 shadow-sm  w-8 h-8 flex items-center justify-center mx-auto">18</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">19</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">20</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">21</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">22</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">23</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">24</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">25</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">26</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">27</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">28</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">29</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">30</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto">31</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto">1</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto">2</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto">3</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto">4</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto">5</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto">6</div></td></tr></tbody></table></div><div class="datepicker-months hidden"><table class="w-full border-collapse"><thead class="bg-slate-50"><tr><th class="prev text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M15 18l-6-6 6-6"></path></svg></th><th colspan="5" class="switch text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 font-bold text-base text-gray-900">2026</th><th class="next text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M9 18l6-6-6-6"></path></svg></th></tr></thead><tbody><tr><td colspan="7" class="p-2"><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Jan</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Feb</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Mar</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Apr</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm active !bg-blue-600 !text-white hover:!bg-blue-700 shadow-sm">May</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Jun</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Jul</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Aug</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Sep</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Oct</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Nov</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Dec</span></td></tr></tbody></table></div><div class="datepicker-years hidden"><table class="w-full border-collapse"><thead class="bg-slate-50"><tr><th class="prev text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M15 18l-6-6 6-6"></path></svg></th><th colspan="5" class="switch text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 font-bold text-base text-gray-900">2020-2029</th><th class="next text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M9 18l6-6-6-6"></path></svg></th></tr></thead><tbody><tr><td colspan="7" class="p-2"><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm old text-gray-400 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2019</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2020</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2021</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2022</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2023</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2024</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2025</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 active !bg-blue-600 !text-white hover:!bg-blue-700 shadow-sm">2026</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">2027</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">2028</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">2029</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm old text-gray-400">2030</span></td></tr></tbody></table></div></div>
+
+Flight Class: <div @click="open = !open" class="input cursor-pointer flex items-center justify-between">
+                        <span x-text="getSelectedName()">Economy</span>
+                        <span class="material-symbols-outlined transition-transform text-sm rotate-180" :class="open ? 'rotate-180' : ''">expand_more</span>
+                    </div>
+у вспливающому вікні нажимаємо щось: <div class="input-dropdown-content show" :class="open ? 'show' : ''">
+                        <template x-for="cls in flightClasses" :key="cls.value">
+                            <div class="input-dropdown-item flex items-center gap-2 py-2 px-2.5 hover:bg-slate-50 border-b border-slate-50 last:border-0" @click="selectClass(cls)">
+                                <span class="material-symbols-outlined text-base text-slate-400" x-text="cls.icon"></span>
+                                <span class="text-sm font-medium whitespace-nowrap" x-text="cls.name"></span>
+                            </div>
+                        </template><div class="input-dropdown-item flex items-center gap-2 py-2 px-2.5 hover:bg-slate-50 border-b border-slate-50 last:border-0" @click="selectClass(cls)">
+                                <span class="material-symbols-outlined text-base text-slate-400" x-text="cls.icon">airline_seat_recline_normal</span>
+                                <span class="text-sm font-medium whitespace-nowrap" x-text="cls.name">Economy</span>
+                            </div><div class="input-dropdown-item flex items-center gap-2 py-2 px-2.5 hover:bg-slate-50 border-b border-slate-50 last:border-0" @click="selectClass(cls)">
+                                <span class="material-symbols-outlined text-base text-slate-400" x-text="cls.icon">airline_seat_recline_extra</span>
+                                <span class="text-sm font-medium whitespace-nowrap" x-text="cls.name">Economy Premium</span>
+                            </div><div class="input-dropdown-item flex items-center gap-2 py-2 px-2.5 hover:bg-slate-50 border-b border-slate-50 last:border-0" @click="selectClass(cls)">
+                                <span class="material-symbols-outlined text-base text-slate-400" x-text="cls.icon">business</span>
+                                <span class="text-sm font-medium whitespace-nowrap" x-text="cls.name">Business</span>
+                            </div><div class="input-dropdown-item flex items-center gap-2 py-2 px-2.5 hover:bg-slate-50 border-b border-slate-50 last:border-0" @click="selectClass(cls)">
+                                <span class="material-symbols-outlined text-base text-slate-400" x-text="cls.icon">workspace_premium</span>
+                                <span class="text-sm font-medium whitespace-nowrap" x-text="cls.name">First Class</span>
+                            </div>
+                    </div>
+
+Passengers:  <div @click="open = !open" class="input cursor-pointer flex items-center justify-between">
+                    <span x-text="getPassengerText()">1 Passenger</span>
+                    <span class="material-symbols-outlined transition-transform text-sm" :class="open ? 'rotate-180' : ''">expand_more</span>
+                </div>
+у вспливающому вікні: <button type="button" @click="increment('adults')" class="w-9 h-9 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-50 hover:border-slate-300 transition-colors shadow-sm disabled:opacity-40 disabled:cursor-not-allowed" :disabled="adults &gt;= 9">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                            </button>
+потім ще: <button type="button" @click="increment('children')" class="w-9 h-9 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-50 hover:border-slate-300 transition-colors shadow-sm disabled:opacity-40 disabled:cursor-not-allowed" :disabled="children &gt;= 9">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                            </button>
+
+search Flights: <button type="submit" class="btn w-full" :disabled="isSearching">
+                <span x-show="!isSearching" class="material-symbols-outlined text-lg">search</span>
+                <span x-show="isSearching" class="material-symbols-outlined text-lg animate-spin" style="display: none;">progress_activity</span>
+                <span x-show="!isSearching">Search Flights</span>
+                <span x-show="isSearching" style="display: none;">Searching...</span>
+            </button>
+
+потом нажмем: <div class="checkbox-item">
+                            <div class="checkbox-container">
+                                <input type="checkbox" :id="'stop-' + stop" class="checkbox-input" :checked="filters.stops.includes(stop)" @change="toggleStop(stop)" id="stop-2">
+                                <div class="checkbox-custom">
+                                    <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                                </div>
+                            </div>
+                            <label :for="'stop-' + stop" class="cursor-pointer flex-1 flex items-center justify-between" for="stop-2">
+                                <span class="text-sm text-gray-700 dark:text-gray-300" x-text="['Direct', '1 Stop', '2+ Stops'][stop]">2+ Stops</span>
+                                <span class="text-xs text-gray-500" x-text="getStopCount(stop)">0</span>
+                            </label>
+                        </div>
+
+потом зададим цену ползунком: <div class="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 border border-blue-200 dark:border-blue-700 rounded-lg p-2 text-center">
+                        <span class="text-blue-800 dark:text-blue-200 font-semibold text-sm">
+                            $<span x-text="filters.priceRange[0]">0</span> - $<span x-text="filters.priceRange[1]">10000</span>
+                        </span>
+                    </div>
+
+Departure: <div class="p-2 rounded border border-gray-300 dark:border-gray-700 hover:border-blue-300">
+                            <div class="checkbox-item">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" :id="'time-' + slot.id" class="checkbox-input" :checked="filters.timeSlots.includes(slot.id)" @change="toggleTimeSlot(slot.id)" id="time-early">
+                                    <div class="checkbox-custom">
+                                        <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                                    </div>
+                                </div>
+                                <label :for="'time-' + slot.id" class="cursor-pointer flex items-center gap-2 flex-1" for="time-early">
+                                    <span class="material-symbols-outlined text-sm text-orange-500" :class="slot.color" x-text="slot.icon">brightness_2</span>
+                                    <div class="flex-1">
+                                        <div class="text-xs font-semibold text-gray-900 dark:text-gray-100" x-text="slot.label">Early Morning</div>
+                                        <div class="text-xs text-gray-500" x-text="slot.range">00:00 – 06:00</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+
+и все пока что 
+
+
+
+
+
+

@@ -1,0 +1,561 @@
+Cars booking: <a href="https://phptravels.net/cars" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                Cars Booking              </a>
+
+Pick-up Location:  <input type="text" x-ref="pickupInput" x-model="pickupSearch" @input="handlePickupInput()" :placeholder="'City or Airport'" class="input" autocomplete="off" placeholder="City or Airport" fdprocessedid="0gqz0f">
+
+Return Location:   <input type="text" x-ref="dropoffInput" x-model="dropoffSearch" @input="handleDropoffInput()" :placeholder="serviceType === 'transfer' ? 'City or Airport' : 'Same As Pick-up'" class="input" autocomplete="off" placeholder="Same As Pick-up" fdprocessedid="ewy0cd">
+
+Pick-up Date Time:  <input type="text" name="pickup_date" class="CarsPickup input !rounded-r-none !border-r-0" readonly="" value="15-05-2026" fdprocessedid="6rzym">
+
+окно з датаю: <div class="datepicker bg-white rounded-xl shadow-2xl border border-gray-200 p-3 transition-opacity duration-200 ease-out" bis_skin_checked="1" style="opacity: 1; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90vw; max-width: 400px; z-index: 9999;"><div class="datepicker-days" bis_skin_checked="1"><table class="w-full border-collapse"><thead class="bg-slate-50"><tr><th class="prev text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M15 18l-6-6 6-6"></path></svg></th><th colspan="5" class="switch text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 font-bold text-base text-gray-900">May 2026</th><th class="next text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M9 18l6-6-6-6"></path></svg></th></tr><tr><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Su</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Mo</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Tu</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">We</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Th</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Fr</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Sa</th></tr></thead><tbody><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">26</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">27</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">28</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">29</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">30</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">1</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">2</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">3</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">4</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">5</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">6</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">7</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">8</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">9</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">10</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">11</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">12</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">13</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">14</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 active !bg-blue-600 !text-white hover:!bg-blue-700 shadow-sm  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">15</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">16</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">17</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">18</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">19</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">20</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">21</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">22</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">23</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">24</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">25</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">26</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">27</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">28</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">29</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">30</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">31</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">1</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">2</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">3</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">4</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">5</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">6</div></td></tr></tbody></table></div><div class="datepicker-months hidden" bis_skin_checked="1"><table class="w-full border-collapse"><thead class="bg-slate-50"><tr><th class="prev text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M15 18l-6-6 6-6"></path></svg></th><th colspan="5" class="switch text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 font-bold text-base text-gray-900">2026</th><th class="next text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M9 18l6-6-6-6"></path></svg></th></tr></thead><tbody><tr><td colspan="7" class="p-2"><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Jan</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Feb</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Mar</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Apr</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm active !bg-blue-600 !text-white hover:!bg-blue-700 shadow-sm">May</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Jun</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Jul</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Aug</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Sep</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Oct</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Nov</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Dec</span></td></tr></tbody></table></div><div class="datepicker-years hidden" bis_skin_checked="1"><table class="w-full border-collapse"><thead class="bg-slate-50"><tr><th class="prev text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M15 18l-6-6 6-6"></path></svg></th><th colspan="5" class="switch text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 font-bold text-base text-gray-900">2020-2029</th><th class="next text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M9 18l6-6-6-6"></path></svg></th></tr></thead><tbody><tr><td colspan="7" class="p-2"><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm old text-gray-400 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2019</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2020</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2021</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2022</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2023</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2024</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2025</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 active !bg-blue-600 !text-white hover:!bg-blue-700 shadow-sm">2026</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">2027</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">2028</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">2029</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm old text-gray-400">2030</span></td></tr></tbody></table></div></div>
+
+час: <input type="text" name="pickup_time" class="CarsPickupTime input !rounded-l-none !w-20 text-center" readonly="" value="10:00" fdprocessedid="aka1yh" style="cursor: pointer;">
+
+вікно з часом : <div class="timepicker bg-white rounded-xl shadow-2xl border border-gray-200 p-4 transition-opacity duration-200 ease-out" style="min-width: 280px; opacity: 1; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90vw; max-width: 360px; z-index: 9999;" bis_skin_checked="1"><div class="timepicker-header flex items-center justify-between mb-3 pb-3 border-b border-gray-200" bis_skin_checked="1"><div class="flex items-center gap-2" bis_skin_checked="1"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span class="timepicker-display font-bold text-base text-gray-900">10:00</span></div><div class="flex gap-1" bis_skin_checked="1"><button type="button" class="tp-tab tp-tab-hours px-3 py-1 text-xs font-semibold rounded-md transition-all duration-150 bg-blue-600 text-white" fdprocessedid="n73hfb">Hours</button><button type="button" class="tp-tab tp-tab-minutes px-3 py-1 text-xs font-semibold rounded-md transition-all duration-150 bg-gray-100 text-gray-600 hover:bg-gray-200" fdprocessedid="k9wj4">Minutes</button></div></div><div class="timepicker-hours" bis_skin_checked="1"><div class="grid grid-cols-6 gap-1" bis_skin_checked="1"><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="0" bis_skin_checked="1">00</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="1" bis_skin_checked="1">01</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="2" bis_skin_checked="1">02</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="3" bis_skin_checked="1">03</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="4" bis_skin_checked="1">04</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="5" bis_skin_checked="1">05</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="6" bis_skin_checked="1">06</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="7" bis_skin_checked="1">07</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="8" bis_skin_checked="1">08</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="9" bis_skin_checked="1">09</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-blue-600 text-white font-bold" data-hour="10" bis_skin_checked="1">10</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="11" bis_skin_checked="1">11</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="12" bis_skin_checked="1">12</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="13" bis_skin_checked="1">13</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="14" bis_skin_checked="1">14</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="15" bis_skin_checked="1">15</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="16" bis_skin_checked="1">16</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="17" bis_skin_checked="1">17</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="18" bis_skin_checked="1">18</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="19" bis_skin_checked="1">19</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="20" bis_skin_checked="1">20</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="21" bis_skin_checked="1">21</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="22" bis_skin_checked="1">22</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="23" bis_skin_checked="1">23</div></div></div><div class="timepicker-minutes hidden" bis_skin_checked="1"></div></div>
+
+Drop-off Date Time:  <input type="text" name="return_date" class="CarsReturn input !rounded-r-none !border-r-0" readonly="" value="16-05-2026" fdprocessedid="zj7tqo">
+
+вікно з датаю: <div class="datepicker bg-white rounded-xl shadow-2xl border border-gray-200 p-3 transition-opacity duration-200 ease-out" bis_skin_checked="1" style="opacity: 1; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90vw; max-width: 400px; z-index: 9999;"><div class="datepicker-days" bis_skin_checked="1"><table class="w-full border-collapse"><thead class="bg-slate-50"><tr><th class="prev text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M15 18l-6-6 6-6"></path></svg></th><th colspan="5" class="switch text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 font-bold text-base text-gray-900">May 2026</th><th class="next text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M9 18l6-6-6-6"></path></svg></th></tr><tr><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Su</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Mo</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Tu</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">We</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Th</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Fr</th><th class="text-center text-xs font-semibold text-gray-600 uppercase py-2">Sa</th></tr></thead><tbody><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">26</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">27</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">28</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">29</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm old text-gray-400 hover:text-gray-500 hover:bg-gray-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">30</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">1</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">2</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">3</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">4</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">5</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">6</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">7</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">8</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">9</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">10</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">11</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">12</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">13</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">14</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 disabled cursor-not-allowed opacity-40 hover:bg-transparent disabled w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">15</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50 active !bg-blue-600 !text-white hover:!bg-blue-700 shadow-sm  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">16</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">17</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">18</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">19</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">20</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">21</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">22</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">23</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">24</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">25</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">26</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">27</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">28</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">29</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">30</div></td></tr><tr><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm text-gray-900 hover:bg-blue-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">31</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">1</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">2</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">3</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">4</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">5</div></td><td class="p-0"><div class="day cursor-pointer rounded transition-all duration-150 font-medium text-sm new text-gray-400 hover:text-gray-500 hover:bg-gray-50  w-8 h-8 flex items-center justify-center mx-auto" bis_skin_checked="1">6</div></td></tr></tbody></table></div><div class="datepicker-months hidden" bis_skin_checked="1"><table class="w-full border-collapse"><thead class="bg-slate-50"><tr><th class="prev text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M15 18l-6-6 6-6"></path></svg></th><th colspan="5" class="switch text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 font-bold text-base text-gray-900">2026</th><th class="next text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M9 18l6-6-6-6"></path></svg></th></tr></thead><tbody><tr><td colspan="7" class="p-2"><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Jan</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Feb</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Mar</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Apr</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm active !bg-blue-600 !text-white hover:!bg-blue-700 shadow-sm">May</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Jun</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Jul</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Aug</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Sep</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Oct</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Nov</span><span class="month inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">Dec</span></td></tr></tbody></table></div><div class="datepicker-years hidden" bis_skin_checked="1"><table class="w-full border-collapse"><thead class="bg-slate-50"><tr><th class="prev text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M15 18l-6-6 6-6"></path></svg></th><th colspan="5" class="switch text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 font-bold text-base text-gray-900">2020-2029</th><th class="next text-center py-3 px-3 cursor-pointer hover:bg-blue-100 rounded transition-all duration-150 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block text-gray-700"><path d="M9 18l6-6-6-6"></path></svg></th></tr></thead><tbody><tr><td colspan="7" class="p-2"><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm old text-gray-400 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2019</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2020</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2021</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2022</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2023</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2024</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 disabled cursor-not-allowed opacity-40 hover:bg-transparent">2025</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800 active !bg-blue-600 !text-white hover:!bg-blue-700 shadow-sm">2026</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">2027</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">2028</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm text-gray-800">2029</span><span class="year inline-flex items-center justify-center w-[calc(25%-8px)] h-10 m-1 cursor-pointer hover:bg-blue-50 rounded transition-all duration-150 font-medium text-sm old text-gray-400">2030</span></td></tr></tbody></table></div></div>
+
+час: <input type="text" name="return_time" class="CarsReturnTime input !rounded-l-none !w-20 text-center" readonly="" value="10:00" fdprocessedid="uk6afn" style="cursor: pointer;">
+
+
+вікно з часом:    <div class="timepicker bg-white rounded-xl shadow-2xl border border-gray-200 p-4 transition-opacity duration-200 ease-out" style="min-width: 280px; opacity: 1; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90vw; max-width: 360px; z-index: 9999;" bis_skin_checked="1"><div class="timepicker-header flex items-center justify-between mb-3 pb-3 border-b border-gray-200" bis_skin_checked="1"><div class="flex items-center gap-2" bis_skin_checked="1"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span class="timepicker-display font-bold text-base text-gray-900">10:00</span></div><div class="flex gap-1" bis_skin_checked="1"><button type="button" class="tp-tab tp-tab-hours px-3 py-1 text-xs font-semibold rounded-md transition-all duration-150 bg-blue-600 text-white" fdprocessedid="durvft">Hours</button><button type="button" class="tp-tab tp-tab-minutes px-3 py-1 text-xs font-semibold rounded-md transition-all duration-150 bg-gray-100 text-gray-600 hover:bg-gray-200" fdprocessedid="umh47a">Minutes</button></div></div><div class="timepicker-hours" bis_skin_checked="1"><div class="grid grid-cols-6 gap-1" bis_skin_checked="1"><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="0" bis_skin_checked="1">00</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="1" bis_skin_checked="1">01</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="2" bis_skin_checked="1">02</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="3" bis_skin_checked="1">03</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="4" bis_skin_checked="1">04</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="5" bis_skin_checked="1">05</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="6" bis_skin_checked="1">06</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="7" bis_skin_checked="1">07</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="8" bis_skin_checked="1">08</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="9" bis_skin_checked="1">09</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-blue-600 text-white font-bold" data-hour="10" bis_skin_checked="1">10</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="11" bis_skin_checked="1">11</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="12" bis_skin_checked="1">12</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="13" bis_skin_checked="1">13</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="14" bis_skin_checked="1">14</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="15" bis_skin_checked="1">15</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="16" bis_skin_checked="1">16</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="17" bis_skin_checked="1">17</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="18" bis_skin_checked="1">18</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="19" bis_skin_checked="1">19</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="20" bis_skin_checked="1">20</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="21" bis_skin_checked="1">21</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="22" bis_skin_checked="1">22</div><div class="tp-hour flex items-center justify-center h-9 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150 bg-gray-50 text-gray-800 hover:bg-blue-50 hover:text-blue-700" data-hour="23" bis_skin_checked="1">23</div></div></div><div class="timepicker-minutes hidden" bis_skin_checked="1"></div></div>
+
+Service Type: <div @click="open = !open" class="input cursor-pointer flex items-center justify-between" bis_skin_checked="1">
+                        <span x-text="serviceType === 'rental' ? 'Car Rental' : 'Airport Transfer'">Car Rental</span>
+                        <span class="material-symbols-outlined transition-transform text-sm rotate-180" :class="open ? 'rotate-180' : ''">expand_more</span>
+                    </div>
+
+вибір:  <div class="input-dropdown-content show" :class="open ? 'show' : ''" bis_skin_checked="1">
+                                                <div class="input-dropdown-item flex items-start gap-3 py-3" @click="switchServiceType('rental'); open = false" bis_skin_checked="1">
+                            <span class="material-symbols-outlined text-base mt-0.5">directions_car</span>
+                            <div bis_skin_checked="1">
+                                <div class="font-medium" bis_skin_checked="1">Car Rental</div>
+                                <div class="text-xs text-gray-500" bis_skin_checked="1">Pick Up and Return at Same Location</div>
+                            </div>
+                        </div>
+                                                                        <div class="input-dropdown-item flex items-start gap-3 py-3" @click="switchServiceType('transfer'); open = false" bis_skin_checked="1">
+                            <span class="material-symbols-outlined text-base mt-0.5">airport_shuttle</span>
+                            <div bis_skin_checked="1">
+                                <div class="font-medium" bis_skin_checked="1">Airport Transfer</div>
+                                <div class="text-xs text-gray-500" bis_skin_checked="1">Private Transfer From Airport or Hotel</div>
+                            </div>
+                        </div>
+                                            </div>
+
+Serch Cars:  <button type="submit" class="btn w-full" :disabled="isSearching" fdprocessedid="2c6l35">
+                    <template x-if="!isSearching"><span class="material-symbols-outlined text-lg">search</span></template><span class="material-symbols-outlined text-lg">search</span>
+                    <template x-if="isSearching">
+                        <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    </template>
+                    <span x-text="isSearching ? 'Searching......' : 'Search Cars'">Search Cars</span>
+                </button>
+
+
+потім 
+Price Range 
+minimum price: <input type="number" x-model="minPrice" @change="applyFilters()" class="input w-full mt-1 bg-slate-50 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" placeholder="0" fdprocessedid="rahdmg">
+maximum price:  <input type="number" x-model="maxPrice" @change="applyFilters()" class="input w-full mt-1 bg-slate-50 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" placeholder="Any" fdprocessedid="y3hk9i">
+Car Type: <div class="border-b border-gray-300 dark:border-gray-700" bis_skin_checked="1">
+            <button @click="open.carType = !open.carType" class="w-full p-3 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700" fdprocessedid="jz5b45">
+                <div class="flex items-center gap-2" bis_skin_checked="1">
+                    <span class="material-symbols-outlined text-gray-500 text-lg">directions_car</span>
+                    <span class="font-semibold text-gray-900 dark:text-gray-100 text-sm">Car Type</span>
+                </div>
+                <span class="material-symbols-outlined text-gray-400 text-lg rotate-180" :class="open.carType &amp;&amp; 'rotate-180'">expand_more</span>
+            </button>
+            <div x-show="open.carType" x-transition="" class="px-3 pb-3 space-y-2" bis_skin_checked="1">
+                <template x-for="type in carTypes" :key="type.value">
+                    <div class="checkbox-item">
+                        <div class="checkbox-container">
+                            <input type="checkbox" :id="'cartype-' + type.value" class="checkbox-input" :value="type.value" x-model="selectedCarTypes" @change="applyFilters()">
+                            <div class="checkbox-custom">
+                                <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                            </div>
+                        </div>
+                        <label :for="'cartype-' + type.value" class="cursor-pointer flex-1">
+                            <span class="text-sm text-gray-700 dark:text-gray-300" x-text="type.name"></span>
+                        </label>
+                    </div>
+                </template><div class="checkbox-item" bis_skin_checked="1">
+                        <div class="checkbox-container" bis_skin_checked="1">
+                            <input type="checkbox" :id="'cartype-' + type.value" class="checkbox-input" :value="type.value" x-model="selectedCarTypes" @change="applyFilters()" id="cartype-economy" value="economy">
+                            <div class="checkbox-custom" bis_skin_checked="1">
+                                <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                            </div>
+                        </div>
+                        <label :for="'cartype-' + type.value" class="cursor-pointer flex-1" for="cartype-economy">
+                            <span class="text-sm text-gray-700 dark:text-gray-300" x-text="type.name">Economy</span>
+                        </label>
+                    </div><div class="checkbox-item" bis_skin_checked="1">
+                        <div class="checkbox-container" bis_skin_checked="1">
+                            <input type="checkbox" :id="'cartype-' + type.value" class="checkbox-input" :value="type.value" x-model="selectedCarTypes" @change="applyFilters()" id="cartype-compact" value="compact">
+                            <div class="checkbox-custom" bis_skin_checked="1">
+                                <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                            </div>
+                        </div>
+                        <label :for="'cartype-' + type.value" class="cursor-pointer flex-1" for="cartype-compact">
+                            <span class="text-sm text-gray-700 dark:text-gray-300" x-text="type.name">Compact</span>
+                        </label>
+                    </div><div class="checkbox-item" bis_skin_checked="1">
+                        <div class="checkbox-container" bis_skin_checked="1">
+                            <input type="checkbox" :id="'cartype-' + type.value" class="checkbox-input" :value="type.value" x-model="selectedCarTypes" @change="applyFilters()" id="cartype-midsize" value="midsize">
+                            <div class="checkbox-custom" bis_skin_checked="1">
+                                <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                            </div>
+                        </div>
+                        <label :for="'cartype-' + type.value" class="cursor-pointer flex-1" for="cartype-midsize">
+                            <span class="text-sm text-gray-700 dark:text-gray-300" x-text="type.name">Midsize</span>
+                        </label>
+                    </div><div class="checkbox-item" bis_skin_checked="1">
+                        <div class="checkbox-container" bis_skin_checked="1">
+                            <input type="checkbox" :id="'cartype-' + type.value" class="checkbox-input" :value="type.value" x-model="selectedCarTypes" @change="applyFilters()" id="cartype-fullsize" value="fullsize">
+                            <div class="checkbox-custom" bis_skin_checked="1">
+                                <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                            </div>
+                        </div>
+                        <label :for="'cartype-' + type.value" class="cursor-pointer flex-1" for="cartype-fullsize">
+                            <span class="text-sm text-gray-700 dark:text-gray-300" x-text="type.name">Fullsize</span>
+                        </label>
+                    </div><div class="checkbox-item" bis_skin_checked="1">
+                        <div class="checkbox-container" bis_skin_checked="1">
+                            <input type="checkbox" :id="'cartype-' + type.value" class="checkbox-input" :value="type.value" x-model="selectedCarTypes" @change="applyFilters()" id="cartype-suv" value="suv">
+                            <div class="checkbox-custom" bis_skin_checked="1">
+                                <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                            </div>
+                        </div>
+                        <label :for="'cartype-' + type.value" class="cursor-pointer flex-1" for="cartype-suv">
+                            <span class="text-sm text-gray-700 dark:text-gray-300" x-text="type.name">SUV</span>
+                        </label>
+                    </div><div class="checkbox-item" bis_skin_checked="1">
+                        <div class="checkbox-container" bis_skin_checked="1">
+                            <input type="checkbox" :id="'cartype-' + type.value" class="checkbox-input" :value="type.value" x-model="selectedCarTypes" @change="applyFilters()" id="cartype-luxury" value="luxury">
+                            <div class="checkbox-custom" bis_skin_checked="1">
+                                <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                            </div>
+                        </div>
+                        <label :for="'cartype-' + type.value" class="cursor-pointer flex-1" for="cartype-luxury">
+                            <span class="text-sm text-gray-700 dark:text-gray-300" x-text="type.name">Luxury</span>
+                        </label>
+                    </div><div class="checkbox-item" bis_skin_checked="1">
+                        <div class="checkbox-container" bis_skin_checked="1">
+                            <input type="checkbox" :id="'cartype-' + type.value" class="checkbox-input" :value="type.value" x-model="selectedCarTypes" @change="applyFilters()" id="cartype-van" value="van">
+                            <div class="checkbox-custom" bis_skin_checked="1">
+                                <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                            </div>
+                        </div>
+                        <label :for="'cartype-' + type.value" class="cursor-pointer flex-1" for="cartype-van">
+                            <span class="text-sm text-gray-700 dark:text-gray-300" x-text="type.name">Van</span>
+                        </label>
+                    </div><div class="checkbox-item" bis_skin_checked="1">
+                        <div class="checkbox-container" bis_skin_checked="1">
+                            <input type="checkbox" :id="'cartype-' + type.value" class="checkbox-input" :value="type.value" x-model="selectedCarTypes" @change="applyFilters()" id="cartype-convertible" value="convertible">
+                            <div class="checkbox-custom" bis_skin_checked="1">
+                                <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                            </div>
+                        </div>
+                        <label :for="'cartype-' + type.value" class="cursor-pointer flex-1" for="cartype-convertible">
+                            <span class="text-sm text-gray-700 dark:text-gray-300" x-text="type.name">Convertible</span>
+                        </label>
+                    </div>
+            </div>
+        </div>
+
+
+Transmission:  <div x-show="open.transmission" x-transition="" class="px-3 pb-3 space-y-2" bis_skin_checked="1">
+                <div class="checkbox-item" bis_skin_checked="1">
+                    <div class="checkbox-container" bis_skin_checked="1">
+                        <input type="checkbox" id="trans-auto" class="checkbox-input" value="automatic" x-model="selectedTransmission" @change="applyFilters()">
+                        <div class="checkbox-custom" bis_skin_checked="1">
+                            <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                        </div>
+                    </div>
+                    <label for="trans-auto" class="cursor-pointer flex-1">
+                        <span class="text-sm text-gray-700 dark:text-gray-300">Automatic</span>
+                    </label>
+                </div>
+                <div class="checkbox-item" bis_skin_checked="1">
+                    <div class="checkbox-container" bis_skin_checked="1">
+                        <input type="checkbox" id="trans-manual" class="checkbox-input" value="manual" x-model="selectedTransmission" @change="applyFilters()">
+                        <div class="checkbox-custom" bis_skin_checked="1">
+                            <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                        </div>
+                    </div>
+                    <label for="trans-manual" class="cursor-pointer flex-1">
+                        <span class="text-sm text-gray-700 dark:text-gray-300">Manual</span>
+                    </label>
+                </div>
+            </div>
+
+Passengers:  <div x-show="open.passengers" x-transition="" class="px-3 pb-3 space-y-2" bis_skin_checked="1">
+                <template x-for="capacity in passengerCapacities" :key="capacity">
+                    <div class="checkbox-item">
+                        <div class="checkbox-container">
+                            <input type="checkbox" :id="'pass-' + capacity" class="checkbox-input" :value="capacity" x-model="selectedPassengers" @change="applyFilters()">
+                            <div class="checkbox-custom">
+                                <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                            </div>
+                        </div>
+                        <label :for="'pass-' + capacity" class="cursor-pointer flex-1">
+                            <span class="text-sm text-gray-700 dark:text-gray-300" x-text="capacity + '+ Passengers'"></span>
+                        </label>
+                    </div>
+                </template><div class="checkbox-item" bis_skin_checked="1">
+                        <div class="checkbox-container" bis_skin_checked="1">
+                            <input type="checkbox" :id="'pass-' + capacity" class="checkbox-input" :value="capacity" x-model="selectedPassengers" @change="applyFilters()" id="pass-2" value="2">
+                            <div class="checkbox-custom" bis_skin_checked="1">
+                                <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                            </div>
+                        </div>
+                        <label :for="'pass-' + capacity" class="cursor-pointer flex-1" for="pass-2">
+                            <span class="text-sm text-gray-700 dark:text-gray-300" x-text="capacity + '+ Passengers'">2+ Passengers</span>
+                        </label>
+                    </div><div class="checkbox-item" bis_skin_checked="1">
+                        <div class="checkbox-container" bis_skin_checked="1">
+                            <input type="checkbox" :id="'pass-' + capacity" class="checkbox-input" :value="capacity" x-model="selectedPassengers" @change="applyFilters()" id="pass-4" value="4">
+                            <div class="checkbox-custom" bis_skin_checked="1">
+                                <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                            </div>
+                        </div>
+                        <label :for="'pass-' + capacity" class="cursor-pointer flex-1" for="pass-4">
+                            <span class="text-sm text-gray-700 dark:text-gray-300" x-text="capacity + '+ Passengers'">4+ Passengers</span>
+                        </label>
+                    </div><div class="checkbox-item" bis_skin_checked="1">
+                        <div class="checkbox-container" bis_skin_checked="1">
+                            <input type="checkbox" :id="'pass-' + capacity" class="checkbox-input" :value="capacity" x-model="selectedPassengers" @change="applyFilters()" id="pass-5" value="5">
+                            <div class="checkbox-custom" bis_skin_checked="1">
+                                <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                            </div>
+                        </div>
+                        <label :for="'pass-' + capacity" class="cursor-pointer flex-1" for="pass-5">
+                            <span class="text-sm text-gray-700 dark:text-gray-300" x-text="capacity + '+ Passengers'">5+ Passengers</span>
+                        </label>
+                    </div><div class="checkbox-item" bis_skin_checked="1">
+                        <div class="checkbox-container" bis_skin_checked="1">
+                            <input type="checkbox" :id="'pass-' + capacity" class="checkbox-input" :value="capacity" x-model="selectedPassengers" @change="applyFilters()" id="pass-7" value="7">
+                            <div class="checkbox-custom" bis_skin_checked="1">
+                                <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                            </div>
+                        </div>
+                        <label :for="'pass-' + capacity" class="cursor-pointer flex-1" for="pass-7">
+                            <span class="text-sm text-gray-700 dark:text-gray-300" x-text="capacity + '+ Passengers'">7+ Passengers</span>
+                        </label>
+                    </div>
+            </div>
+
+<select x-model="sortBy" @change="sortAndFilterResults()" class="select" fdprocessedid="e3vhyu">
+                                        <option value="" disabled="" selected="">Sort by...</option>
+                                        <option value="price_low">Price: low To high</option>
+                                        <option value="price_high">Price: high To low</option>
+                                        <option value="name_asc">Name: A-Z</option>
+                                        <option value="name_desc">Name: Z-A</option>
+                                    </select>
+
+
+Book Now: <button type="button" id="book-btn-d7c3aec51d96f085801777c64ca423ea" onclick="window.bookCar({&quot;id&quot;:&quot;d7c3aec51d96f085801777c64ca423ea-cartrawler-0&quot;,&quot;original_id&quot;:&quot;d7c3aec51d96f085801777c64ca423ea&quot;,&quot;name&quot;:&quot;Citroen C3 or similar&quot;,&quot;category&quot;:&quot;Car&quot;,&quot;car_type&quot;:&quot;Car&quot;,&quot;image&quot;:&quot;https://ctimg-fleet.cartrawler.com/citroen/c3/primary.png&quot;,&quot;images&quot;:[&quot;https://ctimg-fleet.cartrawler.com/citroen/c3/primary.png&quot;],&quot;vendor&quot;:&quot;RENT GO&quot;,&quot;vendor_code&quot;:&quot;5850&quot;,&quot;transmission&quot;:&quot;Manual&quot;,&quot;fuel_type&quot;:&quot;Unspecified&quot;,&quot;passengers&quot;:5,&quot;baggage&quot;:2,&quot;bags&quot;:2,&quot;doors&quot;:5,&quot;air_conditioning&quot;:true,&quot;ac&quot;:true,&quot;price&quot;:318.08,&quot;total_price&quot;:318.08,&quot;display_price&quot;:318.08,&quot;price_per_day&quot;:318.08,&quot;display_price_per_day&quot;:318.08,&quot;actual_price&quot;:318.08,&quot;actual_price_per_day&quot;:318.08,&quot;currency&quot;:&quot;USD&quot;,&quot;rental_days&quot;:1,&quot;supplier&quot;:&quot;cartrawler&quot;,&quot;supplier_name&quot;:&quot;cartrawler&quot;,&quot;color&quot;:&quot;#FF6B35&quot;,&quot;unlimited_mileage&quot;:false,&quot;free_cancellation&quot;:false,&quot;inclusions&quot;:[],&quot;features&quot;:[],&quot;fuel_policy&quot;:&quot;Full to Full&quot;,&quot;pickup_location&quot;:&quot;AYT&quot;,&quot;dropoff_location&quot;:&quot;GZT&quot;,&quot;reference_id&quot;:&quot;1243678285&quot;,&quot;car_id&quot;:&quot;d7c3aec51d96f085801777c64ca423ea&quot;,&quot;booking_url&quot;:&quot;&quot;,&quot;_raw&quot;:{&quot;vehicle_id&quot;:&quot;d7c3aec51d96f085801777c64ca423ea&quot;,&quot;reference_id&quot;:&quot;1243678285&quot;,&quot;name&quot;:&quot;Citroen C3 or similar&quot;,&quot;category&quot;:&quot;Car&quot;,&quot;img&quot;:&quot;https://ctimg-fleet.cartrawler.com/citroen/c3/primary.png&quot;,&quot;vendor&quot;:&quot;RENT GO&quot;,&quot;vendor_code&quot;:&quot;5850&quot;,&quot;transmission&quot;:&quot;Manual&quot;,&quot;fuel_type&quot;:&quot;Unspecified&quot;,&quot;passengers&quot;:5,&quot;baggage&quot;:2,&quot;doors&quot;:5,&quot;air_conditioning&quot;:true,&quot;display_price&quot;:318.08,&quot;display_price_per_day&quot;:318.08,&quot;actual_price&quot;:318.08,&quot;actual_price_per_day&quot;:318.08,&quot;actual_price_details&quot;:{&quot;price&quot;:318.08,&quot;markup&quot;:28.92,&quot;markup_percentage&quot;:10,&quot;markup_type&quot;:&quot;percentage&quot;,&quot;markup_value&quot;:10,&quot;base_price&quot;:289.16,&quot;converted_base_price&quot;:289.16},&quot;currency&quot;:&quot;USD&quot;,&quot;original_currency&quot;:&quot;USD&quot;,&quot;original_price&quot;:289.16,&quot;rental_days&quot;:1,&quot;pickup_location&quot;:&quot;AYT&quot;,&quot;dropoff_location&quot;:&quot;GZT&quot;,&quot;pickup_datetime&quot;:&quot;2026-05-15T10:00:00&quot;,&quot;dropoff_datetime&quot;:&quot;2026-05-16T10:00:00&quot;,&quot;supplier&quot;:&quot;cartrawler&quot;,&quot;supplier_name&quot;:&quot;cartrawler&quot;,&quot;supplier_id&quot;:&quot;18&quot;,&quot;color&quot;:&quot;#FF6B35&quot;}}, window.searchParams || {})" class="btn flex items-center justify-center gap-2 min-w-[120px]">
+                            <span class="material-symbols-outlined text-lg">shopping_cart</span>
+                            <span>Book Now</span>
+                        </button>
+
+
+
+Користувач вже має бути залогований!!!! має вже бути у своему акаунті
+
+далі
+Payment Methods:  <div class="card-body" x-show="!paymentCollapsed" x-collapse="" bis_skin_checked="1">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3" bis_skin_checked="1">
+                                <!-- ============================================================================ -->
+                    <!-- PAYMENT GATEWAY OPTION - INDIVIDUAL RADIO ITEM -->
+                    <!-- ============================================================================ -->
+                    <div class="radio-item" bis_skin_checked="1">
+                        <div class="w-full border rounded-lg p-2 pb-2 transition-all duration-200 cursor-pointer hover:border-primary-500 hover:bg-slate-50 border-gray-200 hover:border-gray-300 bg-white" :class="formData.selected_payment === '6' ? 'border-blue-500 bg-blue-50 shadow-sm ring-1 ring-blue-200' : 'border-gray-200 hover:border-gray-300 bg-white'" @click="formData.selected_payment = '6'" bis_skin_checked="1">
+                            <div class="flex items-center justify-between" bis_skin_checked="1">
+                                <div class="flex items-center flex-1" bis_skin_checked="1">
+                                    <!-- CUSTOM RADIO BUTTON -->
+                                    <div class="radio-container mx-3" bis_skin_checked="1">
+                                        <input type="radio" id="payment_6" name="payment" class="radio-input" value="6" x-model="formData.selected_payment" checked="">
+                                        <div class="radio-custom border-gray-300" :class="formData.selected_payment === '6' ? 'border-blue-500' : 'border-gray-300'" bis_skin_checked="1">
+                                            <div class="radio-dot" :class="formData.selected_payment === '6' ? '!bg-blue-500' : ''" bis_skin_checked="1"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- GATEWAY TYPE AND NAME -->
+                                    <div class="flex-1" bis_skin_checked="1">
+                                                                                    <label for="payment_6" class="cursor-pointer block">
+                                                <div class="font-semibold text-gray-900 text-base" bis_skin_checked="1">
+                                                    Pay Later                                                </div>
+                                            </label>
+                                            <div class="text-sm text-gray-600 mt-0" bis_skin_checked="1">
+                                                Pay Later                                            </div>
+                                                                                                                    </div>
+                                </div>
+
+                                <!-- GATEWAY ICON -->
+                                <div class="flex items-center me-3" bis_skin_checked="1">
+                                    <span class="material-symbols-outlined text-2xl text-gray-400">payment</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <!-- ============================================================================ -->
+                    <!-- PAYMENT GATEWAY OPTION - INDIVIDUAL RADIO ITEM -->
+                    <!-- ============================================================================ -->
+                    <div class="radio-item" bis_skin_checked="1">
+                        <div class="w-full border rounded-lg p-2 pb-2 transition-all duration-200 cursor-pointer hover:border-primary-500 hover:bg-slate-50 border-gray-200 hover:border-gray-300 bg-white" :class="formData.selected_payment === '3' ? 'border-blue-500 bg-blue-50 shadow-sm ring-1 ring-blue-200' : 'border-gray-200 hover:border-gray-300 bg-white'" @click="formData.selected_payment = '3'" bis_skin_checked="1">
+                            <div class="flex items-center justify-between" bis_skin_checked="1">
+                                <div class="flex items-center flex-1" bis_skin_checked="1">
+                                    <!-- CUSTOM RADIO BUTTON -->
+                                    <div class="radio-container mx-3" bis_skin_checked="1">
+                                        <input type="radio" id="payment_3" name="payment" class="radio-input" value="3" x-model="formData.selected_payment" checked="">
+                                        <div class="radio-custom border-gray-300" :class="formData.selected_payment === '3' ? 'border-blue-500' : 'border-gray-300'" bis_skin_checked="1">
+                                            <div class="radio-dot" :class="formData.selected_payment === '3' ? '!bg-blue-500' : ''" bis_skin_checked="1"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- GATEWAY TYPE AND NAME -->
+                                    <div class="flex-1" bis_skin_checked="1">
+                                                                                    <label for="payment_3" class="cursor-pointer block">
+                                                <div class="font-semibold text-gray-900 text-base" bis_skin_checked="1">
+                                                    Digital Wallet                                                </div>
+                                            </label>
+                                            <div class="text-sm text-gray-600 mt-0" bis_skin_checked="1">
+                                                PayPal                                            </div>
+                                                                                                                    </div>
+                                </div>
+
+                                <!-- GATEWAY ICON -->
+                                <div class="flex items-center me-3" bis_skin_checked="1">
+                                    <span class="material-symbols-outlined text-2xl text-gray-400">payment</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <!-- ============================================================================ -->
+                    <!-- PAYMENT GATEWAY OPTION - INDIVIDUAL RADIO ITEM -->
+                    <!-- ============================================================================ -->
+                    <div class="radio-item" bis_skin_checked="1">
+                        <div class="w-full border rounded-lg p-2 pb-2 transition-all duration-200 cursor-pointer hover:border-primary-500 hover:bg-slate-50 border-gray-200 hover:border-gray-300 bg-white" :class="formData.selected_payment === '7' ? 'border-blue-500 bg-blue-50 shadow-sm ring-1 ring-blue-200' : 'border-gray-200 hover:border-gray-300 bg-white'" @click="formData.selected_payment = '7'" bis_skin_checked="1">
+                            <div class="flex items-center justify-between" bis_skin_checked="1">
+                                <div class="flex items-center flex-1" bis_skin_checked="1">
+                                    <!-- CUSTOM RADIO BUTTON -->
+                                    <div class="radio-container mx-3" bis_skin_checked="1">
+                                        <input type="radio" id="payment_7" name="payment" class="radio-input" value="7" x-model="formData.selected_payment" checked="">
+                                        <div class="radio-custom border-gray-300" :class="formData.selected_payment === '7' ? 'border-blue-500' : 'border-gray-300'" bis_skin_checked="1">
+                                            <div class="radio-dot" :class="formData.selected_payment === '7' ? '!bg-blue-500' : ''" bis_skin_checked="1"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- GATEWAY TYPE AND NAME -->
+                                    <div class="flex-1" bis_skin_checked="1">
+                                                                                    <label for="payment_7" class="cursor-pointer block">
+                                                <div class="font-semibold text-gray-900 text-base" bis_skin_checked="1">
+                                                    Credit Card                                                </div>
+                                            </label>
+                                            <div class="text-sm text-gray-600 mt-0" bis_skin_checked="1">
+                                                Stripe                                            </div>
+                                                                                                                    </div>
+                                </div>
+
+                                <!-- GATEWAY ICON -->
+                                <div class="flex items-center me-3" bis_skin_checked="1">
+                                    <span class="material-symbols-outlined text-2xl text-gray-400">payment</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <!-- ============================================================================ -->
+                    <!-- PAYMENT GATEWAY OPTION - INDIVIDUAL RADIO ITEM -->
+                    <!-- ============================================================================ -->
+                    <div class="radio-item" bis_skin_checked="1">
+                        <div class="w-full border rounded-lg p-2 pb-2 transition-all duration-200 cursor-pointer hover:border-primary-500 hover:bg-slate-50 border-gray-200 hover:border-gray-300 bg-white" :class="formData.selected_payment === '10' ? 'border-blue-500 bg-blue-50 shadow-sm ring-1 ring-blue-200' : 'border-gray-200 hover:border-gray-300 bg-white'" @click="formData.selected_payment = '10'" bis_skin_checked="1">
+                            <div class="flex items-center justify-between" bis_skin_checked="1">
+                                <div class="flex items-center flex-1" bis_skin_checked="1">
+                                    <!-- CUSTOM RADIO BUTTON -->
+                                    <div class="radio-container mx-3" bis_skin_checked="1">
+                                        <input type="radio" id="payment_10" name="payment" class="radio-input" value="10" x-model="formData.selected_payment" checked="">
+                                        <div class="radio-custom border-gray-300" :class="formData.selected_payment === '10' ? 'border-blue-500' : 'border-gray-300'" bis_skin_checked="1">
+                                            <div class="radio-dot" :class="formData.selected_payment === '10' ? '!bg-blue-500' : ''" bis_skin_checked="1"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- GATEWAY TYPE AND NAME -->
+                                    <div class="flex-1" bis_skin_checked="1">
+                                                                                    <label for="payment_10" class="cursor-pointer block">
+                                                <div class="font-semibold text-gray-900 text-base" bis_skin_checked="1">
+                                                    Internal Wallet                                                </div>
+                                            </label>
+                                            <div class="text-sm text-gray-600 mt-0" bis_skin_checked="1">
+                                                Wallet Balance                                            </div>
+                                                                                                                    </div>
+                                </div>
+
+                                <!-- GATEWAY ICON -->
+                                <div class="flex items-center me-3" bis_skin_checked="1">
+                                    <span class="material-symbols-outlined text-2xl text-gray-400">payment</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <!-- ============================================================================ -->
+                    <!-- PAYMENT GATEWAY OPTION - INDIVIDUAL RADIO ITEM -->
+                    <!-- ============================================================================ -->
+                    <div class="radio-item" bis_skin_checked="1">
+                        <div class="w-full border rounded-lg p-2 pb-2 transition-all duration-200 cursor-pointer hover:border-primary-500 hover:bg-slate-50 border-gray-200 hover:border-gray-300 bg-white" :class="formData.selected_payment === '5' ? 'border-blue-500 bg-blue-50 shadow-sm ring-1 ring-blue-200' : 'border-gray-200 hover:border-gray-300 bg-white'" @click="formData.selected_payment = '5'" bis_skin_checked="1">
+                            <div class="flex items-center justify-between" bis_skin_checked="1">
+                                <div class="flex items-center flex-1" bis_skin_checked="1">
+                                    <!-- CUSTOM RADIO BUTTON -->
+                                    <div class="radio-container mx-3" bis_skin_checked="1">
+                                        <input type="radio" id="payment_5" name="payment" class="radio-input" value="5" x-model="formData.selected_payment" checked="">
+                                        <div class="radio-custom border-gray-300" :class="formData.selected_payment === '5' ? 'border-blue-500' : 'border-gray-300'" bis_skin_checked="1">
+                                            <div class="radio-dot" :class="formData.selected_payment === '5' ? '!bg-blue-500' : ''" bis_skin_checked="1"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- GATEWAY TYPE AND NAME -->
+                                    <div class="flex-1" bis_skin_checked="1">
+                                                                                    <label for="payment_5" class="cursor-pointer block">
+                                                <div class="font-semibold text-gray-900 text-base" bis_skin_checked="1">
+                                                    Bank Transfer                                                </div>
+                                            </label>
+                                            <div class="text-sm text-gray-600 mt-0" bis_skin_checked="1">
+                                                Wire Transfer                                            </div>
+                                                                                                                    </div>
+                                </div>
+
+                                <!-- GATEWAY ICON -->
+                                <div class="flex items-center me-3" bis_skin_checked="1">
+                                    <span class="material-symbols-outlined text-2xl text-gray-400">payment</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <!-- ============================================================================ -->
+                    <!-- PAYMENT GATEWAY OPTION - INDIVIDUAL RADIO ITEM -->
+                    <!-- ============================================================================ -->
+                    <div class="radio-item" bis_skin_checked="1">
+                        <div class="w-full border rounded-lg p-2 pb-2 transition-all duration-200 cursor-pointer hover:border-primary-500 hover:bg-slate-50 border-gray-200 hover:border-gray-300 bg-white" :class="formData.selected_payment === '22' ? 'border-blue-500 bg-blue-50 shadow-sm ring-1 ring-blue-200' : 'border-gray-200 hover:border-gray-300 bg-white'" @click="formData.selected_payment = '22'" bis_skin_checked="1">
+                            <div class="flex items-center justify-between" bis_skin_checked="1">
+                                <div class="flex items-center flex-1" bis_skin_checked="1">
+                                    <!-- CUSTOM RADIO BUTTON -->
+                                    <div class="radio-container mx-3" bis_skin_checked="1">
+                                        <input type="radio" id="payment_22" name="payment" class="radio-input" value="22" x-model="formData.selected_payment">
+                                        <div class="radio-custom border-gray-300" :class="formData.selected_payment === '22' ? 'border-blue-500' : 'border-gray-300'" bis_skin_checked="1">
+                                            <div class="radio-dot" :class="formData.selected_payment === '22' ? '!bg-blue-500' : ''" bis_skin_checked="1"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- GATEWAY TYPE AND NAME -->
+                                    <div class="flex-1" bis_skin_checked="1">
+                                                                                    <label for="payment_22" class="cursor-pointer block">
+                                                <div class="font-semibold text-gray-900 text-base" bis_skin_checked="1">
+                                                    Internal Wallet                                                </div>
+                                            </label>
+                                            <div class="text-sm text-gray-600 mt-0" bis_skin_checked="1">
+                                                Credits                                            </div>
+                                                                                                                    </div>
+                                </div>
+
+                                <!-- GATEWAY ICON -->
+                                <div class="flex items-center me-3" bis_skin_checked="1">
+                                    <span class="material-symbols-outlined text-2xl text-gray-400">payment</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <!-- ============================================================================ -->
+                    <!-- PAYMENT GATEWAY OPTION - INDIVIDUAL RADIO ITEM -->
+                    <!-- ============================================================================ -->
+                    <div class="radio-item" bis_skin_checked="1">
+                        <div class="w-full border rounded-lg p-2 pb-2 transition-all duration-200 cursor-pointer hover:border-primary-500 hover:bg-slate-50 border-gray-200 hover:border-gray-300 bg-white" :class="formData.selected_payment === '25' ? 'border-blue-500 bg-blue-50 shadow-sm ring-1 ring-blue-200' : 'border-gray-200 hover:border-gray-300 bg-white'" @click="formData.selected_payment = '25'" bis_skin_checked="1">
+                            <div class="flex items-center justify-between" bis_skin_checked="1">
+                                <div class="flex items-center flex-1" bis_skin_checked="1">
+                                    <!-- CUSTOM RADIO BUTTON -->
+                                    <div class="radio-container mx-3" bis_skin_checked="1">
+                                        <input type="radio" id="payment_25" name="payment" class="radio-input" value="25" x-model="formData.selected_payment">
+                                        <div class="radio-custom border-gray-300" :class="formData.selected_payment === '25' ? 'border-blue-500' : 'border-gray-300'" bis_skin_checked="1">
+                                            <div class="radio-dot" :class="formData.selected_payment === '25' ? '!bg-blue-500' : ''" bis_skin_checked="1"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- GATEWAY TYPE AND NAME -->
+                                    <div class="flex-1" bis_skin_checked="1">
+                                                                                    <label for="payment_25" class="cursor-pointer block">
+                                                <div class="font-semibold text-gray-900 text-base" bis_skin_checked="1">
+                                                    Credit Card                                                </div>
+                                            </label>
+                                            <div class="text-sm text-gray-600 mt-0" bis_skin_checked="1">
+                                                Fawaterak                                            </div>
+                                                                                                                    </div>
+                                </div>
+
+                                <!-- GATEWAY ICON -->
+                                <div class="flex items-center me-3" bis_skin_checked="1">
+                                    <span class="material-symbols-outlined text-2xl text-gray-400">payment</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                        </div>
+    </div>
+
+
+I agree ...: <div class="checkbox-item" bis_skin_checked="1">
+                                <div class="checkbox-container" bis_skin_checked="1">
+                                    <input type="checkbox" id="terms_accepted" x-model="formData.terms_accepted" class="checkbox-input" required="">
+                                    <div class="checkbox-custom" bis_skin_checked="1">
+                                        <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                                    </div>
+                                </div>
+                                <label for="terms_accepted" class="cursor-pointer text-sm text-gray-700 dark:text-gray-300">
+                                    I agree to the                                    <a href="https://phptravels.net/terms" target="_blank" class="text-blue-600 hover:underline">Terms &amp; Conditions</a>
+                                    and                                    <a href="https://phptravels.net/privacy" target="_blank" class="text-blue-600 hover:underline">Privacy Policy</a>
+                                </label>
+                            </div>
+
+Confirm Booking: <button type="submit" class="btn w-full mt-6" :disabled="submitting || !formData.terms_accepted" :class="{ 'opacity-50 cursor-not-allowed': !formData.terms_accepted }">
+                            <span x-show="!submitting" class="material-symbols-outlined">lock</span>
+                            <span x-show="submitting" class="material-symbols-outlined animate-spin" style="display: none;">progress_activity</span>
+                            <span x-show="!submitting">Confirm Booking</span>
+                            <span x-show="submitting" style="display: none;">Processing......</span>
+                        </button>
+
+как зайти на страничку кар : 
+<span class="material-symbols-outlined !text-[18px] transition-transform group-hover:rotate-180">expand_more</span>
+
+<div class="absolute top-full left-0 mt-2 w-52 rounded-lg border border-gray-200 bg-white p-1.5 shadow-xl opacity-0 invisible translate-y-[-8px] transition-all duration-200 ease-out group-hover:opacity-100 group-hover:visible group-hover:translate-y-0" bis_skin_checked="1">
+                                    <a href="https://phptravels.net/visa" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Visa Booking</span>
+                  </a>
+                                    <a href="https://phptravels.net/flights" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Flights Booking</span>
+                  </a>
+                                    <a href="https://phptravels.net/tours" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Tours Booking</span>
+                  </a>
+                                    <a href="https://phptravels.net/cars" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Cars Booking</span>
+                  </a>
+                                    <a href="https://phptravels.net/stays" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Stays Booking</span>
+                  </a>
+                                  </div>
+
+
+вот куда в меню нажимать надо <a href="https://phptravels.net/cars" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Cars Booking</span>
+                  </a>
+
+
+
+
+
+
+

@@ -1,0 +1,2993 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)https://phptravels.net/login -->
+<html lang="en" dir="ltr"><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="{&quot;blacklistIframeSrc&quot;:[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//www.google.com/recaptcha/enterprise/anchor&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;,&quot;//www.ukrnafta.com/data/map/&quot;,&quot;//maps.google.com/maps&quot;,&quot;//www.openstreetmap.org/export/embed.html&quot;,&quot;//www.google.com/maps/d/u/3/embed&quot;,&quot;//itm.ebaydesc.com/itmdesc&quot;,&quot;//books.google.com/books&quot;,&quot;//embed.podcasts.apple.com&quot;,&quot;//www.paypal.com/smartchat&quot;,&quot;//www.centurylink.com/assets/includes/common/sfChatiFrame.html&quot;,&quot;//macmillan-prod-gen.ada.support/embed&quot;,&quot;//macmillan-prod-gen.ada.support/chat&quot;,&quot;//ctl-consumer.my.site.com/&quot;],&quot;whitelistDomainsForPostBody&quot;:[&quot;youtube.com&quot;]}" data-dynamic-id="c7d04138-df60-4928-bc5c-a27c93ff0ef7" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/200.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <meta name="csrf-token" content="6ffdea0eb46dc064518e7623090341a1ef9f4b2e0132a157022e82766114c82c">
+    <link rel="shortcut icon" href="https://phptravels.net/uploads/global/favicon.png">
+
+    <!-- Page Loader (inline for instant render before any content) -->
+    <style>.page-loader{position:fixed;inset:0;background:#fff;z-index:999999;display:flex;align-items:center;justify-content:center;transition:opacity .3s ease-in-out}.page-loader.hide{opacity:0;pointer-events:none}.page-loader div{width:24px;height:24px;border:2px solid #e5e7eb;border-top-color:#3b82f6;border-radius:50%;animation:spin .3s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}</style>
+
+    <!-- Tailwind CDN -->
+    <script src="./Login_files/saved_resource" data-cfasync="false"></script>
+
+    <script src="./Login_files/tailwind.js.Без названия" type="text/javascript"></script>
+    <script src="./Login_files/app.js.Без названия" type="text/javascript"></script>
+    <link href="./Login_files/css2" rel="stylesheet">
+    <script defer="" src="./Login_files/cdn.min.js.Без названия" type="text/javascript"></script>
+    <script src="./Login_files/jquery-3.7.1.min.js.Без названия" data-cfasync="false"></script>
+    <link rel="stylesheet" href="./Login_files/app.css">
+    
+<!-- Load Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./Login_files/css2(1)" rel="stylesheet">
+<script type="text/javascript">
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    // Foreground colors
+                    foreground: '#111827',
+                    
+                    // Primary colors
+                    primary: {
+                        DEFAULT: '#3b82f6',
+                        foreground: '#ffffff',
+                        50: '#eff6ff',
+                        100: '#dbeafe',
+                        200: '#bfdbfe',
+                        300: '#93c5fd',
+                        400: '#60a5fa',
+                        500: '#3b82f6',
+                        600: '#2563eb',
+                        700: '#1d4ed8',
+                        800: '#1e40af',
+                        900: '#1e3a8a',
+                        950: '#172554'
+                    },
+                    
+                    // Secondary colors
+                    secondary: {
+                        DEFAULT: '#6b7280',
+                        foreground: '#ffffff',
+                    },
+                    
+                    // Background colors
+                    background: '#ffffff',
+                    
+                    // Border colors
+                    border: '#e5e7eb',
+                    
+                    // Muted colors
+                    muted: {
+                        DEFAULT: '#f3f4f6',
+                        foreground: '#6b7280',
+                    },
+                    
+                    // Accent colors
+                    accent: {
+                        DEFAULT: '#f3f4f6',
+                        foreground: '#111827',
+                    },
+                    
+                    // Card colors
+                    card: {
+                        DEFAULT: '#ffffff',
+                        foreground: '#111827'
+                    },
+                    
+                    // Custom brand colors
+                    brand: {
+                        light: '#ebf5ff',
+                        DEFAULT: '#3b82f6',
+                        dark: '#1e40af'
+                    }
+                },
+                
+                // Text colors shorthand
+                textColor: {
+                    foreground: '#111827',
+                },
+                
+                // Background colors shorthand
+                backgroundColor: {
+                    background: '#ffffff',
+                    secondary: '#6b7280',
+                }
+            }
+        }
+    }
+</script>
+
+<script type="text/javascript">
+// Global checkbox functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle clicks on custom checkbox elements
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.checkbox-custom')) {
+            const customCheckbox = e.target.closest('.checkbox-custom');
+            const container = customCheckbox.closest('.checkbox-container');
+            const input = container.querySelector('.checkbox-input');
+
+            if (input && !input.disabled) {
+                input.checked = !input.checked;
+                // Trigger change event for proper AlpineJS reactivity
+                input.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+        }
+    });
+});
+</script>
+
+<style>
+:root {
+    /* Typography */
+    --font-family: 'Inter', sans-serif;
+    --font-size-base: 16px;
+    --line-height: 1.5;
+
+    /* Header Variables */
+    --header-height: 64px;
+    --header-font-size: 14px;
+    --header-background: #ffffff;
+    --header-text-color: #1f2937;
+    --header-link-color: #717c8e;
+    --header-link-hover-color: #2563eb;
+    --header-border-color: #e5e7eb;
+    --header-border-width: 1px;
+    --header-padding-x: 16px;
+    --header-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+
+    /* Footer Variables */
+    --footer-font-size: 14px;
+    --footer-background: #ffffff;
+    --footer-text-color: #9ca3af;
+    --footer-heading-color: #ffffff;
+    --footer-link-color: #60a5fa;
+    --footer-link-hover-color: #93c5fd;
+    --footer-border-color: #374151;
+    --footer-border-width: 1px;
+    --footer-padding-y: 30px;
+    --footer-padding-x: 16px;
+
+    /* Button Variables */
+    --btn-height: 40px;
+    --btn-padding-x: 16px;
+    --btn-padding-y: 8px;
+    --btn-font-size: 14px;
+    --btn-font-weight: 500;
+    --btn-border-radius: 8px;
+    --btn-border-width: 0px;
+    --btn-background: #0058e6;
+    --btn-background-hover: #104bcb;
+    --btn-text-color: #ffffff;
+    --btn-border-color: #0052d6;
+
+    /* Input Variables */
+    --input-height: 40px;
+    --input-padding-x: 12px;
+    --input-padding-y: 8px;
+    --input-font-size: 14px;
+    --input-font-weight: 400;
+    --input-border-radius: 8px;
+    --input-border-width: 1px;
+    --input-background: #ffffff;
+    --input-text-color: #1f2937;
+    --input-border-color: #c7c7c7;
+    --input-border-focus-color: #3b82f6;
+    --input-placeholder-color: #9ca3af;
+
+    /* Textarea Variables */
+    --textarea-min-height: 80px;
+    --textarea-padding-x: 12px;
+    --textarea-padding-y: 8px;
+    --textarea-font-size: 14px;
+    --textarea-font-weight: 400;
+    --textarea-border-radius: 8px;
+    --textarea-border-width: 1px;
+    --textarea-background: #ffffff;
+    --textarea-text-color: #1f2937;
+    --textarea-border-color: #c7c7c7;
+    --textarea-border-focus-color: #3b82f6;
+    --textarea-placeholder-color: #9ca3af;
+
+    /* Select Variables */
+    --select-height: 40px;
+    --select-padding-x: 12px;
+    --select-padding-y: 8px;
+    --select-font-size: 14px;
+    --select-font-weight: 400;
+    --select-border-radius: 8px;
+    --select-border-width: 1px;
+    --select-background: #ffffff;
+    --select-text-color: #1f2937;
+    --select-border-color: #c7c7c7;
+    --select-border-focus-color: #3b82f6;
+
+    /* Card Variables */
+    --card-padding: 20px;
+    --card-border-radius: 12px;
+    --card-border-width: 1px;
+    --card-background: #ffffff;
+    --card-border-color: #e0e0e0;
+    --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+
+    /* Checkbox Variables */
+    --checkbox-size: 16px;
+    --checkbox-border-radius: 4px;
+    --checkbox-border-width: 1px;
+    --checkbox-background: #ffffff;
+    --checkbox-background-checked: #3b82f6;
+    --checkbox-border-color: #aaadb1;
+    --checkbox-border-checked-color: #3b82f6;
+    --checkbox-checkmark-color: #ffffff;
+
+    /* Radio Variables */
+    --radio-size: 16px;
+    --radio-border-width: 1px;
+    --radio-background: #ffffff;
+    --radio-border-color: #e5e7eb;
+    --radio-border-checked-color: #3b82f6;
+    --radio-dot-color: #3b82f6;
+
+    /* Color Variables */
+    --color-primary: #3b82f6;
+    --color-secondary: #6b7280;
+    --color-success: #10b981;
+    --color-danger: #ef4444;
+    --color-warning: #f59e0b;
+    --color-info: #06b6d4;
+    --color-text: #1f2937;
+    --color-text-muted: #6b7280;
+    --color-background: #ffffff;
+    --color-background-muted: #f9fafb;
+    --color-border: #e5e7eb;
+
+    /* Legacy variables for backward compatibility */
+    --radius: 0.5rem;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --transition-default: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --color-brand: var(--color-primary);
+}
+
+/* Apply typography globally */
+body {
+    font-family: var(--font-family) !important;
+    font-size: var(--font-size-base) !important;
+    line-height: var(--line-height) !important;
+    color: var(--color-text) !important;
+}
+</style>
+
+<style type="text/tailwindcss">
+@layer components {
+    /* Layout Components */
+    .page-container {
+        @apply min-h-screen bg-white font-sans antialiased;
+    }
+
+    .container {
+        @apply mx-auto px-2 max-w-6xl;
+    }
+
+    .page-header {
+        @apply space-y-2 mb-8;
+    }
+
+    .page-header h1 {
+        @apply text-3xl font-bold tracking-tight text-gray-900;
+    }
+
+    .page-header p {
+        @apply text-gray-600;
+    }
+
+    /* Component Section */
+    .section {
+        @apply bg-slate-50 rounded-xl p-2 sm:p-6 border border-gray-200 mb-8;
+    }
+
+    .section-header {
+        @apply mb-6;
+    }
+
+    .section-header h2 {
+        @apply text-xl font-semibold tracking-tight text-gray-900;
+    }
+
+    .section-header p {
+        @apply text-sm text-gray-600 mt-1;
+    }
+
+    /* Component Demo */
+    .component-demo {
+        @apply space-y-3;
+    }
+
+    .component-title {
+        @apply text-sm font-medium text-gray-900;
+    }
+
+    .component-preview {
+        @apply space-y-3;
+    }
+
+    .section-tabs {
+        @apply mt-6 border-t border-gray-200 pt-4;
+    }
+
+    .section-tabs .tab-list {
+        @apply flex space-x-1;
+    }
+
+    .section-tabs .tab {
+        @apply inline-flex items-center justify-center rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-white transition-all focus-visible:outline-none hover:bg-gray-100 hover:text-gray-900 cursor-pointer text-gray-600;
+    }
+
+    .section-tabs .tab.active {
+        @apply bg-white text-gray-900 shadow-sm;
+    }
+
+    .section-tabs .tab-content {
+        @apply mt-2 hidden;
+    }
+
+    .section-tabs .tab-content.active {
+        @apply block;
+    }
+
+    .code-block {
+        @apply bg-gray-100 p-4 rounded-md text-sm overflow-x-auto text-gray-900 font-mono;
+    }
+
+    /* Form Components */
+    .form-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+    }
+
+    .form-control {
+        @apply space-y-2;
+    }
+
+    .form-control label {
+        @apply flex items-center space-x-1 gap-2 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-900;
+    }
+
+    .form-control i {
+        @apply text-sm text-slate-500;
+    }
+
+    .textarea {
+        @apply flex w-full resize-none transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none;
+        min-height: var(--textarea-min-height);
+        padding: var(--textarea-padding-y) var(--textarea-padding-x);
+        font-size: var(--textarea-font-size);
+        font-weight: var(--textarea-font-weight);
+        border-radius: var(--textarea-border-radius);
+        border-width: var(--textarea-border-width);
+        background-color: var(--textarea-background);
+        color: var(--textarea-text-color);
+        border-color: var(--textarea-border-color);
+    }
+
+    .textarea:hover:not(:disabled) {
+        border-color: var(--textarea-border-focus-color);
+        opacity: 0.8;
+    }
+
+    .textarea:focus {
+        border-color: var(--textarea-border-focus-color);
+    }
+
+    .textarea::placeholder {
+        color: var(--textarea-placeholder-color);
+    }
+
+    .select {
+        @apply w-full transition-colors duration-200 appearance-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 bg-no-repeat;
+        height: var(--select-height);
+        padding: var(--select-padding-y) var(--select-padding-x);
+        padding-right: 2.5rem;
+        font-size: var(--select-font-size);
+        font-weight: var(--select-font-weight);
+        border-radius: var(--select-border-radius);
+        border-width: var(--select-border-width);
+        background-color: var(--select-background);
+        color: var(--select-text-color);
+        border-color: var(--select-border-color);
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.75rem center;
+        background-size: 1.25em 1.25em;
+    }
+
+    .select:hover:not(:disabled) {
+        border-color: var(--select-border-focus-color);
+        opacity: 0.8;
+    }
+
+    .select:focus {
+        border-color: var(--select-border-focus-color);
+    }
+
+    /* Input with Icons */
+    .input-group {
+        @apply relative flex items-center;
+    }
+
+    .input-with-icon {
+        @apply flex w-full transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none;
+        height: var(--input-height);
+        padding: var(--input-padding-y) var(--input-padding-x);
+        padding-left: 2.5rem;
+        font-size: var(--input-font-size);
+        font-weight: var(--input-font-weight);
+        border-radius: var(--input-border-radius);
+        border-width: var(--input-border-width);
+        background-color: var(--input-background);
+        color: var(--input-text-color);
+        border-color: var(--input-border-color);
+    }
+
+    .input-with-icon:hover:not(:disabled) {
+        border-color: var(--input-border-focus-color);
+        opacity: 0.8;
+    }
+
+    .input-with-icon:focus {
+        border-color: var(--input-border-focus-color);
+    }
+
+    .input-with-icon::placeholder {
+        color: var(--input-placeholder-color);
+    }
+
+    .input {
+        @apply flex w-full transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none;
+        height: var(--input-height);
+        padding: var(--input-padding-y) var(--input-padding-x);
+        font-size: var(--input-font-size);
+        font-weight: var(--input-font-weight);
+        border-radius: var(--input-border-radius);
+        border-width: var(--input-border-width);
+        background-color: var(--input-background);
+        color: var(--input-text-color);
+        border-color: var(--input-border-color);
+    }
+
+    .input:hover:not(:disabled) {
+        border-color: var(--input-border-focus-color);
+        opacity: 0.8;
+    }
+
+    .input:focus {
+        border-color: var(--input-border-focus-color);
+    }
+
+    .input::placeholder {
+        color: var(--input-placeholder-color);
+    }
+
+    .input-with-icon-right {
+        @apply flex h-10 w-full rounded-lg border border-gray-200 bg-white pl-3 pr-10 py-2 text-sm text-gray-700 placeholder:text-gray-400 focus:outline-none focus:border-blue-600 hover:border-blue-600/50 disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-gray-50 transition-colors duration-200;
+    }
+
+    .input-with-icons {
+        @apply flex h-10 w-full rounded-lg border border-gray-200 bg-white pl-10 pr-10 py-2 text-sm text-gray-700 placeholder:text-gray-400 focus:outline-none focus:border-blue-600 hover:border-blue-600/50 disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-gray-50 transition-colors duration-200;
+    }
+
+    .input-icon-left {
+        @apply absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600 text-base pointer-events-none;
+    }
+
+    .input-icon-right {
+        @apply absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600 text-base cursor-pointer;
+    }
+
+    /* Input with Dropdown */
+    .input-dropdown {
+        @apply relative;
+    }
+
+    .input-dropdown-content {
+        @apply absolute top-full left-0 mt-2 w-full rounded-xl border border-slate-200 bg-white shadow-xl opacity-0 invisible translate-y-[-10px] transition-all duration-200 ease-out z-50 max-h-[400px] overflow-y-auto;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-dropdown-content.show {
+        @apply opacity-100 visible translate-y-0;
+    }
+
+    .input-dropdown-item {
+        @apply flex items-center gap-3 px-4 py-3 text-[13px] font-medium text-slate-700 hover:bg-slate-50 border-b border-slate-50 last:border-0 cursor-pointer transition-colors duration-150;
+    }
+
+    .file-upload {
+        @apply grid w-full items-center gap-1.5;
+    }
+
+    .file-upload label {
+        @apply btn outline cursor-pointer;
+    }
+
+    .file-upload input {
+        @apply sr-only;
+    }
+
+    .file-upload .file-status {
+        @apply text-xs text-gray-600;
+    }
+
+    .checkbox-group, .radio-group {
+        @apply space-y-3;
+    }
+
+    .checkbox-item, .radio-item {
+        @apply flex items-center space-x-2;
+    }
+
+    /* Card style for checkbox */
+    .checkbox-card {
+        @apply flex items-center space-x-3 cursor-pointer transition-all duration-200;
+        padding: var(--card-padding);
+        border-radius: var(--card-border-radius);
+        border-width: var(--card-border-width);
+        background-color: var(--card-background);
+        border-color: var(--card-border-color);
+    }
+
+    .checkbox-card:hover {
+        border-color: var(--input-border-focus-color);
+        box-shadow: var(--card-shadow);
+    }
+
+    .checkbox-card:has(.checkbox-input:checked) {
+        border-color: var(--input-border-focus-color);
+        background-color: var(--input-background);
+    }
+
+    /* Card style for radio */
+    .radio-card {
+        @apply flex items-center space-x-3 cursor-pointer transition-all duration-200;
+        padding: var(--card-padding);
+        border-radius: var(--card-border-radius);
+        border-width: var(--card-border-width);
+        background-color: var(--card-background);
+        border-color: var(--card-border-color);
+    }
+
+    .radio-card:hover {
+        border-color: var(--input-border-focus-color);
+        box-shadow: var(--card-shadow);
+    }
+
+    .radio-card:has(.radio-input:checked) {
+        border-color: var(--input-border-focus-color);
+        background-color: var(--input-background);
+    }
+
+    /* Custom checkbox container */
+    .checkbox-container {
+        @apply relative flex items-center;
+    }
+
+    /* Hide default checkbox but keep it accessible */
+    .checkbox-input {
+        @apply sr-only;
+    }
+
+    /* Custom checkbox appearance */
+    .checkbox-custom {
+        @apply flex items-center justify-center transition-all duration-150 cursor-pointer;
+        width: var(--checkbox-size);
+        height: var(--checkbox-size);
+        border-radius: var(--checkbox-border-radius);
+        border-width: var(--checkbox-border-width);
+        background-color: var(--checkbox-background);
+        border-color: var(--checkbox-border-color);
+    }
+
+    /* Checkbox hover state */
+    .checkbox-input:hover + .checkbox-custom {
+        border-color: var(--checkbox-border-checked-color);
+        opacity: 0.7;
+    }
+
+    /* Checkbox checked state */
+    .checkbox-input:checked + .checkbox-custom {
+        background-color: var(--checkbox-background-checked);
+        border-color: var(--checkbox-border-checked-color);
+    }
+
+    /* Checkbox checkmark color */
+    .checkbox-input:checked + .checkbox-custom .checkbox-icon {
+        color: var(--checkbox-checkmark-color);
+    }
+
+    .checkbox-input:checked + .checkbox-custom[class*="border-green-500"] {
+        background-color: #10b981 !important;
+        border-color: #10b981 !important;
+    }
+
+    .checkbox-input:checked + .checkbox-custom[class*="border-red-500"] {
+        background-color: #ef4444 !important;
+        border-color: #ef4444 !important;
+    }
+
+    .checkbox-input:checked + .checkbox-custom[class*="border-purple-500"] {
+        background-color: #8b5cf6 !important;
+        border-color: #8b5cf6 !important;
+    }
+
+    .checkbox-input:checked + .checkbox-custom[class*="border-orange-500"] {
+        background-color: #f97316 !important;
+        border-color: #f97316 !important;
+    }
+
+    /* Checkbox disabled state */
+    .checkbox-input:disabled + .checkbox-custom {
+        @apply opacity-50 cursor-not-allowed;
+    }
+
+    /* Checkbox focus state */
+    .checkbox-input:focus-visible + .checkbox-custom {
+        @apply ring-2 ring-blue-600/30 ring-offset-1;
+    }
+
+    /* Checkbox checkmark icon - hidden by default */
+    .checkbox-icon {
+        @apply opacity-0 transition-opacity duration-150;
+    }
+
+    /* Show checkmark when checked */
+    .checkbox-input:checked + .checkbox-custom .checkbox-icon {
+        @apply opacity-100;
+    }
+
+    /* Custom radio container */
+    .radio-container {
+        @apply relative flex items-center;
+    }
+
+    /* Hide default radio but keep it accessible */
+    .radio-input {
+        @apply sr-only;
+    }
+
+    /* Custom radio appearance */
+    .radio-custom {
+        @apply flex items-center justify-center rounded-full transition-all duration-150 cursor-pointer;
+        width: var(--radio-size);
+        height: var(--radio-size);
+        border-width: var(--radio-border-width);
+        background-color: var(--radio-background);
+        border-color: var(--radio-border-color);
+    }
+
+    /* Radio hover state */
+    .radio-input:hover + .radio-custom {
+        border-color: var(--radio-border-checked-color);
+        opacity: 0.7;
+    }
+
+    /* Radio checked state */
+    .radio-input:checked + .radio-custom {
+        border-color: var(--radio-border-checked-color);
+    }
+
+    /* Radio disabled state */
+    .radio-input:disabled + .radio-custom {
+        @apply opacity-50 cursor-not-allowed;
+    }
+
+    /* Radio focus state */
+    .radio-input:focus-visible + .radio-custom {
+        @apply ring-2 ring-offset-1;
+        ring-color: var(--radio-border-checked-color);
+        opacity: 0.3;
+    }
+
+    /* Radio inner dot - hidden by default */
+    .radio-dot {
+        @apply rounded-full scale-0 transition-transform duration-150;
+        width: calc(var(--radio-size) / 2);
+        height: calc(var(--radio-size) / 2);
+        background-color: var(--radio-dot-color);
+    }
+
+    /* Show inner dot when checked */
+    .radio-input:checked + .radio-custom .radio-dot {
+        @apply scale-100;
+    }
+
+    /* Legacy support for older checkbox/radio usage */
+    .checkbox, .radio {
+        @apply h-4 w-4 rounded-sm border border-blue-600 ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 disabled:cursor-not-allowed disabled:opacity-50 accent-blue-600 transition-colors;
+    }
+
+    .radio {
+        @apply rounded-full;
+    }
+
+    /* Button Components */
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-200 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 shadow-sm active:scale-[0.98];
+        height: var(--btn-height);
+        padding: var(--btn-padding-y) var(--btn-padding-x);
+        font-size: var(--btn-font-size);
+        font-weight: var(--btn-font-weight);
+        border-radius: var(--btn-border-radius);
+        border-width: var(--btn-border-width);
+        background-color: var(--btn-background);
+        color: var(--btn-text-color);
+        border-color: var(--btn-border-color);
+    }
+
+    .btn:hover:not(:disabled) {
+        background-color: var(--btn-background-hover);
+    }
+
+    /* Modern Color Variants */
+    .btn.white {
+        @apply bg-white text-gray-900 hover:bg-gray-50 border border-gray-200 shadow-none;
+    }
+
+    .btn.light {
+        @apply bg-gray-50 text-gray-700 hover:text-gray-900 hover:bg-gray-100 border border-gray-200 shadow-none;
+    }
+
+    .btn.emerald {
+        @apply bg-emerald-500 text-white hover:bg-emerald-600;
+    }
+
+    .btn.rose {
+        @apply bg-rose-500 text-white hover:bg-rose-600;
+    }
+
+    .btn.slate {
+        @apply bg-slate-800 text-white hover:bg-slate-900;
+    }
+
+    .btn.amber {
+        @apply bg-amber-500 text-slate-900 hover:bg-amber-600;
+    }
+
+    .btn.violet {
+        @apply bg-violet-500 text-white hover:bg-violet-600;
+    }
+
+    .btn.cyan {
+        @apply bg-cyan-500 text-white hover:bg-cyan-600;
+    }
+
+    /* Style Variants */
+    .btn.secondary {
+        @apply bg-gray-600 text-white hover:bg-gray-700;
+    }
+
+    .btn.outline {
+        @apply border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-300 shadow-none active:scale-[0.98] transition-all duration-200;
+    }
+
+    .btn.ghost {
+        @apply text-gray-700 hover:bg-gray-100 hover:text-gray-900 shadow-none active:scale-[0.98] transition-all duration-200;
+    }
+
+    /* Loading button animations */
+    .btn.loading {
+        @apply opacity-75 cursor-not-allowed pointer-events-none;
+    }
+
+    .btn:active {
+        @apply scale-95 transition-transform duration-75;
+    }
+
+    /* Dropdown button styles */
+    .btn-dropdown {
+        @apply relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 disabled:pointer-events-none disabled:opacity-50 h-9 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 active:scale-95;
+    }
+
+    .btn-dropdown.outline {
+        @apply border-[0.5px] border-gray-100 bg-white text-gray-900 hover:bg-gray-100 hover:text-gray-900 hover:border-gray-200;
+    }
+
+    .btn-dropdown.secondary {
+        @apply bg-gray-600 text-white hover:bg-gray-700;
+    }
+
+    /* Dropdown content */
+    .dropdown-content {
+        @apply absolute top-full left-0 mt-1 min-w-full rounded-md border-[0.5px] border-gray-100 bg-background shadow-lg opacity-0 invisible translate-y-[-8px] transition-all duration-150 ease-out z-50;
+    }
+
+    .dropdown-content.show {
+        @apply opacity-100 visible translate-y-0;
+    }
+
+    .dropdown-menu {
+        @apply p-1;
+    }
+
+    .dropdown-item {
+        @apply flex items-center px-3 py-2 text-sm text-foreground hover:bg-accent rounded transition-colors cursor-pointer;
+    }
+
+    .dropdown-item.with-icon {
+        @apply gap-2;
+    }
+
+    .dropdown-separator {
+        @apply border-t border-border my-1;
+    }
+
+    .dropdown-submenu {
+        @apply relative;
+    }
+
+    .dropdown-submenu .dropdown-content {
+        @apply top-0 left-full ml-1;
+    }
+
+    .btn-sm {
+        @apply h-9 rounded-md px-3 text-xs;
+    }
+
+    .btn-lg {
+        @apply h-11 rounded-md px-8;
+    }
+
+    .button-group {
+        @apply flex flex-wrap gap-2;
+    }
+
+    /* =============f===================
+       CARD COMPONENTS SYSTEM
+       ================================ */
+
+    /* Base Card Structure */
+    .card {
+        @apply overflow-hidden;
+        padding: var(--card-padding);
+        border-radius: var(--card-border-radius);
+        border-width: var(--card-border-width);
+        background-color: var(--card-background);
+        border-color: var(--card-border-color);
+        /* box-shadow: var(--card-shadow); */
+    }
+
+    .cutom-card {
+        padding: var(--card-padding);
+        border-radius: var(--card-border-radius);
+        border-width: var(--card-border-width);
+        background-color: var(--card-background);
+        border-color: var(--card-border-color);
+    }
+
+    /* Footer Styles */
+    footer a {
+        color: var(--footer-link-color);
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: var(--footer-link-hover-color);
+    }
+
+    footer h3, footer h4, footer h5 {
+        color: var(--footer-heading-color);
+    }
+
+    /* Header font size - override Tailwind classes */
+    header, header *, header nav, header nav *, header a, header button, header span:not(.material-symbols-outlined) {
+        font-size: var(--header-font-size) !important;
+    }
+
+    /* Footer font size - override Tailwind classes */
+    footer, footer *, footer a, footer p, footer span:not(.material-symbols-outlined), footer div {
+        font-size: var(--footer-font-size) !important;
+    }
+
+    /* Card Header */
+    .card-header {
+        @apply px-[15px] py-2 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 h-[44px];
+        @apply flex items-center justify-between;
+    }
+
+    .card-header > div:first-child {
+        @apply flex items-center gap-2;
+    }
+
+    .card-header > div:last-child {
+        @apply text-xs text-gray-500 dark:text-gray-400 py-1 rounded-md;
+    }
+
+    .card-header .card-header-icon {
+        @apply text-gray-600 dark:text-gray-400 text-lg;
+        font-family: 'Material Symbols Outlined';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 20px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        font-feature-settings: 'liga';
+    }
+
+    .card-header h3 {
+        @apply text-[14px] font-semibold text-gray-900 dark:text-gray-100;
+    }
+
+    /* Card Body */
+    .card-body {
+        @apply p-4;
+    }
+
+    /* Card Footer */
+    .card-footer {
+        @apply px-4 py-3 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50;
+    }
+
+    /* Colorful Gradient Cards */
+    .card-blue {
+        @apply bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border-blue-200 dark:border-blue-700;
+    }
+
+    .card-blue .card-icon {
+        @apply text-blue-600 dark:text-blue-400;
+    }
+
+    .card-blue .card-title {
+        @apply text-blue-900 dark:text-blue-100;
+    }
+
+    .card-blue .card-text {
+        @apply text-blue-700 dark:text-blue-300;
+    }
+
+    .card-green {
+        @apply bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border-green-200 dark:border-green-700;
+    }
+
+    .card-green .card-icon {
+        @apply text-green-600 dark:text-green-400;
+    }
+
+    .card-green .card-title {
+        @apply text-green-900 dark:text-green-100;
+    }
+
+    .card-green .card-text {
+        @apply text-green-700 dark:text-green-300;
+    }
+
+    .card-purple {
+        @apply bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 border-purple-200 dark:border-purple-700;
+    }
+
+    .card-purple .card-icon {
+        @apply text-purple-600 dark:text-purple-400;
+    }
+
+    .card-purple .card-title {
+        @apply text-purple-900 dark:text-purple-100;
+    }
+
+    .card-purple .card-text {
+        @apply text-purple-700 dark:text-purple-300;
+    }
+
+    .card-orange {
+        @apply bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 border-orange-200 dark:border-orange-700;
+    }
+
+    .card-orange .card-icon {
+        @apply text-orange-600 dark:text-orange-400;
+    }
+
+    .card-orange .card-title {
+        @apply text-orange-900 dark:text-orange-100;
+    }
+
+    .card-orange .card-text {
+        @apply text-orange-700 dark:text-orange-300;
+    }
+
+    .card-red {
+        @apply bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-200 dark:border-red-700;
+    }
+
+    .card-red .card-icon {
+        @apply text-red-600 dark:text-red-400;
+    }
+
+    .card-red .card-title {
+        @apply text-red-900 dark:text-red-100;
+    }
+
+    .card-red .card-text {
+        @apply text-red-700 dark:text-red-300;
+    }
+
+    .card-indigo {
+        @apply bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 border-indigo-200 dark:border-indigo-700;
+    }
+
+    .card-indigo .card-icon {
+        @apply text-indigo-600 dark:text-indigo-400;
+    }
+
+    .card-indigo .card-title {
+        @apply text-indigo-900 dark:text-indigo-100;
+    }
+
+    .card-indigo .card-text {
+        @apply text-indigo-700 dark:text-indigo-300;
+    }
+
+    .card-pink {
+        @apply bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-900/20 dark:to-pink-800/20 border-pink-200 dark:border-pink-700;
+    }
+
+    .card-pink .card-icon {
+        @apply text-pink-600 dark:text-pink-400;
+    }
+
+    .card-pink .card-title {
+        @apply text-pink-900 dark:text-pink-100;
+    }
+
+    .card-pink .card-text {
+        @apply text-pink-700 dark:text-pink-300;
+    }
+
+    .card-teal {
+        @apply bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-800/20 border-teal-200 dark:border-teal-700;
+    }
+
+    .card-teal .card-icon {
+        @apply text-teal-600 dark:text-teal-400;
+    }
+
+    .card-teal .card-title {
+        @apply text-teal-900 dark:text-teal-100;
+    }
+
+    .card-teal .card-text {
+        @apply text-teal-700 dark:text-teal-300;
+    }
+
+    /* Card Content Elements */
+    .card-icon-wrapper {
+        @apply flex items-center mb-2;
+    }
+
+    .card-icon-wrapper .material-symbols-outlined {
+        @apply mr-2;
+    }
+
+    .card-title {
+        @apply font-semibold text-gray-900 dark:text-gray-100;
+    }
+
+    .card-text {
+        @apply text-sm text-gray-700 dark:text-gray-300;
+    }
+
+    .card-description {
+        @apply text-sm text-gray-600 dark:text-gray-400 mt-1;
+    }
+
+    /* Card with Image */
+    .card-image {
+        @apply w-full h-48 object-cover;
+    }
+
+    /* Card Hover Effects */
+    .card-hover {
+        @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
+    }
+
+    .card-clickable {
+        @apply cursor-pointer transition-all duration-200 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600;
+    }
+
+    /* Card Info List */
+    .card-info-list {
+        @apply space-y-3;
+    }
+
+    .card-info-item {
+        @apply flex justify-between text-sm;
+    }
+
+    .card-info-label {
+        @apply text-gray-500 dark:text-gray-400;
+    }
+
+    .card-info-value {
+        @apply font-medium text-gray-900 dark:text-gray-100;
+    }
+
+    /* Card Actions */
+    .card-actions {
+        @apply flex items-center justify-between gap-2 mt-4;
+    }
+
+    /* Card Stats */
+    .card-stat {
+        @apply text-center p-4;
+    }
+
+    .card-stat-value {
+        @apply text-2xl font-bold text-gray-900 dark:text-gray-100;
+    }
+
+    .card-stat-label {
+        @apply text-sm text-gray-600 dark:text-gray-400 mt-1;
+    }
+
+    /* Cards Grid Layout */
+    .cards-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+    }
+
+    .cards-grid-2 {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+    }
+
+    .cards-grid-4 {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4;
+    }
+
+    /* Alert Components */
+    .alert-success {
+        @apply relative w-full rounded-lg border border-green-200 bg-green-50 text-green-800 flex items-center gap-3;
+        padding: 10px 20px;
+    }
+
+    .alert-error {
+        @apply relative w-full rounded-lg border border-red-200 bg-red-50 text-red-800 flex items-center gap-3;
+        padding: 10px 20px;
+    }
+
+    .alert-warning {
+        @apply relative w-full rounded-lg border border-yellow-200 bg-yellow-50 text-yellow-800 flex items-center gap-3;
+        padding: 10px 20px;
+    }
+
+    .alert-info {
+        @apply relative w-full rounded-lg border border-blue-200 bg-blue-50 text-blue-800 flex items-center gap-3;
+        padding: 10px 20px;
+    }
+
+    /* Material Icon styling for alerts */
+    .alert-success .material-icon,
+    .alert-error .material-icon,
+    .alert-warning .material-icon,
+    .alert-info .material-icon {
+        @apply flex-shrink-0;
+        font-size: 20px;
+        line-height: 1;
+    }
+
+    /* Alert text styling */
+    .alert-success p,
+    .alert-error p,
+    .alert-warning p,
+    .alert-info p {
+        @apply text-sm opacity-90 mt-0 mb-0 flex-1;
+        line-height: 1.4;
+    }
+
+    /* Badge Components */
+    .badge {
+        @apply inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600;
+    }
+
+    .badge-primary {
+        @apply border-transparent bg-blue-600 text-white hover:bg-blue-700;
+    }
+
+    .badge-secondary {
+        @apply border-transparent bg-gray-600 text-white hover:bg-gray-700;
+    }
+
+    .badge-outline {
+        @apply text-gray-900 border-gray-200 bg-transparent hover:bg-gray-100;
+    }
+
+    .badge-success {
+        @apply bg-green-100 text-green-800 border-green-200 hover:bg-green-200;
+    }
+
+    .badge-warning {
+        @apply bg-yellow-100 text-yellow-800 border-yellow-200 hover:bg-yellow-200;
+    }
+
+    .badge-error {
+        @apply bg-red-100 text-red-800 border-red-200 hover:bg-red-200;
+    }
+
+    .badge-info {
+        @apply bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200;
+    }
+
+    .badge-purple {
+        @apply bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200;
+    }
+
+    .badge-pink {
+        @apply bg-pink-100 text-pink-800 border-pink-200 hover:bg-pink-200;
+    }
+
+    .badge-indigo {
+        @apply bg-indigo-100 text-indigo-800 border-indigo-200 hover:bg-indigo-200;
+    }
+
+    .badge-gray {
+        @apply bg-gray-100 text-gray-800 border-gray-200 hover:bg-gray-200;
+    }
+
+    /* Badge Sizes */
+    .badge-sm {
+        @apply px-2 py-0.5 text-xs;
+    }
+
+    .badge-md {
+        @apply px-2.5 py-0.5 text-xs;
+    }
+
+    .badge-lg {
+        @apply px-3 py-1 text-sm;
+    }
+
+    /* Badge Variants */
+    .badge-solid {
+        @apply border-transparent;
+    }
+
+    .badge-soft {
+        @apply border-transparent opacity-90;
+    }
+
+    .badge-outlined {
+        @apply bg-transparent border-2;
+    }
+
+    .badge-ghost {
+        @apply bg-transparent border-transparent;
+    }
+
+    /* Badge with Icons */
+    .badge-with-icon {
+        @apply gap-1.5;
+    }
+
+    .badge-icon {
+        @apply w-3 h-3 flex-shrink-0;
+    }
+
+    /* Badge Group */
+    .badge-group {
+        @apply flex flex-wrap gap-2;
+    }
+
+    /* Badge Removable */
+    .badge-removable {
+        @apply pr-1;
+    }
+
+    .badge-remove {
+        @apply ml-1 h-3 w-3 rounded-full flex items-center justify-center hover:bg-black/10 transition-colors cursor-pointer;
+    }
+
+    /* Badge Status Dots */
+    .badge-dot {
+        @apply relative pl-6;
+    }
+
+    .badge-dot::before {
+        @apply absolute left-2 top-1/2 transform -translate-y-1/2 w-2 h-2 rounded-full;
+        content: '';
+    }
+
+    .badge-dot.badge-success::before {
+        @apply bg-green-500;
+    }
+
+    .badge-dot.badge-warning::before {
+        @apply bg-yellow-500;
+    }
+
+    .badge-dot.badge-error::before {
+        @apply bg-red-500;
+    }
+
+    .badge-dot.badge-info::before {
+        @apply bg-blue-500;
+    }
+
+    /* Badge Pulse Animation */
+    .badge-pulse {
+        @apply animate-pulse;
+    }
+
+    .badge-ping::before {
+        @apply absolute top-0 left-0 w-full h-full rounded-full animate-ping;
+        content: '';
+    }
+
+    /* Progress Components */
+    .progress-item {
+        @apply space-y-2;
+    }
+
+    .progress-label {
+        @apply flex justify-between text-sm text-gray-900;
+    }
+
+    .progress-bar {
+        @apply w-full bg-gray-200 rounded-full h-2 overflow-hidden;
+    }
+
+    .progress-fill {
+        @apply h-2 rounded-full transition-all duration-500 ease-out;
+    }
+
+    .progress-fill-primary {
+        @apply bg-blue-600;
+    }
+
+    .progress-fill-success {
+        @apply bg-green-500;
+    }
+
+    .progress-fill-warning {
+        @apply bg-yellow-500;
+    }
+
+    .progress-fill-error {
+        @apply bg-red-500;
+    }
+
+    /* Tab Components */
+    .tabs-container {
+        @apply w-full;
+    }
+
+    .tabs-list {
+        @apply inline-flex h-10 items-center justify-center rounded-md bg-gray-100 p-1 text-gray-600;
+    }
+
+    .tabs-trigger {
+        @apply inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 cursor-pointer gap-1;
+    }
+
+    .tabs-trigger.active {
+        @apply bg-white text-gray-900 shadow-sm;
+    }
+
+    .tabs-content {
+        @apply mt-4 ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 hidden;
+    }
+
+    .tabs-content.active {
+        @apply block;
+    }
+
+    .tabs-content h3 {
+        @apply text-lg font-medium text-gray-900;
+    }
+
+    .tabs-content p {
+        @apply text-sm text-gray-600 mt-1;
+    }
+
+    /* Accordion Components */
+    .accordion {
+        @apply w-full divide-y divide-gray-200;
+    }
+
+    .accordion-item {
+        @apply py-4;
+    }
+
+    .accordion-trigger {
+        @apply flex w-full items-center justify-between font-medium transition-all hover:underline text-left focus-visible:outline-none text-gray-900 cursor-pointer;
+    }
+
+    .accordion-icon {
+        @apply text-sm shrink-0 transition-transform duration-200;
+    }
+
+    .accordion-content {
+        @apply overflow-hidden pb-4 pt-2 hidden;
+    }
+
+    .accordion-content p {
+        @apply text-sm text-gray-600;
+    }
+
+    /* Table Components */
+    .table-container {
+        @apply overflow-x-auto;
+    }
+
+    .table {
+        @apply min-w-full border border-gray-200 rounded-md;
+    }
+
+    .table thead {
+        @apply bg-gray-100;
+    }
+
+    .table th {
+        @apply px-4 py-2 text-left text-sm font-medium text-gray-900 border-b border-gray-200;
+    }
+
+    .table td {
+        @apply px-4 py-2 text-sm text-gray-900 border-b border-gray-200/50;
+    }
+
+    .table tbody tr {
+        @apply hover:bg-muted/50 transition-colors;
+    }
+
+    /* Radio Button Enhanced Components */
+    .radio-card {
+        @apply w-full border rounded-lg p-4 transition-all duration-200 cursor-pointer hover:shadow-md bg-white;
+    }
+
+    .radio-card.selected {
+        @apply border-blue-500 bg-blue-50 shadow-sm ring-1 ring-blue-200;
+    }
+
+    .radio-card:hover {
+        @apply border-gray-300;
+    }
+
+    .radio-card.selected:hover {
+        @apply border-blue-500;
+    }
+
+    .radio-icon-group {
+        @apply flex items-center space-x-2;
+    }
+
+    .radio-content {
+        @apply flex-1;
+    }
+
+    .radio-title {
+        @apply font-semibold text-gray-900 text-base cursor-pointer;
+    }
+
+    .radio-description {
+        @apply text-sm text-gray-600 mt-1;
+    }
+
+    .radio-status-box {
+        @apply p-4 rounded-lg border;
+    }
+
+    .radio-status-box.primary {
+        @apply bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200;
+    }
+
+    .radio-status-box.secondary {
+        @apply bg-gradient-to-r from-indigo-50 to-purple-50 border-indigo-200;
+    }
+
+    /* Switch Components */
+    .switch-container {
+        @apply flex items-center cursor-pointer;
+    }
+
+    .switch-container.disabled {
+        @apply cursor-not-allowed opacity-50;
+    }
+
+    /* Hide default checkbox */
+    .switch-input {
+        @apply sr-only;
+    }
+
+    /* Switch Track Base */
+    .switch-track {
+        @apply relative bg-gray-200 rounded-full transition-all duration-200 ease-in-out;
+    }
+
+    .switch-track:focus-within {
+        @apply ring-4 ring-blue-300 ring-opacity-50;
+    }
+
+    /* Switch Thumb Base */
+    .switch-thumb {
+        @apply absolute bg-white border border-gray-300 rounded-full transition-all duration-200 ease-in-out shadow-sm;
+    }
+
+    /* Switch States */
+    .switch-input:checked + .switch-track {
+        @apply bg-blue-600;
+    }
+
+    .switch-input:checked + .switch-track .switch-thumb {
+        @apply border-white;
+    }
+
+    .switch-input:disabled + .switch-track {
+        @apply cursor-not-allowed opacity-50;
+    }
+
+    /* Switch Sizes */
+    .switch-sm .switch-track {
+        @apply w-8 h-4;
+    }
+
+    .switch-sm .switch-thumb {
+        @apply w-3 h-3 top-0.5 left-0.5;
+    }
+
+    .switch-sm .switch-input:checked + .switch-track .switch-thumb {
+        @apply translate-x-4;
+    }
+
+    .switch-md .switch-track {
+        @apply w-11 h-6;
+    }
+
+    .switch-md .switch-thumb {
+        @apply w-5 h-5 top-0.5 left-0.5;
+    }
+
+    .switch-md .switch-input:checked + .switch-track .switch-thumb {
+        @apply translate-x-5;
+    }
+
+    .switch-lg .switch-track {
+        @apply w-14 h-8;
+    }
+
+    .switch-lg .switch-thumb {
+        @apply w-7 h-7 top-0.5 left-0.5;
+    }
+
+    .switch-lg .switch-input:checked + .switch-track .switch-thumb {
+        @apply translate-x-6;
+    }
+
+    .switch-xl .switch-track {
+        @apply w-16 h-10;
+    }
+
+    .switch-xl .switch-thumb {
+        @apply w-9 h-9 top-0.5 left-0.5;
+    }
+
+    .switch-xl .switch-input:checked + .switch-track .switch-thumb {
+        @apply translate-x-7;
+    }
+
+    /* Switch Colors */
+    .switch-blue .switch-input:checked + .switch-track {
+        @apply bg-blue-600;
+    }
+
+    .switch-blue .switch-track:focus-within {
+        @apply ring-blue-300;
+    }
+
+    .switch-green .switch-input:checked + .switch-track {
+        @apply bg-green-600;
+    }
+
+    .switch-green .switch-track:focus-within {
+        @apply ring-green-300;
+    }
+
+    .switch-red .switch-input:checked + .switch-track {
+        @apply bg-red-600;
+    }
+
+    .switch-red .switch-track:focus-within {
+        @apply ring-red-300;
+    }
+
+    .switch-purple .switch-input:checked + .switch-track {
+        @apply bg-purple-600;
+    }
+
+    .switch-purple .switch-track:focus-within {
+        @apply ring-purple-300;
+    }
+
+    .switch-yellow .switch-input:checked + .switch-track {
+        @apply bg-yellow-500;
+    }
+
+    .switch-yellow .switch-track:focus-within {
+        @apply ring-yellow-300;
+    }
+
+    .switch-pink .switch-input:checked + .switch-track {
+        @apply bg-pink-600;
+    }
+
+    .switch-pink .switch-track:focus-within {
+        @apply ring-pink-300;
+    }
+
+    .switch-indigo .switch-input:checked + .switch-track {
+        @apply bg-indigo-600;
+    }
+
+    .switch-indigo .switch-track:focus-within {
+        @apply ring-indigo-300;
+    }
+
+    .switch-teal .switch-input:checked + .switch-track {
+        @apply bg-teal-600;
+    }
+
+    .switch-teal .switch-track:focus-within {
+        @apply ring-teal-300;
+    }
+
+    .switch-orange .switch-input:checked + .switch-track {
+        @apply bg-orange-600;
+    }
+
+    .switch-orange .switch-track:focus-within {
+        @apply ring-orange-300;
+    }
+
+    /* Switch Label */
+    .switch-label {
+        @apply ml-3 text-sm font-medium text-gray-700 select-none;
+    }
+
+    .switch-container.disabled .switch-label {
+        @apply text-gray-400;
+    }
+
+    /* Switch with Icons */
+    .switch-with-icons .switch-track {
+        @apply w-12;
+    }
+
+    .switch-with-icons .switch-thumb {
+        @apply flex items-center justify-center;
+    }
+
+    .switch-icon-left {
+        @apply absolute left-1.5 top-1/2 transform -translate-y-1/2 text-xs text-gray-500 transition-opacity;
+    }
+
+    .switch-icon-right {
+        @apply absolute right-1.5 top-1/2 transform -translate-y-1/2 text-xs text-white transition-opacity opacity-0;
+    }
+
+    .switch-input:checked + .switch-track .switch-icon-left {
+        @apply opacity-0;
+    }
+
+    .switch-input:checked + .switch-track .switch-icon-right {
+        @apply opacity-100;
+    }
+
+    /* Switch Variants */
+    .switch-outlined .switch-track {
+        @apply bg-white border-2 border-gray-300;
+    }
+
+    .switch-outlined .switch-thumb {
+        @apply bg-blue-600 border-blue-600 top-0.5 left-0.5;
+    }
+
+    .switch-outlined .switch-input:checked + .switch-track {
+        @apply bg-blue-50 border-blue-600;
+    }
+
+    .switch-outlined .switch-input:checked + .switch-track .switch-thumb {
+        @apply bg-blue-600 border-blue-600;
+    }
+
+    .switch-rounded-square .switch-track {
+        @apply rounded-md;
+    }
+
+    .switch-rounded-square .switch-thumb {
+        @apply rounded-sm;
+    }
+
+    .switch-gradient .switch-input:checked + .switch-track {
+        @apply bg-gradient-to-r from-blue-500 to-purple-600;
+    }
+
+    .switch-shadow .switch-track {
+        @apply shadow-lg;
+    }
+
+    .switch-shadow .switch-thumb {
+        @apply shadow-lg;
+    }
+
+    /* Dropdown Components */
+    .dropdown {
+        @apply relative inline-block;
+    }
+
+    .dropdown-content {
+        @apply absolute top-full left-0 mt-1 w-44 rounded-md border border-gray-200 bg-white shadow-lg opacity-0 invisible translate-y-[-8px] transition-all duration-150 ease-out z-50;
+    }
+
+    .dropdown-content.show {
+        @apply opacity-100 visible translate-y-0;
+    }
+
+    .dropdown-menu {
+        @apply p-1;
+    }
+
+    .dropdown-item {
+        @apply block px-2 py-1.5 text-sm text-gray-900 hover:bg-gray-100 rounded transition-colors cursor-pointer;
+    }
+
+    .dropdown-separator {
+        @apply border-t border-gray-200 my-1;
+    }
+
+    /* Modal Components */
+    .modal-overlay {
+        @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden;
+    }
+
+    .modal-content {
+        @apply bg-white rounded-lg max-w-md w-full border border-gray-200 shadow-lg;
+    }
+
+    .modal-header {
+        @apply flex items-center justify-between p-4 border-b border-gray-200;
+    }
+
+    .modal-header h3 {
+        @apply text-lg font-semibold text-gray-900;
+    }
+
+    .modal-body {
+        @apply p-4;
+    }
+
+    .modal-body p {
+        @apply text-sm text-gray-600 mb-4;
+    }
+
+    .modal-footer {
+        @apply flex justify-end gap-2;
+    }
+
+    /* Tooltip Components */
+    .tooltip {
+        @apply absolute z-50 px-2 py-1 text-xs text-white bg-gray-900 rounded shadow-lg -top-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap;
+    }
+}
+</style>
+    <!-- META -->
+    <title>Login</title>
+    <meta name="description" content="Sign in to your account to continue">
+    <meta name="keywords" content="">
+    <link rel="canonical" href="https://phptravels.net/://phptravels.net/login">
+    <meta name="author" content="PHPTARVELS">
+    <meta property="og:title" content="Login">
+    <meta property="og:description" content="Sign in to your account to continue">
+    <meta property="og:url" content="://phptravels.net/login">
+    <meta property="og:image" content="https://phptravels.net/uploads/global/cover.png">
+    <meta property="og:site_name" content="PHPTARVELS">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Login">
+    <meta name="twitter:description" content="Sign in to your account to continue">
+    <meta name="twitter:image" content="https://phptravels.net/uploads/global/cover.png">
+
+  <style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}/* Layout Components */.container{margin-left:auto;margin-right:auto;max-width:72rem;padding-left:0.5rem;padding-right:0.5rem}/* Component Section *//* Component Demo *//* Form Components */.form-control > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.form-control label{display:flex;align-items:center;gap:0.5rem}.form-control label > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.25rem * var(--tw-space-x-reverse));margin-left:calc(0.25rem * calc(1 - var(--tw-space-x-reverse)))}.form-control label{font-size:0.875rem;line-height:1.25rem;font-weight:500;line-height:1;--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.peer:disabled ~ .form-control label{cursor:not-allowed;opacity:0.7}.form-control i{font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}/* Input with Icons */.input-group{position:relative;display:flex;align-items:center}.input-with-icon{display:flex;width:100%;transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:200ms}.input-with-icon:focus{outline:2px solid transparent;outline-offset:2px}.input-with-icon:disabled{cursor:not-allowed;opacity:0.5}.input-with-icon {
+        height: var(--input-height);
+        padding: var(--input-padding-y) var(--input-padding-x);
+        padding-left: 2.5rem;
+        font-size: var(--input-font-size);
+        font-weight: var(--input-font-weight);
+        border-radius: var(--input-border-radius);
+        border-width: var(--input-border-width);
+        background-color: var(--input-background);
+        color: var(--input-text-color);
+        border-color: var(--input-border-color);
+    }.input-with-icon:hover:not(:disabled) {
+        border-color: var(--input-border-focus-color);
+        opacity: 0.8;
+    }.input-with-icon:focus {
+        border-color: var(--input-border-focus-color);
+    }.input-with-icon::placeholder {
+        color: var(--input-placeholder-color);
+    }.input-with-icon-right{display:flex;height:2.5rem;width:100%;border-radius:0.5rem;border-width:1px;--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1));--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1));padding-top:0.5rem;padding-bottom:0.5rem;padding-left:0.75rem;padding-right:2.5rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:200ms}.input-with-icon-right::placeholder{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.input-with-icon-right:hover{border-color:rgb(37 99 235 / 0.5)}.input-with-icon-right:focus{--tw-border-opacity:1;border-color:rgb(37 99 235 / var(--tw-border-opacity, 1));outline:2px solid transparent;outline-offset:2px}.input-with-icon-right:disabled{cursor:not-allowed;--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1));opacity:0.5}.input-icon-left{pointer-events:none;position:absolute;left:0.75rem;top:50%;--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));font-size:1rem;line-height:1.5rem;--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.input-icon-right{position:absolute;right:0.75rem;top:50%;--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));cursor:pointer;font-size:1rem;line-height:1.5rem;--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}/* Input with Dropdown */.checkbox-item, .radio-item{display:flex;align-items:center}.checkbox-item > :not([hidden]) ~ :not([hidden]), .radio-item > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}/* Card style for checkbox */.checkbox-card:has(.checkbox-input:checked) {
+        border-color: var(--input-border-focus-color);
+        background-color: var(--input-background);
+    }/* Card style for radio *//* Custom checkbox container */.checkbox-container{position:relative;display:flex;align-items:center}/* Hide default checkbox but keep it accessible */.checkbox-input{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0}/* Custom checkbox appearance */.checkbox-custom{display:flex;cursor:pointer;align-items:center;justify-content:center;transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms;
+        width: var(--checkbox-size);
+        height: var(--checkbox-size);
+        border-radius: var(--checkbox-border-radius);
+        border-width: var(--checkbox-border-width);
+        background-color: var(--checkbox-background);
+        border-color: var(--checkbox-border-color)}/* Checkbox hover state */.checkbox-input:hover + .checkbox-custom {
+        border-color: var(--checkbox-border-checked-color);
+        opacity: 0.7;
+    }/* Checkbox checked state */.checkbox-input:checked + .checkbox-custom {
+        background-color: var(--checkbox-background-checked);
+        border-color: var(--checkbox-border-checked-color);
+    }/* Checkbox checkmark color */.checkbox-input:checked + .checkbox-custom .checkbox-icon {
+        color: var(--checkbox-checkmark-color);
+    }.checkbox-input:checked + .checkbox-custom[class*="border-green-500"] {
+        background-color: #10b981 !important;
+        border-color: #10b981 !important;
+    }.checkbox-input:checked + .checkbox-custom[class*="border-red-500"] {
+        background-color: #ef4444 !important;
+        border-color: #ef4444 !important;
+    }.checkbox-input:checked + .checkbox-custom[class*="border-purple-500"] {
+        background-color: #8b5cf6 !important;
+        border-color: #8b5cf6 !important;
+    }.checkbox-input:checked + .checkbox-custom[class*="border-orange-500"] {
+        background-color: #f97316 !important;
+        border-color: #f97316 !important;
+    }/* Checkbox disabled state */.checkbox-input:disabled + .checkbox-custom{cursor:not-allowed;opacity:0.5}/* Checkbox focus state */.checkbox-input:focus-visible + .checkbox-custom{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);--tw-ring-color:rgb(37 99 235 / 0.3);--tw-ring-offset-width:1px}/* Checkbox checkmark icon - hidden by default */.checkbox-icon{opacity:0;transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}/* Show checkmark when checked */.checkbox-input:checked + .checkbox-custom .checkbox-icon{opacity:1}/* Custom radio container *//* Hide default radio but keep it accessible *//* Custom radio appearance *//* Radio hover state *//* Radio checked state *//* Radio disabled state *//* Radio focus state *//* Radio inner dot - hidden by default *//* Show inner dot when checked *//* Legacy support for older checkbox/radio usage *//* Button Components */.btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;white-space:nowrap;--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:200ms}.btn:focus-visible{outline:2px solid transparent;outline-offset:2px}.btn:active{--tw-scale-x:0.98;--tw-scale-y:0.98;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn:disabled{pointer-events:none;opacity:0.5}.btn {
+        height: var(--btn-height);
+        padding: var(--btn-padding-y) var(--btn-padding-x);
+        font-size: var(--btn-font-size);
+        font-weight: var(--btn-font-weight);
+        border-radius: var(--btn-border-radius);
+        border-width: var(--btn-border-width);
+        background-color: var(--btn-background);
+        color: var(--btn-text-color);
+        border-color: var(--btn-border-color);
+    }.btn:hover:not(:disabled) {
+        background-color: var(--btn-background-hover);
+    }/* Modern Color Variants */.btn.white{border-width:1px;--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1));--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1));--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1));--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.btn.white:hover{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.btn.light{border-width:1px;--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1));--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1));--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1));--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.btn.light:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1));--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.btn.emerald{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1));--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.btn.emerald:hover{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity, 1))}.btn.rose{--tw-bg-opacity:1;background-color:rgb(244 63 94 / var(--tw-bg-opacity, 1));--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.btn.rose:hover{--tw-bg-opacity:1;background-color:rgb(225 29 72 / var(--tw-bg-opacity, 1))}.btn.slate{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1));--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.btn.slate:hover{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.btn.amber{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1));--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.btn.amber:hover{--tw-bg-opacity:1;background-color:rgb(217 119 6 / var(--tw-bg-opacity, 1))}.btn.violet{--tw-bg-opacity:1;background-color:rgb(139 92 246 / var(--tw-bg-opacity, 1));--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.btn.violet:hover{--tw-bg-opacity:1;background-color:rgb(124 58 237 / var(--tw-bg-opacity, 1))}.btn.cyan{--tw-bg-opacity:1;background-color:rgb(6 182 212 / var(--tw-bg-opacity, 1));--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.btn.cyan:hover{--tw-bg-opacity:1;background-color:rgb(8 145 178 / var(--tw-bg-opacity, 1))}/* Style Variants */.btn.secondary{--tw-bg-opacity:1;background-color:rgb(75 85 99 / var(--tw-bg-opacity, 1));--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.btn.secondary:hover{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity, 1))}.btn.outline{border-width:1px;--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1));--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1));--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1));--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:200ms}.btn.outline:hover{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1));--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.btn.outline:active{--tw-scale-x:0.98;--tw-scale-y:0.98;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn.ghost{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1));--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:200ms}.btn.ghost:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1));--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.btn.ghost:active{--tw-scale-x:0.98;--tw-scale-y:0.98;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}/* Loading button animations */.btn.loading{pointer-events:none;cursor:not-allowed;opacity:0.75}.btn:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:75ms}/* Dropdown button styles *//* Dropdown content *//* =============f===================
+       CARD COMPONENTS SYSTEM
+       ================================ *//* Base Card Structure */.card{overflow:hidden;
+        padding: var(--card-padding);
+        border-radius: var(--card-border-radius);
+        border-width: var(--card-border-width);
+        background-color: var(--card-background);
+        border-color: var(--card-border-color)
+        /* box-shadow: var(--card-shadow); */}/* Footer Styles */footer a {
+        color: var(--footer-link-color);
+        transition: color 0.3s ease;
+    }footer a:hover {
+        color: var(--footer-link-hover-color);
+    }footer h3, footer h4, footer h5 {
+        color: var(--footer-heading-color);
+    }/* Header font size - override Tailwind classes */header, header *, header nav, header nav *, header a, header button, header span:not(.material-symbols-outlined) {
+        font-size: var(--header-font-size) !important;
+    }/* Footer font size - override Tailwind classes */footer, footer *, footer a, footer p, footer span:not(.material-symbols-outlined), footer div {
+        font-size: var(--footer-font-size) !important;
+    }/* Card Header *//* Card Body */.card-body{padding:1rem}/* Card Footer *//* Colorful Gradient Cards *//* Card Content Elements */.card-icon-wrapper .material-symbols-outlined{margin-right:0.5rem}/* Card with Image *//* Card Hover Effects *//* Card Info List *//* Card Actions */.card-actions{margin-top:1rem;display:flex;align-items:center;justify-content:space-between;gap:0.5rem}/* Card Stats *//* Cards Grid Layout *//* Alert Components *//* Material Icon styling for alerts *//* Alert text styling *//* Badge Components *//* Badge Sizes *//* Badge Variants *//* Badge with Icons *//* Badge Group *//* Badge Removable *//* Badge Status Dots *//* Badge Pulse Animation *//* Progress Components *//* Tab Components *//* Accordion Components *//* Table Components *//* Radio Button Enhanced Components *//* Switch Components *//* Hide default checkbox *//* Switch Track Base *//* Switch Thumb Base *//* Switch States *//* Switch Sizes *//* Switch Colors *//* Switch Label *//* Switch with Icons *//* Switch Variants *//* Dropdown Components *//* Modal Components *//* Tooltip Components */.pointer-events-none{pointer-events:none}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.bottom-24{bottom:6rem}.left-0{left:0px}.left-6{left:1.5rem}.right-0{right:0px}.top-0{top:0px}.top-16{top:4rem}.top-full{top:100%}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.my-4{margin-top:1rem;margin-bottom:1rem}.mb-0{margin-bottom:0px}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.ml-2{margin-left:0.5rem}.mr-1\.5{margin-right:0.375rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-10{margin-top:2.5rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-14{height:3.5rem}.h-16{height:4rem}.h-2{height:0.5rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-8{height:2rem}.h-9{height:2.25rem}.max-h-\[320px\]{max-height:320px}.max-h-\[500px\]{max-height:500px}.max-h-\[calc\(100vh-64px\)\]{max-height:calc(100vh - 64px)}.min-h-screen{min-height:100vh}.w-14{width:3.5rem}.w-16{width:4rem}.w-4{width:1rem}.w-48{width:12rem}.w-5{width:1.25rem}.w-52{width:13rem}.w-9{width:2.25rem}.w-auto{width:auto}.w-full{width:100%}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.translate-y-\[-8px\]{--tw-translate-y:-8px;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.break-all{word-break:break-all}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-r-lg{border-top-right-radius:0.5rem;border-bottom-right-radius:0.5rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-blue-500{--tw-border-opacity:1;border-color:rgb(59 130 246 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-green-200{--tw-border-opacity:1;border-color:rgb(187 247 208 / var(--tw-border-opacity, 1))}.border-purple-200{--tw-border-opacity:1;border-color:rgb(233 213 255 / var(--tw-border-opacity, 1))}.bg-background{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.bg-purple-50{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.object-cover{object-fit:cover}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-5{padding:1.25rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pl-6{padding-left:1.5rem}.pt-3{padding-top:0.75rem}.pt-4{padding-top:1rem}.text-center{text-align:center}.\!text-\[16px\]{font-size:16px !important}.\!text-\[18px\]{font-size:18px !important}.\!text-\[24px\]{font-size:24px !important}.text-2xl{font-size:1.5rem;line-height:2rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.text-blue-500{--tw-text-opacity:1;color:rgb(59 130 246 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-foreground{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234 / var(--tw-text-opacity, 1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.opacity-25{opacity:0.25}.opacity-75{opacity:0.75}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-150{transition-duration:150ms}.duration-200{transition-duration:200ms}.duration-300{transition-duration:300ms}.ease-out{transition-timing-function:cubic-bezier(0, 0, 0.2, 1)}
+.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+.hover\:border-blue-600:hover{--tw-border-opacity:1;border-color:rgb(37 99 235 / var(--tw-border-opacity, 1))}
+.hover\:border-blue-700:hover{--tw-border-opacity:1;border-color:rgb(29 78 216 / var(--tw-border-opacity, 1))}
+.hover\:border-red-600:hover{--tw-border-opacity:1;border-color:rgb(220 38 38 / var(--tw-border-opacity, 1))}
+.hover\:border-sky-500:hover{--tw-border-opacity:1;border-color:rgb(14 165 233 / var(--tw-border-opacity, 1))}
+.hover\:border-transparent:hover{border-color:transparent}
+.hover\:bg-black:hover{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}
+.hover\:bg-blue-100:hover{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}
+.hover\:bg-blue-50:hover{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}
+.hover\:bg-blue-600:hover{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}
+.hover\:bg-blue-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}
+.hover\:bg-gray-100:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}
+.hover\:bg-green-100:hover{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}
+.hover\:bg-green-50:hover{--tw-bg-opacity:1;background-color:rgb(240 253 244 / var(--tw-bg-opacity, 1))}
+.hover\:bg-purple-100:hover{--tw-bg-opacity:1;background-color:rgb(243 232 255 / var(--tw-bg-opacity, 1))}
+.hover\:bg-red-600:hover{--tw-bg-opacity:1;background-color:rgb(220 38 38 / var(--tw-bg-opacity, 1))}
+.hover\:bg-sky-500:hover{--tw-bg-opacity:1;background-color:rgb(14 165 233 / var(--tw-bg-opacity, 1))}
+.hover\:bg-gradient-to-br:hover{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}
+.hover\:from-purple-500:hover{--tw-gradient-from:#a855f7 var(--tw-gradient-from-position);--tw-gradient-to:rgb(168 85 247 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}
+.hover\:to-pink-500:hover{--tw-gradient-to:#ec4899 var(--tw-gradient-to-position)}
+.hover\:text-blue-600:hover{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}
+.hover\:text-blue-700:hover{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}
+.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}
+.hover\:text-green-600:hover{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}
+.hover\:text-red-600:hover{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}
+.hover\:shadow-xl:hover{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}
+.group:hover .group-hover\:pointer-events-auto{pointer-events:auto}
+.group:hover .group-hover\:visible{visibility:visible}
+.group:hover .group-hover\:translate-y-0{--tw-translate-y:0px;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+.group:hover .group-hover\:rotate-180{--tw-rotate:180deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+@keyframes bounce{0%, 100%{transform:translateY(-25%);animation-timing-function:cubic-bezier(0.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,0.2,1)}}
+.group:hover .group-hover\:animate-bounce{animation:bounce 1s infinite}
+.group:hover .group-hover\:text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}
+.group:hover .group-hover\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}
+.group:hover .group-hover\:opacity-100{opacity:1}
+@media (min-width: 640px){.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}}
+@media (min-width: 768px){.md\:inline{display:inline}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}}
+@media (min-width: 1024px){.lg\:bottom-4{bottom:1rem}.lg\:right-6{right:1.5rem}.lg\:block{display:block}.lg\:flex{display:flex}.lg\:inline-flex{display:inline-flex}.lg\:hidden{display:none}.lg\:h-8{height:2rem}.lg\:w-8{width:2rem}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-\[300px_1fr_250px\]{grid-template-columns:300px 1fr 250px}.lg\:flex-row{flex-direction:row}.lg\:justify-end{justify-content:flex-end}.lg\:gap-10{gap:2.5rem}.lg\:gap-6{gap:1.5rem}.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:text-left{text-align:left}}
+</style><script bis_use="true" type="text/javascript" charset="utf-8" nonce="" data-dynamic-id="c7d04138-df60-4928-bc5c-a27c93ff0ef7" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/101.js"></script><style>
+      body.shimeji-pinned iframe {
+        pointer-events: none;
+      }
+      body.shimeji-select-ie {
+        cursor: cell !important;
+      }
+      #shimeji-contextMenu::-webkit-scrollbar {
+        width: 6px;
+      }
+      #shimeji-contextMenu::-webkit-scrollbar-thumb {
+        background-color: rgba(30,30,30,0.6);
+        border-radius: 3px;
+      }
+      #shimeji-contextMenu::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    </style><meta name="shimejiBrowserExtensionId" content="gohjpllcolmccldfdggmamodembldgpc" data-version="2.0.5"><style>.vt-container {position: fixed;width: 100%;height: 100vh;top: 0;left: 0;z-index: 9999;display: flex;flex-direction: column;justify-content: space-between;pointer-events: none;}.vt-row {display: flex;justify-content: space-between;}.vt-col {flex: 1;margin: 10px 20px;display: flex;flex-direction: column;align-items: center;}.vt-col.top-left,.vt-col.bottom-left {align-items: flex-start;}.vt-col.top-right,.vt-col.bottom-right {align-items: flex-end;}.vt-card {display: flex;justify-content: center;align-items: center;padding: 12px 20px;background-color: #fff;box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);color: #000;border-radius: 4px;margin: 0px;transition: 0.3s all ease-in-out;pointer-events: all;border-left: 3px solid #8b8b8b;cursor: pointer;}.vt-card.success {border-left: 3px solid #6ec05f;}.vt-card.warn {border-left: 3px solid #fed953;}.vt-card.info {border-left: 3px solid #1271ec;}.vt-card.error {border-left: 3px solid #d60a2e;}.vt-card .text-group {margin-left: 15px;}.vt-card h4 {margin: 0;margin-bottom: 0px;font-size: 16px;font-weight: 900;}.vt-card p {margin: 0;font-size: 14px;}@media(max-width: 768px){.vt-col { flex: unset; }}</style></head>
+  <body class="bg-background text-foreground" __processed_b42c4e78-70ae-4b33-9c0f-28602255c42b__="true" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJlbmFibGVkIiwiRkFDRUJPT0siOiJlbmFibGVkIiwiVFdJVFRFUiI6ImVuYWJsZWQiLCJSRURESVQiOiJlbmFibGVkIiwiUElOVEVSRVNUIjoiZW5hYmxlZCIsIklOU1RBR1JBTSI6ImVuYWJsZWQiLCJUSUtUT0siOiJkaXNhYmxlZCIsIkxJTktFRElOIjoiZW5hYmxlZCIsIkNPTkZJRyI6ImRpc2FibGVkIn0sInZlcnNpb24iOiIyLjAuNDciLCJzY29yZSI6MjAwNDcwfV0=">
+    <!-- Page Loader (rendered immediately, hidden by app.js on load) -->
+    <div id="page-loader" class="page-loader hide" bis_skin_checked="1" style="display: none;"><div bis_skin_checked="1"></div></div>
+        <header class="sticky top-0 z-50 w-full shadow-sm" x-data="{ mobileMenuOpen: false }" style="background-color: var(--header-background); color: var(--header-text-color); font-size: var(--header-font-size); border-bottom: var(--header-border-width)px solid var(--header-border-color); height: var(--header-height)px; padding-left: var(--header-padding-x)px; padding-right: var(--header-padding-x)px; box-shadow: var(--header-shadow);">
+      <div class="container mx-auto" bis_skin_checked="1">
+        <div class="flex h-16 items-center justify-between" bis_skin_checked="1">
+          <!-- Logo + Navigation -->
+          <div class="flex items-center gap-4" bis_skin_checked="1">
+            <a href="https://phptravels.net/" class="flex items-center">
+              <img src="./Login_files/logo.png" alt="PHPTARVELS" class="h-8 w-auto">
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center font-medium">
+            <!-- Dynamic Services Dropdown -->
+                        <div class="relative group" bis_skin_checked="1">
+                <button class="flex items-center gap-1 px-3 py-2 rounded-md transition-all duration-200" style="color: var(--header-link-color);" onmouseover="if (!window.__cfRLUnblockHandlers) return false; this.style.color=&#39;var(--header-link-hover-color)&#39;" onmouseout="if (!window.__cfRLUnblockHandlers) return false; this.style.color=&#39;var(--header-link-color)&#39;" fdprocessedid="5nfkzt">
+                  <span class="font-medium">Services</span>
+                  <span class="material-symbols-outlined !text-[18px] transition-transform group-hover:rotate-180">expand_more</span>
+                </button>
+                <!-- Invisible bridge to prevent dropdown close -->
+                <div class="absolute top-full left-0 h-2 w-full pointer-events-none group-hover:pointer-events-auto" bis_skin_checked="1"></div>
+                <div class="absolute top-full left-0 mt-2 w-52 rounded-lg border border-gray-200 bg-white p-1.5 shadow-xl opacity-0 invisible translate-y-[-8px] transition-all duration-200 ease-out group-hover:opacity-100 group-hover:visible group-hover:translate-y-0" bis_skin_checked="1">
+                                    <a href="https://phptravels.net/visa" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Visa Booking</span>
+                  </a>
+                                    <a href="https://phptravels.net/flights" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Flights Booking</span>
+                  </a>
+                                    <a href="https://phptravels.net/tours" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Tours Booking</span>
+                  </a>
+                                    <a href="https://phptravels.net/cars" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Cars Booking</span>
+                  </a>
+                                    <a href="https://phptravels.net/stays" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Stays Booking</span>
+                  </a>
+                                  </div>
+            </div>
+            
+            <!-- Dynamic CMS Dropdowns (Parents with Children) -->
+                                        <div class="relative group" bis_skin_checked="1">
+                <button class="flex items-center gap-1 px-3 py-2 rounded-md transition-all duration-200" style="color: var(--header-link-color);" onmouseover="if (!window.__cfRLUnblockHandlers) return false; this.style.color=&#39;var(--header-link-hover-color)&#39;" onmouseout="if (!window.__cfRLUnblockHandlers) return false; this.style.color=&#39;var(--header-link-color)&#39;" fdprocessedid="ofpdvq">
+                  <span class="font-medium">Company</span>
+                  <span class="material-symbols-outlined !text-[18px] transition-transform group-hover:rotate-180">expand_more</span>
+                </button>
+                <!-- Invisible bridge to prevent dropdown close -->
+                <div class="absolute top-full left-0 h-2 w-full pointer-events-none group-hover:pointer-events-auto" bis_skin_checked="1"></div>
+                <div class="absolute top-full left-0 mt-2 w-52 rounded-lg border border-gray-200 bg-white p-1.5 shadow-xl opacity-0 invisible translate-y-[-8px] transition-all duration-200 ease-out group-hover:opacity-100 group-hover:visible group-hover:translate-y-0" bis_skin_checked="1">
+                                                      <a href="https://phptravels.net/page/contact-us" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Contact us</span>
+                  </a>
+                                                      <a href="https://phptravels.net/page/about-us" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>About us</span>
+                  </a>
+                                                      <a href="https://phptravels.net/page/cookies-policy" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Cookies Policy</span>
+                  </a>
+                                                      <a href="https://phptravels.net/page/privacy-policy" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Privacy Policy</span>
+                  </a>
+                                                      <a href="https://phptravels.net/page/become-a-supplier" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Become a Supplier</span>
+                  </a>
+                                                      <a href="https://phptravels.net/page/terms-of-use" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">chevron_right</span>
+                    <span>Terms of Use</span>
+                  </a>
+                                  </div>
+              </div>
+                          
+            <!-- Dynamic CMS Standalone Links -->
+                                                      <a href="https://phptravels.net/page/blog" class="px-3 py-2 rounded-md font-medium transition-all duration-200" style="color: var(--header-link-color);" onmouseover="if (!window.__cfRLUnblockHandlers) return false; this.style.color=&#39;var(--header-link-hover-color)&#39;" onmouseout="if (!window.__cfRLUnblockHandlers) return false; this.style.color=&#39;var(--header-link-color)&#39;">
+                Blogs              </a>
+                                      </nav>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="flex items-center gap-2" bis_skin_checked="1">
+            <!-- Language Switcher - Desktop Only -->
+                        <div class="hidden lg:block relative group" bis_skin_checked="1">
+                            <button class="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg transition-all duration-200 group" fdprocessedid="fx2lfr">
+                <img src="./Login_files/us.svg" alt="English flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                <span class="hidden md:inline font-semibold">English</span>
+                <span class="material-symbols-outlined !text-[16px] transition-transform group-hover:rotate-180">expand_more</span>
+              </button>
+              <!-- Invisible bridge to prevent dropdown close -->
+              <div class="absolute top-full right-0 h-2 w-full pointer-events-none group-hover:pointer-events-auto" bis_skin_checked="1"></div>
+              <div class="absolute top-full right-0 mt-2 w-48 rounded-lg border border-gray-200 bg-white shadow-lg opacity-0 invisible translate-y-[-8px] transition-all duration-200 ease-out group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-50 overflow-hidden" bis_skin_checked="1">
+                <div class="max-h-[500px] overflow-y-auto p-1.5" bis_skin_checked="1">
+                                    <a href="https://phptravels.net/lang?lang=en" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 bg-blue-50 text-blue-600">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/us.svg" alt="English flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-medium">English</span>
+                    </span>
+                                        <span class="material-symbols-outlined !text-[16px]">check</span>
+                                      </a>
+                                    <a href="https://phptravels.net/lang?lang=es" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 text-gray-700">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/es.svg" alt="Spanish flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-medium">Spanish</span>
+                    </span>
+                                      </a>
+                                    <a href="https://phptravels.net/lang?lang=it" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 text-gray-700">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/it.svg" alt="Italian flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-medium">Italian</span>
+                    </span>
+                                      </a>
+                                    <a href="https://phptravels.net/lang?lang=pl" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 text-gray-700">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/pl.svg" alt="Polish flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-medium">Polish</span>
+                    </span>
+                                      </a>
+                                    <a href="https://phptravels.net/lang?lang=ar" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 text-gray-700">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/sa.svg" alt="Arabic flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-medium">Arabic</span>
+                    </span>
+                                      </a>
+                                    <a href="https://phptravels.net/lang?lang=tr" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 text-gray-700">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/tr.svg" alt="Turkish flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-medium">Turkish</span>
+                    </span>
+                                      </a>
+                                    <a href="https://phptravels.net/lang?lang=ru" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 text-gray-700">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/ru.svg" alt="Russian flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-medium">Russian</span>
+                    </span>
+                                      </a>
+                                    <a href="https://phptravels.net/lang?lang=fr" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 text-gray-700">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/fr.svg" alt="French flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-medium">French</span>
+                    </span>
+                                      </a>
+                                    <a href="https://phptravels.net/lang?lang=ch" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 text-gray-700">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/cn.svg" alt="Chinese flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-medium">Chinese</span>
+                    </span>
+                                      </a>
+                                    <a href="https://phptravels.net/lang?lang=de" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 text-gray-700">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/de.svg" alt="Deutsch flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-medium">Deutsch</span>
+                    </span>
+                                      </a>
+                                  </div>
+              </div>
+            </div>
+            
+
+            <!-- Currency Switcher - Desktop Only -->
+                        <div class="hidden lg:block relative group" bis_skin_checked="1">
+                            <button class="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg transition-all duration-200 group" fdprocessedid="8lpc09">
+                <img src="./Login_files/eg.svg" alt="EGP flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                <span class="hidden md:inline font-semibold">EGP</span>
+                <span class="material-symbols-outlined !text-[16px] transition-transform group-hover:rotate-180">expand_more</span>
+              </button>
+              <!-- Invisible bridge to prevent dropdown close -->
+              <div class="absolute top-full right-0 h-2 w-full pointer-events-none group-hover:pointer-events-auto" bis_skin_checked="1"></div>
+              <div class="absolute top-full right-0 mt-2 w-52 rounded-lg border border-gray-200 bg-white shadow-lg opacity-0 invisible translate-y-[-8px] transition-all duration-200 ease-out group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-50 overflow-hidden" bis_skin_checked="1">
+                <div class="max-h-[320px] overflow-y-auto p-1.5" bis_skin_checked="1">
+                                    <a href="https://phptravels.net/currency?currency=EGP" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 bg-green-50 text-green-600">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/eg.svg" alt="Egypt flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-semibold">EGP</span>
+                    </span>
+                    <span class="text-xs text-gray-500 truncate flex-1 ml-2">Egypt</span>
+                                        <span class="material-symbols-outlined !text-[16px] ml-2 flex-shrink-0">check</span>
+                                      </a>
+                                    <a href="https://phptravels.net/currency?currency=USD" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 text-gray-700">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/us.svg" alt="United States flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-semibold">USD</span>
+                    </span>
+                    <span class="text-xs text-gray-500 truncate flex-1 ml-2">United States</span>
+                                      </a>
+                                    <a href="https://phptravels.net/currency?currency=GBP" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 text-gray-700">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/gb.svg" alt="United Kingdom flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-semibold">GBP</span>
+                    </span>
+                    <span class="text-xs text-gray-500 truncate flex-1 ml-2">United Kingdom</span>
+                                      </a>
+                                    <a href="https://phptravels.net/currency?currency=SAR" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 text-gray-700">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/sa.svg" alt="Saudi Arabia flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-semibold">SAR</span>
+                    </span>
+                    <span class="text-xs text-gray-500 truncate flex-1 ml-2">Saudi Arabia</span>
+                                      </a>
+                                    <a href="https://phptravels.net/currency?currency=EUR" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 text-gray-700">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/gb.svg" alt="United Kingdom flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-semibold">EUR</span>
+                    </span>
+                    <span class="text-xs text-gray-500 truncate flex-1 ml-2">United Kingdom</span>
+                                      </a>
+                                    <a href="https://phptravels.net/currency?currency=NGN" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 text-gray-700">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/ng.svg" alt="Nigeria flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-semibold">NGN</span>
+                    </span>
+                    <span class="text-xs text-gray-500 truncate flex-1 ml-2">Nigeria</span>
+                                      </a>
+                                    <a href="https://phptravels.net/currency?currency=INR" class="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 transition-all duration-150 text-gray-700">
+                    <span class="flex items-center gap-2">
+                      <img src="./Login_files/in.svg" alt="India flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                      <span class="text-sm font-semibold">INR</span>
+                    </span>
+                    <span class="text-xs text-gray-500 truncate flex-1 ml-2">India</span>
+                                      </a>
+                                  </div>
+              </div>
+            </div>
+            
+
+                        <!-- Auth Buttons -->
+            <a href="https://phptravels.net/login" class="hidden lg:inline-flex btn">
+              <span class="material-symbols-outlined !text-[18px]">login</span>
+              <span>Login</span>
+            </a>
+
+                                    <!-- Signup Dropdown (when agent registration enabled) -->
+            <div class="hidden lg:block relative group" bis_skin_checked="1">
+              <button class="btn light flex items-center gap-1.5" fdprocessedid="6xty9p">
+                <span class="material-symbols-outlined !text-[18px]">person_add</span>
+                <span>Signup</span>
+                <span class="material-symbols-outlined !text-[16px] transition-transform group-hover:rotate-180">expand_more</span>
+              </button>
+              <!-- Invisible bridge to prevent dropdown close -->
+              <div class="absolute top-full right-0 h-2 w-full pointer-events-none group-hover:pointer-events-auto" bis_skin_checked="1"></div>
+              <div class="absolute top-full right-0 mt-2 w-52 rounded-lg border border-gray-200 bg-white shadow-xl opacity-0 invisible translate-y-[-8px] transition-all duration-200 ease-out group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-50 overflow-hidden" bis_skin_checked="1">
+                <div class="p-1.5" bis_skin_checked="1">
+                  <a href="https://phptravels.net/signup" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">person</span>
+                    <span class="font-medium">Customer Signup</span>
+                  </a>
+                  <a href="https://phptravels.net/agent-signup" class="flex items-center gap-2 px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-150">
+                    <span class="material-symbols-outlined !text-[18px] text-blue-500">business_center</span>
+                    <span class="font-medium">Agent Signup</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+                                    
+            <!-- Mobile Menu Button -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden inline-flex items-center justify-center p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200">
+              <span class="material-symbols-outlined !text-[24px]" x-text="mobileMenuOpen ? &#39;close&#39; : &#39;menu&#39;">menu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2" @click.away="mobileMenuOpen = false" class="lg:hidden fixed top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-2xl z-40 max-h-[calc(100vh-64px)] overflow-y-auto" bis_skin_checked="1" style="display: none;">
+        <div class="px-4 py-6 space-y-4" x-data="{
+          openDropdowns: {},
+          toggleDropdown(id) {
+            this.openDropdowns[id] = !this.openDropdowns[id];
+          }
+        }" bis_skin_checked="1">
+          <!-- Dynamic Services Dropdown Mobile -->
+                    <div class="space-y-2" bis_skin_checked="1">
+            <button @click="toggleDropdown(&#39;services&#39;)" class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+              <span class="flex items-center gap-2">
+                <span>Services</span>
+              </span>
+              <span class="material-symbols-outlined transition-transform" :class="openDropdowns[&#39;services&#39;] ? &#39;rotate-180&#39; : &#39;&#39;">expand_more</span>
+            </button>
+            <div x-show="openDropdowns[&#39;services&#39;]" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-1" class="pl-6 space-y-1" bis_skin_checked="1" style="display: none;">
+                            <a href="https://phptravels.net/visa" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                Visa Booking              </a>
+                            <a href="https://phptravels.net/flights" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                Flights Booking              </a>
+                            <a href="https://phptravels.net/tours" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                Tours Booking              </a>
+                            <a href="https://phptravels.net/cars" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                Cars Booking              </a>
+                            <a href="https://phptravels.net/stays" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                Stays Booking              </a>
+                          </div>
+          </div>
+                    <!-- Dynamic CMS Dropdowns (Parents with Children) -->
+                                  <div class="space-y-2" bis_skin_checked="1">
+              <button @click="toggleDropdown(&#39;cms0&#39;)" class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                <span>Company</span>
+                <span class="material-symbols-outlined transition-transform" :class="openDropdowns[&#39;cms0&#39;] ? &#39;rotate-180&#39; : &#39;&#39;">expand_more</span>
+              </button>
+              <div x-show="openDropdowns[&#39;cms0&#39;]" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-1" class="pl-6 space-y-1" bis_skin_checked="1" style="display: none;">
+                                                <a href="https://phptravels.net/page/contact-us" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                  Contact us                </a>
+                                                <a href="https://phptravels.net/page/about-us" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                  About us                </a>
+                                                <a href="https://phptravels.net/page/cookies-policy" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                  Cookies Policy                </a>
+                                                <a href="https://phptravels.net/page/privacy-policy" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                  Privacy Policy                </a>
+                                                <a href="https://phptravels.net/page/become-a-supplier" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                  Become a Supplier                </a>
+                                                <a href="https://phptravels.net/page/terms-of-use" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                  Terms of Use                </a>
+                              </div>
+            </div>
+                      
+          <!-- Dynamic CMS Standalone Links -->
+                                              <a href="https://phptravels.net/page/blog" class="flex items-center px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+              Blogs            </a>
+                      
+          <!-- Mobile Settings Section -->
+          <div class="pt-4 border-t border-gray-200 space-y-3" bis_skin_checked="1">
+            <!-- Language Switcher Mobile -->
+                        <div class="space-y-2" bis_skin_checked="1">
+              <button @click="toggleDropdown(&#39;mobileLang&#39;)" class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                <span class="flex items-center gap-2">
+                                    <img src="./Login_files/us.svg" alt="English flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                  <span>Language</span>
+                </span>
+                <span class="material-symbols-outlined transition-transform" :class="openDropdowns[&#39;mobileLang&#39;] ? &#39;rotate-180&#39; : &#39;&#39;">expand_more</span>
+              </button>
+              <div x-show="openDropdowns[&#39;mobileLang&#39;]" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-1" class="pl-6 space-y-1 max-h-[500px] overflow-y-auto" bis_skin_checked="1" style="display: none;">
+                                <a href="https://phptravels.net/lang?lang=en" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors bg-blue-50 text-blue-600">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/us.svg" alt="English flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>English</span>
+                  </span>
+                                    <span class="material-symbols-outlined !text-[16px]">check</span>
+                                  </a>
+                                <a href="https://phptravels.net/lang?lang=es" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors text-gray-600 hover:text-blue-600 hover:bg-blue-50">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/es.svg" alt="Spanish flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>Spanish</span>
+                  </span>
+                                  </a>
+                                <a href="https://phptravels.net/lang?lang=it" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors text-gray-600 hover:text-blue-600 hover:bg-blue-50">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/it.svg" alt="Italian flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>Italian</span>
+                  </span>
+                                  </a>
+                                <a href="https://phptravels.net/lang?lang=pl" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors text-gray-600 hover:text-blue-600 hover:bg-blue-50">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/pl.svg" alt="Polish flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>Polish</span>
+                  </span>
+                                  </a>
+                                <a href="https://phptravels.net/lang?lang=ar" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors text-gray-600 hover:text-blue-600 hover:bg-blue-50">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/sa.svg" alt="Arabic flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>Arabic</span>
+                  </span>
+                                  </a>
+                                <a href="https://phptravels.net/lang?lang=tr" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors text-gray-600 hover:text-blue-600 hover:bg-blue-50">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/tr.svg" alt="Turkish flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>Turkish</span>
+                  </span>
+                                  </a>
+                                <a href="https://phptravels.net/lang?lang=ru" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors text-gray-600 hover:text-blue-600 hover:bg-blue-50">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/ru.svg" alt="Russian flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>Russian</span>
+                  </span>
+                                  </a>
+                                <a href="https://phptravels.net/lang?lang=fr" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors text-gray-600 hover:text-blue-600 hover:bg-blue-50">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/fr.svg" alt="French flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>French</span>
+                  </span>
+                                  </a>
+                                <a href="https://phptravels.net/lang?lang=ch" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors text-gray-600 hover:text-blue-600 hover:bg-blue-50">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/cn.svg" alt="Chinese flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>Chinese</span>
+                  </span>
+                                  </a>
+                                <a href="https://phptravels.net/lang?lang=de" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors text-gray-600 hover:text-blue-600 hover:bg-blue-50">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/de.svg" alt="Deutsch flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>Deutsch</span>
+                  </span>
+                                  </a>
+                              </div>
+            </div>
+            
+
+            <!-- Currency Switcher Mobile -->
+                        <div class="space-y-2" bis_skin_checked="1">
+              <button @click="toggleDropdown(&#39;mobileCurr&#39;)" class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                <span class="flex items-center gap-2">
+                                    <img src="./Login_files/eg.svg" alt="EGP flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                  <span>Currency</span>
+                </span>
+                <span class="material-symbols-outlined transition-transform" :class="openDropdowns[&#39;mobileCurr&#39;] ? &#39;rotate-180&#39; : &#39;&#39;">expand_more</span>
+              </button>
+              <div x-show="openDropdowns[&#39;mobileCurr&#39;]" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-1" class="pl-6 space-y-1" bis_skin_checked="1" style="display: none;">
+                                <a href="https://phptravels.net/currency?currency=EGP" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors bg-green-50 text-green-600">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/eg.svg" alt="Egypt flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>EGP</span>
+                  </span>
+                                    <span class="material-symbols-outlined !text-[16px]">check</span>
+                                  </a>
+                                <a href="https://phptravels.net/currency?currency=USD" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors text-gray-600 hover:text-green-600 hover:bg-green-50">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/us.svg" alt="United States flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>USD</span>
+                  </span>
+                                  </a>
+                                <a href="https://phptravels.net/currency?currency=GBP" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors text-gray-600 hover:text-green-600 hover:bg-green-50">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/gb.svg" alt="United Kingdom flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>GBP</span>
+                  </span>
+                                  </a>
+                                <a href="https://phptravels.net/currency?currency=SAR" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors text-gray-600 hover:text-green-600 hover:bg-green-50">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/sa.svg" alt="Saudi Arabia flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>SAR</span>
+                  </span>
+                                  </a>
+                                <a href="https://phptravels.net/currency?currency=EUR" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors text-gray-600 hover:text-green-600 hover:bg-green-50">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/gb.svg" alt="United Kingdom flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>EUR</span>
+                  </span>
+                                  </a>
+                                <a href="https://phptravels.net/currency?currency=NGN" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors text-gray-600 hover:text-green-600 hover:bg-green-50">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/ng.svg" alt="Nigeria flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>NGN</span>
+                  </span>
+                                  </a>
+                                <a href="https://phptravels.net/currency?currency=INR" class="flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors text-gray-600 hover:text-green-600 hover:bg-green-50">
+                  <span class="flex items-center gap-2">
+                    <img src="./Login_files/in.svg" alt="India flag" class="w-5 h-5 object-cover rounded-full border border-gray-200 shadow-sm" style="background: #f3f4f6;" loading="lazy">
+                    <span>INR</span>
+                  </span>
+                                  </a>
+                              </div>
+            </div>
+            
+
+                        <!-- Mobile Auth Buttons -->
+            <a href="https://phptravels.net/login" class="w-full btn">
+              <span class="material-symbols-outlined !text-[18px]">login</span>
+              <span>Login</span>
+            </a>
+
+                                    <!-- Mobile Signup Dropdown -->
+            <div class="space-y-2" bis_skin_checked="1">
+              <button @click="toggleDropdown(&#39;mobileSignup&#39;)" class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                <span class="flex items-center gap-2">
+                  <span class="material-symbols-outlined !text-[18px]">person_add</span>
+                  <span>Signup</span>
+                </span>
+                <span class="material-symbols-outlined transition-transform" :class="openDropdowns[&#39;mobileSignup&#39;] ? &#39;rotate-180&#39; : &#39;&#39;">expand_more</span>
+              </button>
+              <div x-show="openDropdowns[&#39;mobileSignup&#39;]" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-1" class="pl-6 space-y-1" bis_skin_checked="1" style="display: none;">
+                <a href="https://phptravels.net/signup" class="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                  <span class="material-symbols-outlined !text-[16px]">person</span>
+                  <span>Customer Signup</span>
+                </a>
+                <a href="https://phptravels.net/agent-signup" class="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                  <span class="material-symbols-outlined !text-[16px]">business_center</span>
+                  <span>Agent Signup</span>
+                </a>
+              </div>
+            </div>
+                                              </div>
+        </div>
+      </div>
+
+    </header>
+    
+    
+<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50" bis_skin_checked="1">
+    <div class="max-w-md w-full space-y-8" bis_skin_checked="1">
+        <!-- Success Messages -->
+        
+        <!-- Error Messages -->
+        
+        <!-- Login Success Messages -->
+        
+        <!-- Login Form -->
+        <div class="card p-5" bis_skin_checked="1">
+            <div class="card-body" bis_skin_checked="1">
+                <div class="my-4 text-center" bis_skin_checked="1">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4" bis_skin_checked="1">
+                        <span class="material-symbols-outlined text-2xl text-blue-600">lock</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-0">
+                        Welcome Back                    </h2>
+                    <p class="text-gray-600">
+                        Sign in to your account to continue                    </p>
+                </div>
+
+                <form action="https://phptravels.net/login" method="POST" class="space-y-6 login-form" id="login-form" x-data="{ isSubmitting: false }" @submit="isSubmitting = true">
+
+                    <input type="hidden" name="csrf_token" value="6ffdea0eb46dc064518e7623090341a1ef9f4b2e0132a157022e82766114c82c">
+                    <div class="form-control" bis_skin_checked="1">
+                        <label for="email" class="text-sm font-medium text-gray-700 mb-2">
+                            Email Address                        </label>
+                        <div class="input-group" bis_skin_checked="1">
+                            <span class="input-icon-left material-symbols-outlined">email</span>
+                            <input id="email" name="email" type="email" required="" class="input-with-icon" placeholder="Email Address" value="" fdprocessedid="ogmg4wf">
+                        </div>
+                    </div>
+
+                    <div class="form-control" bis_skin_checked="1">
+                        <label for="password" class="text-sm font-medium text-gray-700 mb-2">Password</label>
+                        <div class="input-group" bis_skin_checked="1">
+                            <input id="password" name="password" type="password" required="" class="input-with-icon-right" placeholder="Password" fdprocessedid="85cx">
+                            <span class="input-icon-right material-symbols-outlined cursor-pointer text-gray-400" id="toggle-password">visibility</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between" bis_skin_checked="1">
+                        <div class="checkbox-item" bis_skin_checked="1">
+                            <div class="checkbox-container" bis_skin_checked="1">
+                                <input id="remember_me" name="remember_me" type="checkbox" class="checkbox-input">
+                                <div class="checkbox-custom" bis_skin_checked="1">
+                                    <span class="material-symbols-outlined text-white text-xs checkbox-icon">check</span>
+                                </div>
+                            </div>
+                            <label for="remember_me" class="cursor-pointer text-sm text-gray-900">
+                                Remember Me                            </label>
+                        </div>
+
+                                                <a href="https://phptravels.net/forgot-password" class="btn-link text-sm">Forgot Password?</a>
+                                            </div>
+
+                    <div class="card-actions" bis_skin_checked="1">
+                        <button type="submit" class="btn w-full" :disabled="isSubmitting" fdprocessedid="vmnk4u">
+                            <span class="flex items-center justify-center gap-2" x-show="!isSubmitting">
+                                <span class="material-symbols-outlined text-sm">login</span>
+                                Sign In to your account                            </span>
+                            <span class="flex items-center justify-center gap-2" x-show="isSubmitting" style="display: none;">
+                                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Signing In                            </span>
+                        </button>
+                    </div>
+
+                                    </form>
+
+                                <div class="mt-4 pt-3 border-t border-gray-200 text-center" bis_skin_checked="1">
+                    <p class="text-sm text-gray-600">
+                        No account yet?                        <a href="https://phptravels.net/signup" class="btn-link">Signup</a>
+                    </p>
+                </div>
+                            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+// Simple JavaScript for password toggle
+document.getElementById('toggle-password').addEventListener('click', function() {
+    const passwordInput = document.getElementById('password');
+    const icon = this;
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.textContent = 'visibility_off';
+    } else {
+        passwordInput.type = 'password';
+        icon.textContent = 'visibility';
+    }
+});
+
+// Countdown timer for locked accounts
+
+// Focus on email field
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('email').focus();
+});
+</script>
+
+<style>[x-cloak]{display:none!important}</style>
+<!-- ============================================================================
+     TRAVEL AGENCY FOOTER - MODERN LIGHT DESIGN & RESPONSIVE
+     ============================================================================ -->
+<footer class="w-full mt-10" style="background-color: var(--footer-background); color: var(--footer-text-color); font-size: var(--footer-font-size); border-top: var(--footer-border-width)px solid var(--footer-border-color);">
+
+    <!-- ================================================================
+         MAIN FOOTER CONTENT SECTION
+         ================================================================ -->
+    <div class="container mx-auto" style="padding-top: var(--footer-padding-y); padding-bottom: var(--footer-padding-y); padding-left: var(--footer-padding-x); padding-right: var(--footer-padding-x);" bis_skin_checked="1">
+        <div class="grid grid-cols-1 lg:grid-cols-[300px_1fr_250px] gap-8 lg:gap-10" bis_skin_checked="1">
+
+            <!-- ============================================================
+                 COMPANY BRAND & ABOUT SECTION
+                 ============================================================ -->
+            <div bis_skin_checked="1">
+                <!-- Brand Logo -->
+                <div class="mb-4" bis_skin_checked="1">
+                    <img src="./Login_files/logo.png" alt="PHPTARVELS" class="h-10 w-auto mb-3">
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Your trusted travel partner for unforgettable journeys. Discover the world with our comprehensive booking services.                    </p>
+                </div>
+
+                <!-- 24/7 Support Badge -->
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-3 rounded-r-lg" bis_skin_checked="1">
+                    <div class="flex items-center gap-2" bis_skin_checked="1">
+                        <span class="material-symbols-outlined text-2xl text-blue-600">support_agent</span>
+                        <div bis_skin_checked="1">
+                            <p class="text-gray-900 font-bold text-sm">24/7 Support</p>
+                            <p class="text-gray-600 text-xs">Always here to help</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================
+                 CMS FOOTER MENUS - RESPONSIVE NAVIGATION (Dynamic)
+                 ============================================================ -->
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 lg:gap-6" bis_skin_checked="1">
+                                <div bis_skin_checked="1">
+                    <!-- Parent Menu Header -->
+                    <h4 class="text-base font-bold text-gray-900 mb-4">
+                        Support                    </h4>
+
+                    <!-- Child Pages -->
+                    <ul class="space-y-2.5">
+                                                <li>
+                            <a href="https://phptravels.net/page/affiliate-program" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                Affiliate Program                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://phptravels.net/page/investors" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                Investors                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://phptravels.net/page/careers-and-jobs" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                Careers and Jobs                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://phptravels.net/page/how-to-book" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                How to Book                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://phptravels.net/page/file-a-claim" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                File a Claim                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://phptravels.net/page/refund-policy" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                Refund Policy                            </a>
+                        </li>
+                                            </ul>
+                </div>
+                                <div bis_skin_checked="1">
+                    <!-- Parent Menu Header -->
+                    <h4 class="text-base font-bold text-gray-900 mb-4">
+                        Company                    </h4>
+
+                    <!-- Child Pages -->
+                    <ul class="space-y-2.5">
+                                                <li>
+                            <a href="https://phptravels.net/page/contact-us" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                Contact us                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://phptravels.net/page/about-us" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                About us                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://phptravels.net/page/cookies-policy" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                Cookies Policy                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://phptravels.net/page/privacy-policy" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                Privacy Policy                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://phptravels.net/page/become-a-supplier" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                Become a Supplier                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://phptravels.net/page/terms-of-use" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                Terms of Use                            </a>
+                        </li>
+                                            </ul>
+                </div>
+                                <div bis_skin_checked="1">
+                    <!-- Parent Menu Header -->
+                    <h4 class="text-base font-bold text-gray-900 mb-4">
+                        Explore                    </h4>
+
+                    <!-- Child Pages -->
+                    <ul class="space-y-2.5">
+                                                <li>
+                            <a href="https://phptravels.net/page/best-travel-deals" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                Best Travel Deals                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://phptravels.net/page/travel-documents" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                Travel Documents                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://phptravels.net/page/travel-insurance" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                Travel Insurance                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://phptravels.net/page/disruption" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                Disruption                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://phptravels.net/page/frequently-asked-questions" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                FAQ / Answers                            </a>
+                        </li>
+                                                <li>
+                            <a href="https://phptravels.net/page/accessibility" class="group flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm">
+                                <span class="material-symbols-outlined text-base mr-1.5 text-blue-500 group-hover:text-blue-600">chevron_right</span>
+                                Accessibility                            </a>
+                        </li>
+                                            </ul>
+                </div>
+                            </div>
+            
+            <!-- ============================================================
+                 CONTACT INFORMATION SECTION
+                 ============================================================ -->
+            <div bis_skin_checked="1">
+                <h4 class="text-base font-bold text-gray-900 mb-4">
+                    Get In Touch                </h4>
+
+                <div class="space-y-3" bis_skin_checked="1">
+                    
+                    <!-- Address -->
+                                        <div class="flex items-start space-x-2" bis_skin_checked="1">
+                        <span class="material-symbols-outlined text-blue-600 text-lg flex-shrink-0 mt-0.5">location_on</span>
+                        <div class="text-gray-600 text-sm leading-relaxed" bis_skin_checked="1">
+                            71 St, Suite 900 San Francisco, United States                                                                                                                                        </div>
+                    </div>
+                    
+                    <!-- Phone -->
+                                        <div class="flex items-center space-x-2" bis_skin_checked="1">
+                        <span class="material-symbols-outlined text-green-600 text-lg flex-shrink-0">call</span>
+                        <a href="tel:+123456789" class="text-gray-600 hover:text-green-600 transition-colors duration-300 text-sm font-medium">
+                            +123456789                        </a>
+                    </div>
+                    
+                    <!-- Email -->
+                                        <div class="flex items-center space-x-2" bis_skin_checked="1">
+                        <span class="material-symbols-outlined text-red-600 text-lg flex-shrink-0">mail</span>
+                        <a href="mailto:email@agency.com" class="text-gray-600 hover:text-red-600 transition-colors duration-300 text-sm font-medium break-all">
+                            email@agency.com                        </a>
+                    </div>
+                    
+                    <!-- Social Media Links -->
+                    <div class="mt-5" bis_skin_checked="1">
+                                                <div class="flex gap-2 mt-6" bis_skin_checked="1">
+                            <a target="_blank" href="https://facebook.com/phptravels" class="w-9 h-9 bg-white hover:bg-blue-600 border border-gray-200 hover:border-blue-600 rounded-lg flex items-center justify-center transition-all duration-200 group shadow-sm" aria-label="Facebook">
+                                <svg class="w-4 h-4 text-gray-700 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+                                </svg>
+                            </a>
+
+                            <a target="_blank" href="https://instagram.com/phptravels" class="w-9 h-9 bg-white hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500 border border-gray-200 hover:border-transparent rounded-lg flex items-center justify-center transition-all duration-200 group shadow-sm" aria-label="Instagram">
+                                <svg class="w-4 h-4 text-gray-700 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                                </svg>
+                            </a>
+
+                            <a target="_blank" href="https://twitter.com/phptravels" class="w-9 h-9 bg-white hover:bg-sky-500 border border-gray-200 hover:border-sky-500 rounded-lg flex items-center justify-center transition-all duration-200 group shadow-sm" aria-label="Twitter">
+                                <svg class="w-4 h-4 text-gray-700 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                                </svg>
+                            </a>
+
+                            <a target="_blank" href="https://youtube.com/@phptravels" class="w-9 h-9 bg-white hover:bg-red-600 border border-gray-200 hover:border-red-600 rounded-lg flex items-center justify-center transition-all duration-200 group shadow-sm" aria-label="YouTube">
+                                <svg class="w-4 h-4 text-gray-700 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+                                </svg>
+                            </a>
+
+                            <a target="_blank" href="https://linkedin.com/company/phptravels" class="w-9 h-9 bg-white hover:bg-blue-700 border border-gray-200 hover:border-blue-700 rounded-lg flex items-center justify-center transition-all duration-200 group shadow-sm" aria-label="LinkedIn">
+                                <svg class="w-4 h-4 text-gray-700 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================================================================
+         FOOTER BOTTOM - Copyright, Legal Links & Trust Badges
+         ================================================================ -->
+    <div class="border-t border-gray-200 bg-gray-50" bis_skin_checked="1">
+        <div class="container mx-auto px-4 py-3.5" bis_skin_checked="1">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-3" bis_skin_checked="1">
+
+                <!-- Copyright & Powered By -->
+                <div class="text-center lg:text-left" bis_skin_checked="1">
+                    <p class="text-gray-600 text-sm">
+                        © 2026 <span class="font-semibold text-gray-900">PHPTARVELS</span>. All rights reserved.                    </p>
+                    <p class="text-gray-500 text-xs mt-1">
+                       Powered by <a href="https://phptravels.com/" class="text-blue-600 hover:text-blue-700 transition-colors" target="_blank"><strong>PHPTRAVELS</strong></a>
+                    </p>
+                </div>
+
+                <!-- Legal Links -->
+                <div class="flex flex-wrap justify-center gap-3" bis_skin_checked="1">
+                    <a href="https://phptravels.net/page/privacy-policy" class="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors duration-300 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">shield</span>
+                        Privacy                    </a>
+                    <a href="https://phptravels.net/page/terms-of-use" class="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors duration-300 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">description</span>
+                        Terms                    </a>
+                    <a href="https://phptravels.net/page/cookies-policy" class="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors duration-300 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">cookie</span>
+                        Cookies                    </a>
+                    <a href="https://phptravels.net/page/refund-policy" class="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors duration-300 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">currency_exchange</span>
+                        Refund                    </a>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="flex flex-wrap justify-center lg:justify-end items-center gap-2" bis_skin_checked="1">
+                    <div class="flex items-center gap-1.5 bg-green-50 border border-green-200 px-2.5 py-1 rounded-md hover:bg-green-100 transition-all duration-300" bis_skin_checked="1">
+                        <span class="material-symbols-outlined text-green-600 text-sm">verified_user</span>
+                        <span class="text-green-700 font-semibold text-xs">SSL Secure</span>
+                    </div>
+
+                    <div class="flex items-center gap-1.5 bg-blue-50 border border-blue-200 px-2.5 py-1 rounded-md hover:bg-blue-100 transition-all duration-300" bis_skin_checked="1">
+                        <span class="material-symbols-outlined text-blue-600 text-sm">verified</span>
+                        <span class="text-blue-700 font-semibold text-xs">IATA</span>
+                    </div>
+
+                    <div class="flex items-center gap-1.5 bg-purple-50 border border-purple-200 px-2.5 py-1 rounded-md hover:bg-purple-100 transition-all duration-300" bis_skin_checked="1">
+                        <span class="material-symbols-outlined text-purple-600 text-sm">credit_card</span>
+                        <span class="text-purple-700 font-semibold text-xs">PCI DSS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================
+         BACK TO TOP BUTTON - MODERN DESIGN
+         ================================================================ -->
+    <button onclick="if (!window.__cfRLUnblockHandlers) return false; window.scrollTo({top: 0, behavior: &#39;smooth&#39;})" id="backToTop" class="fixed bottom-24 left-6 lg:bottom-4 lg:right-6 w-14 h-14 lg:w-8 lg:h-8 bg-primary hover:bg-black text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 z-50 opacity-0 invisible flex items-center justify-center group" aria-label="Back to top">
+        <span class="material-symbols-outlined text-lg group-hover:animate-bounce">arrow_upward</span>
+    </button>
+
+    <!-- ================================================================
+         BACK TO TOP BUTTON VISIBILITY SCRIPT
+         ================================================================ -->
+    <script type="text/javascript">
+        // Show/hide back to top button based on scroll position
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+    </script>
+
+</footer>
+
+<script src="./Login_files/pusher.min.js.Без названия" type="text/javascript"></script>
+<script type="text/javascript">
+let notificationCounter = 1;
+let processedNotifications = new Set();
+
+const generateSessionId = () => {
+    let sessionId = localStorage.getItem('pusher_session_id');
+    if (!sessionId) {
+        sessionId = 'user-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('pusher_session_id', sessionId);
+    }
+    return sessionId;
+};
+
+const sessionId = generateSessionId();
+
+const pusher = new Pusher("47c534ae27bce2c4a8b7", {
+    cluster: "us2"
+});
+
+const generalChannel = pusher.subscribe("notify-channel");
+
+generalChannel.bind("new-notification", function(data) {
+    console.log('General channel notification:', data);
+
+    if (!data.is_test && Notification.permission === "granted") {
+        showNotification(data.title, data.message, data);
+    }
+});
+
+function showNotification(title, message, data = {}) {
+    if (Notification.permission === "granted") {
+        const notificationId = title + '_' + message + '_' + Date.now();
+
+        if (processedNotifications.has(notificationId)) {
+            console.log('⚠️ Duplicate notification skipped:', notificationId);
+            return false;
+        }
+
+        processedNotifications.add(notificationId);
+
+        setTimeout(() => {
+            processedNotifications.delete(notificationId);
+        }, 5000);
+
+        const uniqueTag = 'notification-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+
+        const notification = new Notification(title, {
+            body: message,
+            // icon: data.icon || '/uploads/global/logo.png',
+            // badge: data.badge || '/uploads/global/logo.png',
+            tag: uniqueTag,
+            requireInteraction: false,
+            silent: false,
+            timestamp: Date.now()
+        });
+
+        notification.onclick = function() {
+            console.log('Notification clicked:', uniqueTag);
+
+            const redirectUrl = data.url || window.location.href;
+            window.open(redirectUrl, "_blank");
+            window.focus();
+            notification.close();
+        };
+
+        notification.onclose = function() {
+            console.log('Notification closed:', uniqueTag);
+        };
+
+        notification.onshow = function() {
+            console.log('✅ Notification displayed:', uniqueTag);
+        };
+
+        return true;
+    }
+    return false;
+}
+
+async function requestNotificationPermission() {
+    if (!("Notification" in window)) {
+        return "unsupported";
+    }
+
+    if (Notification.permission === "granted") {
+        return "granted";
+    }
+
+    if (Notification.permission === "denied") {
+        return "denied";
+    }
+
+    try {
+        const permission = await Notification.requestPermission();
+        return permission;
+    } catch (error) {
+        console.error("Error requesting notification permission:", error);
+        return "denied";
+    }
+}
+
+async function ensureNotificationPermission() {
+    const permission = await requestNotificationPermission();
+
+    switch (permission) {
+        case "granted":
+            return { success: true, message: "Notifications are enabled" };
+
+        case "denied":
+            return {
+                success: false,
+                message: "Notifications are blocked. Please enable them in your browser settings."
+            };
+
+        case "unsupported":
+            return {
+                success: false,
+                message: "Your browser doesn't support notifications"
+            };
+
+        default:
+            return {
+                success: false,
+                message: "Notification permission not granted"
+            };
+    }
+}
+
+function getNotificationIcon() {
+    // Try multiple possible paths
+    const possiblePaths = [
+        '/uploads/global/logo.png',
+        '/assets/images/logo.png',
+        '/img/logo.png',
+        '/favicon.ico'
+    ];
+    return '';
+}
+</script>
+
+<script src="./Login_files/toast.js.Без названия" type="text/javascript"></script>
+<script src="./Login_files/datepicker.js.Без названия" type="text/javascript"></script>
+<script src="./Login_files/vt-notifications.umd.js.Без названия" type="text/javascript"></script>
+
+<script defer="" src="./Login_files/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;644de0ebf7a943978db093199d58c8b9&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+
+<div id="shimeji-workArea" style="position: fixed; background: transparent; z-index: 2147483643; width: 100vw; height: 100vh; left: 0px; top: 0px; transform: translate(0px, 0px); pointer-events: none;" bis_skin_checked="1"></div><span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span><div class="vt-container" bis_skin_checked="1"><div class="vt-row" bis_skin_checked="1"><div class="vt-col top-left" bis_skin_checked="1"></div><div class="vt-col top-center" bis_skin_checked="1"></div><div class="vt-col top-right" bis_skin_checked="1"></div></div><div class="vt-row" bis_skin_checked="1"><div class="vt-col bottom-left" bis_skin_checked="1"></div><div class="vt-col bottom-center" bis_skin_checked="1"></div><div class="vt-col bottom-right" bis_skin_checked="1"></div></div></div></body></html>

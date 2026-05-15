@@ -1,0 +1,35 @@
+Shrnutí požadavků na semestrální práci.
+
+Požadavky  Popis  Body
+       
+Návrh testovací strategie      
+Popis aplikace  Popište funkcionalitu aplikace.  1
+Testovací strategie  Vytvořte přehled částí aplikace.  1
+   Prioritizujte části aplikace.  1
+   Vypracujte test levels.  1
+       
+Testovací scénáře      
+Testy vstupů  Vyberete dva* netriviální vstupy aplikace (např. formulář, rest rozhraní, signatura metody).   
+   Nevolte přihlašovací, registrační a podobné triviální formuláře.   
+   Konzultujte se cvičícím při výberu aplikace.   
+   Pro každý vstupní parametr analyzujte EC a určete mezní podmínky (pokud možno).  2
+   Vytvořte kombinace testovacích dat technikou pairwise testing.  2
+Testy průchodů  Vytvořte diagramy pro 2* procesy ve vaší aplikaci.  2
+   Vytvořte procesní testy z těchto diagramů s TDL 2.  2
+Detailní testovací scénáře  Vytvorte 2* detailni testovaci scenare.  2
+       
+Implementace testů      
+Unit testy  Vytvořte 10* unit testů testující netriviální metody (netestujte getery, setery a podobně jednoduché metody).  5
+   Minimálně 5 (3)* unit testů má používat Mockito.  5
+Integrační testy  Vytvořte 8* integračních/procesních testů.  6
+       
+
+Alternativní implementační část
+
+Implementace testů            
+Selenium  10* Selenium testů (každý za 1 bod)     10       
+   Data provider (CSV) pro minimálně 3 (2)* testy (každý za 2 body)    6
+       
+
+
+Libovolná testovací strategie, algoritmus pro vytváření TC nebo technologie se může vyměnit za vhodnější na základě konzultace se cvičícím.

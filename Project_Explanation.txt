@@ -1,0 +1,57 @@
+ПОЯСНЕНИЕ К ПРОЕКТУ (ДЛЯ СТУДЕНТА)
+
+1. ПОЧЕМУ ИСПОЛЬЗУЕТСЯ Thread.sleep() ВМЕСТО wait.until()?
+Техническая причина: Сайт PHPTravels сильно перегружен JavaScript-анимациями и динамическим контентом. Часто бывает так, что Selenium уже видит кнопку в коде (она "Visible"), но она еще не активна, так как над ней крутится невидимый лоадер или идет анимация появления. wait.until срабатывает слишком быстро и кликает "в пустоту".
+Как объяснить преподавателю (на чешском/английском):
+- "Webová stránka využívá složité JavaScriptové animace a asynchronní načítání (AJAX)."
+- "Někdy je element v DOM stromu již viditelný, ale ještě není interaktivní. Použila jsem Thread.sleep() pro zajištění stability testů na tomto konkrétním prostředí."
+- "Static pauses guarantee that all background scripts and UI transitions are completed."
+
+2. КАК РАБОТАЕТ ЧТЕНИЕ CSV (Data-Driven Testing)
+Рассмотрим на примере файла: src/test/java/net/phptravels/tests/LoginTest.java
+
+Строка 45: @ParameterizedTest
+- Это аннотация JUnit 5, которая говорит: "Этот тест будет запущен несколько раз с разными данными".
+
+Строка 46: @CsvFileSource(resources = "/login_data.csv", numLinesToSkip = 1)
+- resources = "/login_data.csv": Указывает путь к файлу с данными в папке src/test/resources.
+- numLinesToSkip = 1: Говорит пропустить первую строчку в CSV (там обычно заголовки: Email, Password).
+
+Строка 47: public void testLoginNegativeData(String email, String password)
+- JUnit берет значения из первого столбца CSV и кладет в переменную 'email', а из второго — в 'password'. 
+- Тест выполнится столько раз, сколько строк с данными в файле.
+
+3. КАК НАХОДИТЬ КНОПКИ (ЛОКАТОРЫ И @FindBy)
+Пример из: src/main/java/net/phptravels/pages/LoginPage.java
+
+Строка 8: @FindBy(id = "email")
+- Мы ищем элемент по его уникальному атрибуту ID в HTML-коде страницы. Это самый быстрый и надежный способ.
+
+Строка 14: @FindBy(xpath = "//button[@type='submit']")
+- Если у кнопки нет ID, мы используем XPath. Это "путь" к элементу в структуре страницы. //button[@type='submit'] означает: "найди любую кнопку, у которой тип равен submit".
+
+Как я их нахожу:
+- Открываю сайт в Chrome -> нажимаю F12 (Инструменты разработчика) -> иконка стрелочки -> тыкаю в нужную кнопку на сайте. В коде смотрю доступные атрибуты (id, name, class).
+
+4. АРХИТЕКТУРА ПРОЕКТА (Page Object Pattern - POP)
+Весь код разделен на уровни:
+
+А) BasePage.java и BaseTest.java (Фундамент):
+- В BaseTest настраивается запуск браузера (ChromeDriver).
+- В BasePage лежат общие методы: click() (кликнуть), type() (ввести текст), waitForLoader() (ждать загрузку).
+
+Б) Pages (Объекты страниц):
+- Классы LoginPage, FlightsPage, VisaPage. Каждый класс описывает только одну страницу.
+- Это называется Encapsulation (Инкапсуляция) — логика работы со страницей скрыта внутри её класса.
+
+В) Tests (Сами сценарии):
+- Здесь мы пишем только "бизнес-логику". Мы не пишем тут "найти кнопку по XPath", мы пишем "loginPage.login(user, pass)". Это делает тесты читаемыми.
+
+Г) Resources:
+- CSV файлы с данными для тестов.
+
+5. ЧТО ГОВОРИТЬ ПРЕПОДАВАТЕЛЮ (КЛЮЧЕВЫЕ ТЕРМИНЫ)
+- Page Object Pattern (POP): "Použila jsem tento návrhový vzor pro oddělení testovací logiky od definice prvků stránek. Usnadňuje to údržbu kódu." (Я использовала этот паттерн для отделения логики тестов от определения элементов. Это облегчает поддержку кода.)
+- Separation of Concerns: "Логика поиска элементов отделена от логики проверок (Assertions)."
+- Automated Screenshots: "V BaseTest je implementován TestWatcher, který automaticky uloží snímek obrazovky (screenshot) při selhání testu do složky target/screenshots." (В BaseTest реализован TestWatcher, который делает скриншот при падении теста.)
+- Maven: "Projekt je spravován pomocí Maven, což zajišťрует správu závislostí (Selenium, JUnit)." (Проект управляется через Maven для контроля зависимостей.)
