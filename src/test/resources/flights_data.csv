@@ -1,4 +1,6 @@
-from_city,to_city,departure_date
-Dubai,London,10-06-2026
-Paris,Barcelona,25-06-2026
-Singapore,Sydney,05-07-2026
+from_city,to_city,departure_date,flight_type,flight_class,adults,children
+Dubai,London,10-06-2026,One Way,Economy,2,0
+Paris,Barcelona,25-06-2026,Round Trip,Business,1,1
+Singapore,Sydney,05-07-2026,One Way,First Class,1,0
+LHE,DXB,20-06-2026,One Way,Economy,1,0
+DXB,MCT,15-06-2026,Round Trip,Business,2,1

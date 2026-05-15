@@ -186,38 +186,51 @@ public class FlightsTest extends BaseTest {
 
     /**
      * ТЕСТ 4: Параметризованный тест (Data-Driven)
-     * Цель: Проверить поиск для разных городов, используя данные из CSV файла.
+     * Цель: Проверить поиск для разных городов, типов рейсов и классов, используя данные из CSV файла.
      */
     @ParameterizedTest
     @CsvFileSource(resources = "/flights_data.csv", numLinesToSkip = 1)
-    public void testFlightSearchData(String fromCity, String toCity, String departureDate) {
+    public void testFlightSearchData(String fromCity, String toCity, String departureDate, String flightType, String flightClass, int adults, int children) {
+        // 1. Авторизация
         driver.get("https://phptravels.net/login");
         new LoginPage(driver).login("user@phptravels.com", "demouser");
+        try { Thread.sleep(2000); } catch (InterruptedException ignored) {}
 
+        // 2. Переход к разделу полетов
         MainPage mainPage = new MainPage(driver);
         mainPage.openFlights();
 
         FlightsPage flightsPage = new FlightsPage(driver);
         
-        // Настройка формы для каждого набора данных из CSV
-        flightsPage.setFlightDetails("One Way", "First Class", 1, 0);
+        // 3. Заполняем форму на основе данных из CSV
+        // Теперь мы берем тип (One Way/Round Trip), класс и количество людей прямо из файла!
+        flightsPage.setFlightDetails(flightType, flightClass, adults, children);
         flightsPage.setFrom(fromCity);
         flightsPage.setTo(toCity);
         flightsPage.setDepartureDate(departureDate);
+        
+        // Если в CSV указан Round Trip, добавляем дату возврата (через 10 дней от вылета для примера)
+        if (flightType.equalsIgnoreCase("Round Trip")) {
+            String returnDate = LocalDate.parse(departureDate, formatter).plusDays(10).format(formatter);
+            flightsPage.setReturnDate(returnDate);
+        }
+        
+        // 4. Поиск
         flightsPage.clickSearch();
 
-        // Фильтры
+        // 5. Фильтры (проверка работоспособности)
         flightsPage.applyFilters("Direct", "Evening");
 
+        // 6. Выбор билета и бронирование
         if (flightsPage.selectFirstFlight()) {
             BookingPage bookingPage = new BookingPage(driver);
             bookingPage.selectPayLater();
             bookingPage.fillPassengerData();
             bookingPage.acceptTermsAndConditions();
             bookingPage.confirmBooking();
-            assertTrue(bookingPage.isBookingSuccessful());
+            assertTrue(bookingPage.isBookingSuccessful(), "Ошибка бронирования для данных из CSV");
         } else {
-            System.out.println("SKIP: No flights found for CSV data: " + fromCity + " to " + toCity);
+            System.out.println("INFO: Рейсов не найдено для маршрута из CSV: " + fromCity + " -> " + toCity);
         }
     }
 
