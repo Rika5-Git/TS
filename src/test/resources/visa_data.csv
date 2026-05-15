@@ -1,4 +1,5 @@
-from_country,to_country,date
-Czech Republic,Egypt,15-05-2026
-Germany,Ukraine,20-05-2026
-United States,Thailand,25-05-2026
+from_country,to_country,date,visa_type,processing_speed,travelers
+Ukraine,Egypt,15-06-2026,Tourist Visa,Standard,2
+Poland,Thailand,20-06-2026,Business Visa,Express,1
+Germany,Turkey,25-06-2026,Tourist Visa,Standard,3
+France,Ukraine,30-06-2026,Tourist Visa,Express,1

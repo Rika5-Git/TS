@@ -86,19 +86,39 @@ public class VisaTest extends BaseTest {
         System.out.println("SUCCESS: Виза успешно оформлена и проверена в профиле!");
     }
 
+    /**
+     * ТЕСТ 2: Проверка виз через CSV (Data-Driven)
+     * Цель: Проверить поиск и первичную форму для разных стран, типов виз и количества людей.
+     */
     @ParameterizedTest
     @CsvFileSource(resources = "/visa_data.csv", numLinesToSkip = 1)
-    public void testVisaCheck(String fromCountry, String toCountry, String date) {
+    public void testVisaCheck(String fromCountry, String toCountry, String date, String visaType, String speed, int travelers) {
+        // 1. Переход в раздел виз
         VisaPage visaPage = new VisaPage(driver);
         visaPage.openViaServices();
+        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
 
+        // 2. Заполнение первичной формы из CSV
         visaPage.selectFromCountry(fromCountry);
         visaPage.selectToCountry(toCountry);
         visaPage.setDate(date);
+        visaPage.setTravelersCount(travelers);
+        
+        // 3. Поиск
         visaPage.clickSearch();
+        try { Thread.sleep(1500); } catch (InterruptedException ignored) {}
 
+        // 4. Заполнение деталей визы (Тип и скорость) из CSV
+        visaPage.setVisaDetails(visaType, speed);
+
+        // 5. Заполнение данных для каждого путешественника (базовые данные для проверки)
+        for (int i = 0; i < travelers; i++) {
+            visaPage.fillTravelerData(i, "TestUser" + i, "Tester", "PASSPORT" + i, "01-01-1990");
+        }
+
+        // 6. Проверка, что мы находимся на правильной странице и форма активна
         assertTrue(driver.getCurrentUrl().contains("visa") || driver.getPageSource().contains("Visa"),
-                "Проверка визы не привела к ожидаемой странице");
+                "Проверка визы не привела к ожидаемой странице для: " + fromCountry + " -> " + toCountry);
     }
 
     @Test
