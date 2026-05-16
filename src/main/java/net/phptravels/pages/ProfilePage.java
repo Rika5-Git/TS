@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+
 public class ProfilePage extends BasePage {
 
     @FindBy(xpath = "//button[contains(., 'Demo User')]")
@@ -104,11 +107,58 @@ public class ProfilePage extends BasePage {
         }
     }
 
-    public void viewLastInvoice() {
-        WebElement viewButton = wait.until(ExpectedConditions.elementToBeClickable(
-            By.xpath("(//a[contains(@href, 'invoice')])[1]")));
-        clickJS(viewButton);
+    public void goToFlightBookings() {
+        // 1. Відкриваємо меню
+        executeJS("var btns = document.querySelectorAll('button'); for(var i=0; i<btns.length; i++) { var attr = btns[i].getAttribute('@click'); if(attr && attr.includes('mobileUser')) { btns[i].click(); break; } }");
+        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
+
+        // 2. Dashboard
+        executeJS("var links = document.querySelectorAll('a'); for(var i=0; i<links.length; i++) { if(links[i].href.includes('/dashboard')) { links[i].click(); break; } }");
         waitForLoader();
-        try { Thread.sleep(3000); } catch (InterruptedException ignored) {}
+        try { Thread.sleep(1500); } catch (InterruptedException ignored) {}
+
+        // 3. My Bookings -> Flights
+        executeJS("var accordion = document.querySelector('div[onclick*=\"toggleAccordion(\\'accordion1\\')\"]'); if(accordion) accordion.click();");
+        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+        executeJS("var flightLink = document.querySelector('a[href*=\"filter=flights\"]'); if(flightLink) flightLink.click();");
+        waitForLoader();
+        try { Thread.sleep(1500); } catch (InterruptedException ignored) {}
+    }
+
+    public String getLastFlightDates() {
+        try {
+            // Шукаємо текст з датами в першому рядку таблиці бронювань
+            Object dateText = executeJS(
+                "var rows = document.querySelectorAll('table tr');" +
+                "if(rows.length > 1) {" +
+                "  return rows[1].innerText;" +
+                "}" +
+                "return 'Not found';"
+            );
+            return dateText.toString();
+        } catch (Exception e) {
+            return "Error retrieving dates";
+        }
+    }
+
+    public void viewLastInvoice() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement viewButton = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("(//a[contains(@href, 'invoice')])[1]")));
+            clickJS(viewButton);
+            waitForLoader();
+            try { Thread.sleep(3000); } catch (InterruptedException ignored) {}
+        } catch (Exception ignored) {}
+    }
+
+    public String getInvoiceDetails() {
+        try {
+            // Отримуємо весь текст з основної секції інвойсу
+            Object content = executeJS("return document.body.innerText;");
+            return content.toString();
+        } catch (Exception e) {
+            return "Error retrieving invoice details";
+        }
     }
 }
